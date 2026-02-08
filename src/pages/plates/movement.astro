@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Movement" currentPath="/plates/movement">
+  <div class="breadcrumb">
+    <a href="/">Entry</a> / <a href="/plates">Plates</a> / Movement
+  </div>
+
+  <article class="principle-document">
+    <header class="principle-header">
+      <div class="principle-meta">
+        <span class="principle-number">E02-P06</span>
+        <span class="edition">Edition 02</span>
+        <span class="see-also">See also: <a href="/texts/sequence">T06 Sequence</a></span>
+      </div>
+      <h1>Movement guides the eye</h1>
+      <p class="abstract">The reading path exists whether designed or accidental. The only question is whether it serves the content.</p>
+    </header>
+
+    <section class="principle-content">
+      <h2>Statement</h2>
+      <p>A page is never perceived all at once.</p>
+      <p>It is perceived in sequence—a path the eye follows through space.</p>
+
+      <h2>Context</h2>
+      <p>
+        Movement in design is not literal motion. It is implied direction—the trajectory along which the eye travels through a composition. That trajectory is determined by visual forces: scale pulls attention to larger elements first, contrast draws the eye to difference, alignment creates paths, spacing suggests relationships. These forces combine into a reading sequence that exists on every page, whether deliberately shaped or left to chance.
+      </p>
+      <p>
+        Poor movement produces fragmentation. The eye jumps between competing focal points, never settling into a stable path. The reader arrives but cannot find the beginning. Structure exists but remains invisible. Good movement produces flow—a clear sequence from entry point to conclusion, from primary information to supporting detail.
+      </p>
+
+      <h2>Application</h2>
+      <p>
+        Movement is created through directional cues: diagonal lines, edge alignments, progressive scale changes, gaze direction in imagery, sequential numbering, spatial flow from top to bottom and left to right (in left-to-right reading cultures). Every element either supports the intended path or disrupts it.
+      </p>
+      <p>
+        In practice: The most important element should be visually first (largest, highest, most contrasted). Supporting elements should follow in order of importance. Transitions between sections should be clear. The eye should never need to search for what comes next—the composition itself should communicate sequence.
+      </p>
+
+      <h2>Citation</h2>
+      <p class="citation-text">
+        This principle may be cited as: <strong>E02-P06 (Movement)</strong>. For extended analysis, see <a href="/texts/sequence">T06 Sequence</a>.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text);
+  }
+
+  .principle-document {
+    max-width: 700px;
+  }
+
+  .principle-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .principle-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    flex-wrap: wrap;
+  }
+
+  .principle-meta .see-also {
+    font-style: italic;
+    text-transform: none;
+  }
+
+  .principle-meta .see-also a {
+    color: var(--text);
+    text-decoration: underline;
+  }
+
+  .principle-header h1 {
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .abstract {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .principle-content h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .principle-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .citation-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .citation-text strong {
+    color: var(--text);
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  .citation-text a {
+    color: var(--text);
+    text-decoration: underline;
+  }
+</style>

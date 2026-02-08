@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Authority is recognised" currentPath="/manifesto/foundations/authority">
+  <div class="breadcrumb">
+    <a href="/">Entry</a> / <a href="/manifesto">Manifesto</a> / <a href="/manifesto/foundations">Foundations</a> / Authority
+  </div>
+
+  <article class="principle-document">
+    <header class="principle-header">
+      <div class="principle-meta">
+        <span class="principle-number">I.2</span>
+        <span class="plate-id">E01-P02</span>
+      </div>
+      <h1>Authority is recognised</h1>
+      <p class="abstract">Authority emerges through coherence held over time, not assertion or display.</p>
+    </header>
+
+    <section class="principle-content">
+      <h2>Statement</h2>
+      <p>Authority is not claimed.</p>
+      <p>It is recognised when a system no longer needs to explain itself.</p>
+
+      <h2>Context</h2>
+      <p>
+        Systems that assert authority undermine it. True authority accumulates through consistent behavior—through maintaining coherence even when pressure exists to deviate.
+      </p>
+      <p>
+        This is why promotional language weakens credibility. The system that must convince you of its value demonstrates uncertainty about that value.
+      </p>
+
+      <h2>Application</h2>
+      <p>
+        Authority manifests through predictability. Users learn they can depend on the system to behave consistently. This dependability becomes the foundation of trust, which is how authority is actually conferred.
+      </p>
+
+      <h2>Citation</h2>
+      <p class="citation-text">
+        This principle may be cited as: <strong>I.2 (Authority)</strong> or by plate reference <strong>E01-P02</strong>.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text);
+  }
+
+  .principle-document {
+    max-width: 700px;
+  }
+
+  .principle-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .principle-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+  }
+
+  .principle-header h1 {
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .abstract {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .principle-content h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .principle-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .citation-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .citation-text strong {
+    color: var(--text);
+    font-weight: 600;
+    font-style: normal;
+  }
+</style>

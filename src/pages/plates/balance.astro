@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Balance" currentPath="/plates/balance">
+  <div class="breadcrumb">
+    <a href="/">Entry</a> / <a href="/plates">Plates</a> / Balance
+  </div>
+
+  <article class="principle-document">
+    <header class="principle-header">
+      <div class="principle-meta">
+        <span class="principle-number">E02-P02</span>
+        <span class="edition">Edition 02</span>
+      </div>
+      <h1>Balance creates stability</h1>
+      <p class="abstract">Visual weight distributed evenly produces equilibrium. Distributed unevenly produces tension.</p>
+    </header>
+
+    <section class="principle-content">
+      <h2>Statement</h2>
+      <p>Balance is not symmetry.</p>
+      <p>It is the perception that elements have been placed with intention.</p>
+
+      <h2>Context</h2>
+      <p>
+        The human visual system is sensitive to weight distribution. When a composition feels lopsided—when all visual mass concentrates on one side while the other sits empty—the eye registers instability. This is not aesthetic preference. It is perceptual physics. The mind expects balance and notices immediately when it is absent.
+      </p>
+      <p>
+        Symmetrical balance—mirror-image distribution of weight—produces formal stability. Asymmetrical balance—unequal distribution that nonetheless feels stable—produces dynamic equilibrium. Both are valid. Both communicate control. What fails is imbalance without intention: weight scattered randomly, creating neither symmetry nor purposeful asymmetry.
+      </p>
+
+      <h2>Application</h2>
+      <p>
+        Balance operates through visual weight, not physical size. A small, dark element can balance a large, light one. A dense cluster of small elements can balance a single large one. The eye judges weight through multiple factors: scale, contrast, complexity, position, isolation.
+      </p>
+      <p>
+        In practice: A heavy sidebar on the left can be balanced by vertical space on the right. A large heading at the top can be balanced by grouped content below. A dominant image on one side can be balanced by text mass on the other. The goal is not equal distribution—it is perceived equilibrium.
+      </p>
+
+      <h2>Misapplication</h2>
+      <p>
+        Balance fails when weight distribution appears accidental. Content pushed entirely to one edge with nothing to counterbalance it. Large elements clustered at the top with lightweight elements scattered below. The composition tilts. The eye searches for stability and finds none. This produces discomfort that readers cannot name but can feel.
+      </p>
+
+      <h2>Citation</h2>
+      <p class="citation-text">
+        This principle may be cited as: <strong>E02-P02 (Balance)</strong>.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text);
+  }
+
+  .principle-document {
+    max-width: 700px;
+  }
+
+  .principle-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .principle-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+  }
+
+  .principle-header h1 {
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .abstract {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .principle-content h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .principle-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .citation-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .citation-text strong {
+    color: var(--text);
+    font-weight: 600;
+    font-style: normal;
+  }
+</style>

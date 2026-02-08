@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="White Space" currentPath="/plates/white-space">
+  <div class="breadcrumb">
+    <a href="/">Entry</a> / <a href="/plates">Plates</a> / White Space
+  </div>
+
+  <article class="principle-document">
+    <header class="principle-header">
+      <div class="principle-meta">
+        <span class="principle-number">E02-P07</span>
+        <span class="edition">Edition 02</span>
+      </div>
+      <h1>White space enables breathing</h1>
+      <p class="abstract">Empty space is not absence. It is structure made visible.</p>
+    </header>
+
+    <section class="principle-content">
+      <h2>Statement</h2>
+      <p>White space is not wasted space.</p>
+      <p>It is the interval that makes content legible.</p>
+
+      <h2>Context</h2>
+      <p>
+        Density is not efficiency. A page packed with content—margins minimized, spacing compressed, elements crowding each other—does not communicate more. It communicates less. The mind requires space to parse structure. Without it, elements blur together. Relationships become ambiguous. The eye arrives, finds no entry point, and must work to extract meaning from density.
+      </p>
+      <p>
+        White space creates separation. It groups related elements by proximity and separates unrelated ones through distance. It gives the eye places to rest. It makes hierarchy legible before content is read. This is not aesthetic indulgence. It is cognitive necessity.
+      </p>
+
+      <h2>Application</h2>
+      <p>
+        White space operates at multiple scales. Micro: spacing between letters, lines, and paragraphs. Macro: margins, padding, gaps between sections. The amount of space communicates relationship—elements close together feel related, elements far apart feel distinct. Consistent spacing creates rhythm. Inconsistent spacing creates confusion.
+      </p>
+      <p>
+        In practice: Margins should be generous enough that content does not crowd the edge. Line spacing should allow comfortable reading without lines bleeding together. Section breaks should be large enough to signal transition. Every grouping should be surrounded by enough space that its boundaries are clear without visual containers.
+      </p>
+
+      <h2>Misapplication</h2>
+      <p>
+        White space fails when treated as leftover space—the gaps that remain after content is placed. It succeeds when treated as structural—a deliberate element of the composition, planned with as much intention as the content itself. Space is not what's left over. It is what makes everything else work.
+      </p>
+
+      <h2>Citation</h2>
+      <p class="citation-text">
+        This principle may be cited as: <strong>E02-P07 (White Space)</strong>.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text);
+  }
+
+  .principle-document {
+    max-width: 700px;
+  }
+
+  .principle-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .principle-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+  }
+
+  .principle-header h1 {
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .abstract {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .principle-content h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .principle-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .citation-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .citation-text strong {
+    color: var(--text);
+    font-weight: 600;
+    font-style: normal;
+  }
+</style>

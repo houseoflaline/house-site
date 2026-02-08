@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contrast" currentPath="/plates/contrast-principle">
+  <div class="breadcrumb">
+    <a href="/">Entry</a> / <a href="/plates">Plates</a> / Contrast
+  </div>
+
+  <article class="principle-document">
+    <header class="principle-header">
+      <div class="principle-meta">
+        <span class="principle-number">E02-P03</span>
+        <span class="edition">Edition 02</span>
+        <span class="see-also">See also: <a href="/texts/contrast">T03 Contrast</a></span>
+      </div>
+      <h1>Contrast creates distinction</h1>
+      <p class="abstract">Without difference, there is no signal. Without signal, nothing can be seen.</p>
+    </header>
+
+    <section class="principle-content">
+      <h2>Statement</h2>
+      <p>The mind perceives relationships, not absolutes.</p>
+      <p>An element is not "dark"—it is darker than its surroundings.</p>
+
+      <h2>Context</h2>
+      <p>
+        Contrast is the mechanism of perception itself. The retina responds to edges—the boundaries where light changes. When a field is uniform, the visual system attenuates its response. There is no information in sameness. Contrast is not a stylistic choice. It is the condition under which visibility occurs.
+      </p>
+      <p>
+        Insufficient contrast produces ambiguity. Elements that should be distinct blur together. Hierarchy collapses. The eye struggles to separate figure from ground, primary from secondary, signal from noise. Excessive contrast produces chaos—every element screams, nothing communicates.
+      </p>
+
+      <h2>Application</h2>
+      <p>
+        Contrast operates along multiple dimensions: value (light/dark), scale (large/small), weight (heavy/light), position (near/far), color (hue difference). Value contrast is most fundamental—the visual system is more sensitive to luminance than to any other attribute. Use it first. Supplement with others as needed.
+      </p>
+      <p>
+        In practice: Text must contrast sufficiently with its background to be legible (WCAG recommends 4.5:1 minimum). Important elements must contrast with less important ones through scale, weight, or position. Every distinction the reader needs to perceive must be supported by perceptible contrast.
+      </p>
+
+      <h2>Citation</h2>
+      <p class="citation-text">
+        This principle may be cited as: <strong>E02-P03 (Contrast)</strong>. For extended analysis, see <a href="/texts/contrast">T03 Contrast</a>.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text);
+  }
+
+  .principle-document {
+    max-width: 700px;
+  }
+
+  .principle-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .principle-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    flex-wrap: wrap;
+  }
+
+  .principle-meta .see-also {
+    font-style: italic;
+    text-transform: none;
+  }
+
+  .principle-meta .see-also a {
+    color: var(--text);
+    text-decoration: underline;
+  }
+
+  .principle-header h1 {
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .abstract {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .principle-content h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .principle-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .citation-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .citation-text strong {
+    color: var(--text);
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  .citation-text a {
+    color: var(--text);
+    text-decoration: underline;
+  }
+</style>

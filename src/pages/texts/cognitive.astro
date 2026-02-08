@@ -1,0 +1,176 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Cognitive Load" currentPath="/texts/cognitive">
+  <div class="breadcrumb">
+    <a href="/">Entry</a> / <a href="/texts">Texts</a> / Cognitive Load
+  </div>
+
+  <article class="text-document">
+    <header class="text-header">
+      <div class="text-meta">
+        <span class="text-number">T02</span>
+        <span class="reading-time">15 min read</span>
+      </div>
+      <h1>Cognitive Load</h1>
+      <p class="abstract">Measure, scale, and the hard limit of working memory.</p>
+    </header>
+
+    <section class="text-content">
+      <p>
+        Two pages. Identical information on both. One is effortless to read—the eye moves through it without friction, finding what it needs and settling into the content within seconds. The other is exhausting. The same facts are there, somewhere, but extracting them requires effort that has nothing to do with the difficulty of the ideas themselves. The content has not changed. The <strong>load</strong> has.
+      </p>
+
+      <p>
+        Cognitive load is the term psychology uses for the total mental effort required to process information. It is not a metaphor. It is a measurable quantity—one that has a hard upper limit, and one that, when exceeded, does not produce confusion gradually. It produces <strong>collapse</strong>. The mind does not slow down when it is overloaded. It stops being able to organise at all.
+      </p>
+
+      <p>
+        This essay is about that limit. Where it sits. How to read it. And why every structural decision on this site—and on any site that takes clarity seriously—is, at its root, a decision about cognitive load.
+      </p>
+
+      <blockquote>
+        The mind does not fail gracefully under load. It holds—and then it doesn't. The line between clarity and confusion is not a gradient. It is an edge.
+      </blockquote>
+
+      <p>
+        This essay completes a sequence. <em>Human Patterns</em> described what the mind responds to—the mathematical forms that produce perceptual harmony, tension, and trust. <em>Gestalt & Perception</em> described how the mind responds—the automatic mechanisms of grouping, completing, and organising. This essay describes <strong>how much</strong> the mind can hold before those mechanisms fail. It is the third piece of a single account: what, how, and how much.
+      </p>
+
+      <h2>I. Cognitive Load</h2>
+
+      <p>
+        Working memory is the mind's workspace—the place where information is held temporarily while it is being actively used. It is where you keep a phone number in your head while you dial it. It is where you hold the beginning of a sentence while you read to its end. It is, in cognitive science, <strong>the bottleneck of all conscious processing</strong>.
+      </p>
+
+      <p>
+        And it is finite. Not large. Not expandable through practice or willpower. Finite—with a hard ceiling that research has consistently placed at somewhere between five and nine discrete items, depending on complexity and context. This number—<strong>7 ± 2</strong>—was first identified by psychologist George Miller in 1956, and it has held up through decades of subsequent research. It is the single most important number in information design.
+      </p>
+
+      <p>
+        When a visual environment demands that working memory hold more than it can, the result is not mild difficulty. It is a fundamental breakdown in the mind's ability to organise what it sees. Gestalt principles—proximity, closure, continuity—still operate. But they operate on fragments. The mind can no longer hold enough of the scene simultaneously to perceive its structure. <strong>It sees elements. It does not see relationships.</strong>
+      </p>
+
+      <p>
+        Cognitive load theory, developed by psychologist John Sweller in the late 1980s, identified three distinct types of load that contribute to the total. <strong>Intrinsic load</strong> is the inherent complexity of the material itself—some ideas are simply harder to hold than others. <strong>Extraneous load</strong> is the load produced by poor presentation—unnecessary elements, unclear structure, competing signals. <strong>Germane load</strong> is the productive effort of actually building understanding—the mental work that leads to comprehension rather than merely consuming it.
+      </p>
+
+      <p>
+        Design can do nothing about intrinsic load. The complexity of an idea is what it is. But design has <strong>complete control over extraneous load</strong>. Every element on a page that does not contribute to understanding adds to it. Every ambiguity in structure. Every visual signal that conflicts with another. Every piece of information that has no clear home. These are not neutral presences. They are <em>costs</em>—costs paid from the same finite budget the reader needs to actually understand what is being communicated.
+      </p>
+
+      <h2>II. Measure</h2>
+
+      <p>
+        Cognitive load is invisible. You cannot see it on a page. You cannot point to it and say: here is where the load exceeds capacity. It exists only in the experience of the reader—in the friction they feel, the backtracking they do, the moments where meaning fails to land.
+      </p>
+
+      <p>
+        But it can be <strong>inferred</strong>. And for designers, inference is often more useful than measurement, because it does not require instrumentation. It requires only attention—to what the reader does, and more importantly, to what they do not have to do.
+      </p>
+
+      <p>
+        A page is within cognitive capacity when the reader moves through it without pause, without re-reading, without searching. They find what they need. They understand what they find. They move on. <strong>The absence of visible struggle is the most reliable signal that load is within limits.</strong> When struggle appears—when the eye darts, when the reader scrolls back, when a sentence must be read twice—something on the page has exceeded what working memory can hold.
+      </p>
+
+      <p class="continuation-note">
+        <em>This text continues with sections on Scale, Application, and The Cost of Confusion. For the complete essay with all sections and illustrations, see the full version.</em>
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text);
+  }
+
+  .text-document {
+    max-width: 700px;
+  }
+
+  .text-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .text-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+  }
+
+  .text-header h1 {
+    font-size: 2.75rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .abstract {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .text-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .text-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .text-content h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .text-content strong {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .text-content em {
+    font-style: italic;
+  }
+
+  .text-content blockquote {
+    border-left: 2px solid var(--text-secondary);
+    padding-left: 2rem;
+    margin: 2.5rem 0;
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  .continuation-note {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+</style>
