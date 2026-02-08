@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Manifesto" currentPath="/manifesto">
+  <div class="breadcrumb">
+    <a href="/">Entry</a> / Manifesto
+  </div>
+
+  <h1>Manifesto</h1>
+  <p class="page-meta">Design philosophy across three movements · Updated February 2026</p>
+
+  <div class="content-section">
+    <p>
+      The LALINE Manifesto organizes design thinking across three interdependent parts. Foundations establish invisible structural principles. Application describes how these principles manifest in practice. Expression defines the constrained space for creative variation.
+    </p>
+    <p>
+      Together, they form a complete methodology for creating timeless artifacts that resist obsolescence.
+    </p>
+  </div>
+
+  <div class="parts-list">
+    <article class="part-card">
+      <div class="part-number">Part I</div>
+      <h2><a href="/manifesto/foundations">Foundations</a></h2>
+      <p class="part-description">
+        The invisible structural principles that must exist before design begins. These are non-negotiable constraints that create the architecture for everything else.
+      </p>
+      <div class="part-principles">
+        <span class="principle-tag">Restraint</span>
+        <span class="principle-tag">Authority</span>
+        <span class="principle-tag">Pacing</span>
+        <span class="principle-tag">Silence</span>
+      </div>
+      <div class="part-status">Complete · 4 principles</div>
+    </article>
+
+    <article class="part-card">
+      <div class="part-number">Part II</div>
+      <h2><a href="/manifesto/application">Application</a></h2>
+      <p class="part-description">
+        How foundational principles manifest in practice. The translation from constraint to execution, from structure to surface.
+      </p>
+      <div class="part-principles">
+        <span class="principle-tag">Hierarchy</span>
+        <span class="principle-tag coming-soon">TBD</span>
+        <span class="principle-tag coming-soon">TBD</span>
+        <span class="principle-tag coming-soon">TBD</span>
+      </div>
+      <div class="part-status">In development</div>
+    </article>
+
+    <article class="part-card">
+      <div class="part-number">Part III</div>
+      <h2><a href="/manifesto/expression">Expression</a></h2>
+      <p class="part-description">
+        The bounded space for creative variation. How to express personality within systematic constraints through deliberate choice of expression slots.
+      </p>
+      <div class="part-principles">
+        <span class="principle-tag coming-soon">TBD</span>
+        <span class="principle-tag coming-soon">TBD</span>
+        <span class="principle-tag coming-soon">TBD</span>
+        <span class="principle-tag coming-soon">TBD</span>
+      </div>
+      <div class="part-status">Planned</div>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text);
+  }
+
+  .page-meta {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    font-style: italic;
+  }
+
+  .content-section {
+    margin-bottom: 4rem;
+    max-width: 700px;
+  }
+
+  .parts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .part-card {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+  }
+
+  .part-number {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+    margin-bottom: 0.75rem;
+  }
+
+  .part-card h2 {
+    font-size: 1.65rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+
+  .part-card h2 a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .part-card h2 a:hover {
+    border-bottom-color: var(--text);
+  }
+
+  .part-description {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 650px;
+  }
+
+  .part-principles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .principle-tag {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.85rem;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Courier New', monospace;
+  }
+
+  .principle-tag.coming-soon {
+    color: var(--text-tertiary);
+    border-color: var(--border);
+  }
+
+  .part-status {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .part-principles {
+      gap: 0.5rem;
+    }
+
+    .principle-tag {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.7rem;
+    }
+  }
+</style>

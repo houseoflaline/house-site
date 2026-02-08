@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Emphasis" currentPath="/plates/emphasis">
+  <div class="breadcrumb">
+    <a href="/">Entry</a> / <a href="/plates">Plates</a> / Emphasis
+  </div>
+
+  <article class="principle-document">
+    <header class="principle-header">
+      <div class="principle-meta">
+        <span class="principle-number">E02-P01</span>
+        <span class="edition">Edition 02</span>
+      </div>
+      <h1>Emphasis directs attention</h1>
+      <p class="abstract">A composition without emphasis has no entry point. Every element competes. Nothing lands.</p>
+    </header>
+
+    <section class="principle-content">
+      <h2>Statement</h2>
+      <p>Emphasis is not decoration. It is direction.</p>
+      <p>It tells the eye where to begin.</p>
+
+      <h2>Context</h2>
+      <p>
+        When every element on a page carries equal visual weight, the mind has no anchor. Attention scatters. The reader arrives—and immediately must work to determine what matters. This work is invisible but costly. It consumes the cognitive budget before comprehension even begins.
+      </p>
+      <p>
+        Emphasis creates hierarchy through difference. One element is made visually dominant—larger, darker, more isolated, more contrasted—so that it commands attention first. This is not arbitrary prominence. It is structural guidance. The emphasized element becomes the entry point, the place where understanding begins.
+      </p>
+
+      <h2>Application</h2>
+      <p>
+        Emphasis operates through contrast: scale, weight, color, position, isolation. The emphasized element must differ enough from its surroundings that attention lands on it reflexively, without conscious search. Insufficient emphasis produces ambiguity. Excessive emphasis produces distraction. The balance is precise.
+      </p>
+      <p>
+        In practice: A heading must be visibly larger or darker than body text. A primary action must be visually stronger than secondary options. The most important content must occupy the position attention naturally visits first. Emphasis makes structure legible before content is read.
+      </p>
+
+      <h2>Misapplication</h2>
+      <p>
+        Emphasis fails when multiple elements compete for dominance. Two large headings. Three bright buttons. Five bold labels. Each emphasis cancels the others. The result is not multiple entry points—it is no entry point. The eye arrives, finds conflict, and must consciously decide where to begin. That decision should never be necessary.
+      </p>
+
+      <h2>Citation</h2>
+      <p class="citation-text">
+        This principle may be cited as: <strong>E02-P01 (Emphasis)</strong>.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text);
+  }
+
+  .principle-document {
+    max-width: 700px;
+  }
+
+  .principle-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .principle-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+  }
+
+  .principle-header h1 {
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .abstract {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .principle-content h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .principle-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .citation-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .citation-text strong {
+    color: var(--text);
+    font-weight: 600;
+    font-style: normal;
+  }
+</style>

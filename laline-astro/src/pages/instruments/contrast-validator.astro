@@ -1,0 +1,488 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contrast Validator" currentPath="/instruments/contrast-validator">
+  <div class="breadcrumb">
+    <a href="/">Entry</a> / <a href="/instruments">Instruments</a> / Contrast Validator
+  </div>
+
+  <article class="instrument-page">
+    <header class="instrument-header-main">
+      <div class="instrument-meta">
+        <span class="instrument-number">I01</span>
+        <span class="instrument-status">Available</span>
+      </div>
+      <h1>Contrast Validator</h1>
+      <p class="abstract">Measures contrast ratios against declared intent. Not accessibility alone—but whether contrast serves the stated philosophy.</p>
+    </header>
+
+    <section class="instrument-explanation">
+      <h2>Purpose</h2>
+      <p>
+        Contrast is not arbitrary. It is the mechanism of perception itself. Without sufficient contrast, elements become indistinguishable. With excessive contrast, every element screams. This validator checks if contrast ratios align with declared intent.
+      </p>
+
+      <h2>Methodology</h2>
+      <p>
+        The validator measures luminance contrast ratios between foreground and background colors. It then evaluates whether those ratios serve the declared design intent:
+      </p>
+      <ul>
+        <li><strong>Authority</strong> requires high contrast (7:1+) for clarity and decisiveness</li>
+        <li><strong>Restraint</strong> permits moderate contrast (4.5:1-7:1) for subtlety</li>
+        <li><strong>Warmth</strong> allows softer contrast (3:1-4.5:1) for approachability</li>
+      </ul>
+      <p>
+        All verdicts reference WCAG 2.1 Level AA (4.5:1 text, 3:1 UI) as baseline. Breach occurs when contrast contradicts stated intent, not when it merely differs from WCAG.
+      </p>
+    </section>
+
+    <div class="tool-container">
+      <h2>Validator</h2>
+      
+      <div class="tool-step">
+        <h3>Step 1: Declare Intent</h3>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="intent" value="authority" checked>
+            <span>Authority</span> — Clarity and decisiveness required
+          </label>
+          <label>
+            <input type="radio" name="intent" value="restraint">
+            <span>Restraint</span> — Subtlety permitted
+          </label>
+          <label>
+            <input type="radio" name="intent" value="warmth">
+            <span>Warmth</span> — Approachability prioritized
+          </label>
+        </div>
+      </div>
+
+      <div class="tool-step">
+        <h3>Step 2: Input Colors</h3>
+        <div class="color-inputs">
+          <div class="color-input-group">
+            <label for="fg-color">Foreground (text/element)</label>
+            <div class="color-picker-group">
+              <input type="color" id="fg-color" value="#1a1a1a">
+              <input type="text" id="fg-hex" value="#1a1a1a" maxlength="7" placeholder="#000000">
+            </div>
+          </div>
+          <div class="color-input-group">
+            <label for="bg-color">Background</label>
+            <div class="color-picker-group">
+              <input type="color" id="bg-color" value="#EFEFF1">
+              <input type="text" id="bg-hex" value="#EFEFF1" maxlength="7" placeholder="#FFFFFF">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button id="validate-btn" class="validate-button">Validate Contrast</button>
+
+      <div id="result" class="result-container" style="display: none;">
+        <div class="result-header">
+          <span class="verdict-badge"></span>
+          <h3 class="verdict-title"></h3>
+        </div>
+        <div class="result-content">
+          <div class="ratio-display">
+            <span class="ratio-label">Contrast Ratio:</span>
+            <span class="ratio-value"></span>
+          </div>
+          <p class="result-explanation"></p>
+          <div class="result-details"></div>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text);
+  }
+
+  .instrument-page {
+    max-width: 800px;
+  }
+
+  .instrument-header-main {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .instrument-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+  }
+
+  .instrument-header-main h1 {
+    font-size: 2.25rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+
+  .abstract {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .instrument-explanation {
+    margin-bottom: 3rem;
+  }
+
+  .instrument-explanation h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .instrument-explanation p,
+  .instrument-explanation ul {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .instrument-explanation ul {
+    padding-left: 1.5rem;
+  }
+
+  .instrument-explanation li {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Tool Styles */
+  .tool-container {
+    background-color: var(--bg-nav);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    margin: 3rem 0;
+  }
+
+  .tool-container h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+
+  .tool-step {
+    margin-bottom: 2rem;
+  }
+
+  .tool-step h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+  }
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .radio-group label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+
+  .radio-group label span:first-of-type {
+    font-weight: 600;
+  }
+
+  .color-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .color-input-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .color-picker-group {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .color-picker-group input[type="color"] {
+    width: 60px;
+    height: 40px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+  }
+
+  .color-picker-group input[type="text"] {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+  }
+
+  .validate-button {
+    width: 100%;
+    padding: 1rem;
+    background: var(--text);
+    color: var(--bg);
+    border: none;
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .validate-button:hover {
+    opacity: 0.85;
+  }
+
+  .result-container {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .result-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .verdict-badge {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .verdict-badge.pass {
+    color: #2d5016;
+    border-color: #2d5016;
+  }
+
+  .verdict-badge.caution {
+    color: #8b6914;
+    border-color: #8b6914;
+  }
+
+  .verdict-badge.breach {
+    color: #7d1e1e;
+    border-color: #7d1e1e;
+  }
+
+  .verdict-title {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .ratio-display {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .ratio-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .ratio-value {
+    font-weight: 600;
+  }
+
+  .result-explanation {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .result-details {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .color-inputs {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Contrast calculation based on WCAG 2.1
+  function getLuminance(hexColor) {
+    const rgb = parseInt(hexColor.slice(1), 16);
+    const r = (rgb >> 16) & 0xff;
+    const g = (rgb >> 8) & 0xff;
+    const b = (rgb >> 0) & 0xff;
+    
+    const rsRGB = r / 255;
+    const gsRGB = g / 255;
+    const bsRGB = b / 255;
+    
+    const rLin = rsRGB <= 0.03928 ? rsRGB / 12.92 : Math.pow((rsRGB + 0.055) / 1.055, 2.4);
+    const gLin = gsRGB <= 0.03928 ? gsRGB / 12.92 : Math.pow((gsRGB + 0.055) / 1.055, 2.4);
+    const bLin = bsRGB <= 0.03928 ? bsRGB / 12.92 : Math.pow((bsRGB + 0.055) / 1.055, 2.4);
+    
+    return 0.2126 * rLin + 0.7152 * gLin + 0.0722 * bLin;
+  }
+
+  function getContrastRatio(hex1, hex2) {
+    const lum1 = getLuminance(hex1);
+    const lum2 = getLuminance(hex2);
+    const lighter = Math.max(lum1, lum2);
+    const darker = Math.min(lum1, lum2);
+    return (lighter + 0.05) / (darker + 0.05);
+  }
+
+  function validateContrast() {
+    const intent = document.querySelector('input[name="intent"]:checked').value;
+    const fgHex = document.getElementById('fg-hex').value;
+    const bgHex = document.getElementById('bg-hex').value;
+    
+    const ratio = getContrastRatio(fgHex, bgHex);
+    const result = document.getElementById('result');
+    const badge = result.querySelector('.verdict-badge');
+    const title = result.querySelector('.verdict-title');
+    const ratioValue = result.querySelector('.ratio-value');
+    const explanation = result.querySelector('.result-explanation');
+    const details = result.querySelector('.result-details');
+    
+    let verdict, verdictText, explanationText, detailsText;
+    
+    // Authority requires 7:1+
+    if (intent === 'authority') {
+      if (ratio >= 7) {
+        verdict = 'pass';
+        verdictText = 'PASS — Intent Honored';
+        explanationText = 'Contrast ratio meets the declared intent of Authority. High contrast supports clarity and decisiveness.';
+        detailsText = 'WCAG AAA compliant. Authority requires unambiguous visual hierarchy.';
+      } else if (ratio >= 4.5) {
+        verdict = 'caution';
+        verdictText = 'CAUTION — Intent Weakened';
+        explanationText = 'Contrast ratio meets WCAG AA but falls below Authority requirements. Declared intent prioritizes maximum clarity.';
+        detailsText = 'Consider increasing contrast to 7:1 or higher to fully honor Authority.';
+      } else {
+        verdict = 'breach';
+        verdictText = 'BREACH — Intent Contradicted';
+        explanationText = 'Contrast ratio insufficient for declared Authority intent. Low contrast undermines clarity and decisiveness.';
+        detailsText = 'Authority demands high contrast. Current ratio contradicts stated philosophy.';
+      }
+    }
+    // Restraint permits 4.5:1-7:1
+    else if (intent === 'restraint') {
+      if (ratio >= 4.5 && ratio < 10) {
+        verdict = 'pass';
+        verdictText = 'PASS — Intent Honored';
+        explanationText = 'Contrast ratio aligns with declared Restraint. Moderate contrast maintains legibility without excessive emphasis.';
+        detailsText = 'WCAG AA compliant. Restraint permits subtlety within legibility bounds.';
+      } else if (ratio >= 10) {
+        verdict = 'caution';
+        verdictText = 'CAUTION — Excessive Contrast';
+        explanationText = 'Contrast ratio exceeds Restraint parameters. High contrast may introduce unintended emphasis.';
+        detailsText = 'Restraint implies measured contrast. Current ratio approaches Authority territory.';
+      } else {
+        verdict = 'breach';
+        verdictText = 'BREACH — Intent Contradicted';
+        explanationText = 'Contrast ratio insufficient even for Restraint. Falls below minimum legibility threshold.';
+        detailsText = 'Restraint permits subtlety but not illegibility. WCAG AA minimum required.';
+      }
+    }
+    // Warmth allows 3:1-4.5:1
+    else {
+      if (ratio >= 3 && ratio < 7) {
+        verdict = 'pass';
+        verdictText = 'PASS — Intent Honored';
+        explanationText = 'Contrast ratio serves declared Warmth. Softer contrast supports approachability.';
+        detailsText = 'WCAG AA compliant for UI elements. Warmth prioritizes comfort over maximum emphasis.';
+      } else if (ratio >= 7) {
+        verdict = 'caution';
+        verdictText = 'CAUTION — Excessive Contrast';
+        explanationText = 'Contrast ratio exceeds Warmth parameters. High contrast may feel too authoritative for stated intent.';
+        detailsText = 'Warmth implies gentler contrast. Consider reducing to 3-6:1 range.';
+      } else {
+        verdict = 'breach';
+        verdictText = 'BREACH — Intent Contradicted';
+        explanationText = 'Contrast ratio insufficient for legibility. Falls below WCAG minimum even for large UI elements.';
+        detailsText = 'Warmth does not justify illegibility. Minimum 3:1 required.';
+      }
+    }
+    
+    badge.className = `verdict-badge ${verdict}`;
+    badge.textContent = verdict.toUpperCase();
+    title.textContent = verdictText;
+    ratioValue.textContent = ratio.toFixed(2) + ':1';
+    explanation.textContent = explanationText;
+    details.textContent = detailsText;
+    
+    result.style.display = 'block';
+  }
+
+  // Sync color picker with hex input
+  document.getElementById('fg-color').addEventListener('input', (e) => {
+    document.getElementById('fg-hex').value = e.target.value;
+  });
+  
+  document.getElementById('bg-color').addEventListener('input', (e) => {
+    document.getElementById('bg-hex').value = e.target.value;
+  });
+  
+  document.getElementById('fg-hex').addEventListener('input', (e) => {
+    const hex = e.target.value;
+    if (/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+      document.getElementById('fg-color').value = hex;
+    }
+  });
+  
+  document.getElementById('bg-hex').addEventListener('input', (e) => {
+    const hex = e.target.value;
+    if (/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+      document.getElementById('bg-color').value = hex;
+    }
+  });
+
+  document.getElementById('validate-btn').addEventListener('click', validateContrast);
+</script>

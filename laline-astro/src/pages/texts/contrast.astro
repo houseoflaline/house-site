@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contrast" currentPath="/texts/contrast">
+  <div class="breadcrumb">
+    <a href="/">Entry</a> / <a href="/texts">Texts</a> / Contrast
+  </div>
+
+  <article class="text-document">
+    <header class="text-header">
+      <div class="text-meta">
+        <span class="text-number">T03</span>
+        <span class="reading-time">12 min read</span>
+      </div>
+      <h1>Contrast</h1>
+      <p class="abstract">The mechanism of perception itself—what makes something visible at all.</p>
+    </header>
+
+    <section class="text-content">
+      <p>
+        Look at three groups of circles. Same pattern in each group. But your eye went to the left group first—because one circle there is darker than the others. It stood out. In the centre, a circle is slightly darker, but less so. Your eye found it, but it did not command attention. On the right, a circle is barely darker at all. You may not have noticed it until you looked for it—or you may not have noticed it at all.
+      </p>
+
+      <p>
+        The circles are identical in every way except one: <strong>contrast</strong>. The degree of difference between the element and its surroundings. In the left group, contrast is high—the signal is immediate. In the centre, contrast is moderate—the signal is present but subdued. On the right, contrast is minimal—the signal is nearly invisible. This is the essay's first claim: <strong>the mind does not perceive elements in isolation. It perceives difference.</strong> Without contrast, there is no signal. Without signal, there is nothing to see.
+      </p>
+
+      <blockquote>
+        The visual system evolved to detect edges, boundaries, transitions. These are all forms of contrast. Uniformity contains no information. The mind stops registering it.
+      </blockquote>
+
+      <p>
+        The previous essays addressed what the mind responds to, how it organises, how much it can hold, where it looks, and in what order it moves. This essay addresses the prior question all of them assume: <strong>what makes something visible at all?</strong> Before Gestalt can group elements, those elements must be perceptually distinct. Before Attention can select something, there must be a signal to select. Before Sequence can order information, that information must have emerged from the background. Contrast is not a mechanism that operates after perception. It is the mechanism <em>of</em> perception.
+      </p>
+
+      <h2>I. The Signal</h2>
+
+      <p>
+        The human visual system did not evolve to perceive absolute values. It evolved to detect <strong>change</strong>—spatial difference, temporal difference, luminance difference. The retina is most sensitive not to light itself, but to the <em>edges</em> where light changes. This is not a design preference. It is neurobiology. Photoreceptor cells respond most strongly when there is a boundary between light and dark. When a field is perfectly uniform—no edges, no transitions—the response attenuates rapidly. The signal fades not because the light is gone, but because there is no information in uniformity.
+      </p>
+
+      <p>
+        This is why contrast is not optional. It is the condition under which perception occurs. When you look at a page, you do not see "this text is black." You see "this text is darker than the background." The background is not white in an absolute sense—it is lighter than the text. The entire act of seeing is comparative. The mind constructs the scene by measuring differences—between elements, between regions, between states. <strong>Remove the difference and perception collapses.</strong> Not gradually. Immediately.
+      </p>
+
+      <h2>II. The Dimensions</h2>
+
+      <p>
+        Contrast operates along several dimensions. Each one is a form of perceptual difference—a way the mind distinguishes one element from another. The most fundamental is <strong>value contrast</strong>: the difference in lightness and darkness. The visual system is more sensitive to luminance contrast than to any other kind. This is why black text on a white background is effortlessly legible, and why yellow text on white is not—the difference in lightness is too small for the retina to detect reliably.
+      </p>
+
+      <p>
+        <strong>Scale contrast</strong>—the difference in size between elements—is the second most powerful dimension. Larger elements are perceived before smaller ones. This is not a learned behaviour. It is a perceptual reflex. The eye moves to the element with the greatest angular size first. This is why hierarchy is visible before content is read: the size relationships communicate the structure automatically.
+      </p>
+
+      <p>
+        <strong>Colour contrast</strong>—the difference in hue—is the least reliable dimension. Human sensitivity to colour difference varies dramatically between individuals. Roughly 8% of men and 0.5% of women have some form of colour vision deficiency. This is why value contrast is foundational and colour contrast is supplementary. Colour can <em>reinforce</em> contrast. It should never be the only source of it.
+      </p>
+
+      <h2>III. Contrast and Hierarchy</h2>
+
+      <p>
+        Hierarchy is not created by decoration. It is created by <strong>contrast</strong>. A heading is larger than the body text—scale contrast. It is darker—value contrast. It is surrounded by more empty space—position contrast. These are not stylistic choices. They are the mechanisms by which the heading becomes perceptually distinct from the body. Remove the contrasts and the heading disappears—not literally, but <em>perceptually</em>. It becomes indistinguishable from the text around it. The structure collapses.
+      </p>
+
+      <p class="continuation-note">
+        <em>This text continues with sections on Insufficient Contrast and Application. For the complete essay, see the full version.</em>
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text);
+  }
+
+  .text-document {
+    max-width: 700px;
+  }
+
+  .text-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .text-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+  }
+
+  .text-header h1 {
+    font-size: 2.75rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .abstract {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .text-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .text-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .text-content h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .text-content strong {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .text-content em {
+    font-style: italic;
+  }
+
+  .text-content blockquote {
+    border-left: 2px solid var(--text-secondary);
+    padding-left: 2rem;
+    margin: 2.5rem 0;
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  .continuation-note {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+</style>

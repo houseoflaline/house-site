@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Attention" currentPath="/texts/attention">
+  <div class="breadcrumb">
+    <a href="/">Entry</a> / <a href="/texts">Texts</a> / Attention
+  </div>
+
+  <article class="text-document">
+    <header class="text-header">
+      <div class="text-meta">
+        <span class="text-number">T01</span>
+        <span class="reading-time">18 min read</span>
+      </div>
+      <h1>Attention</h1>
+      <p class="abstract">How the eye selects what the mind processes before working memory sees it.</p>
+    </header>
+
+    <section class="text-content">
+      <p>
+        Look at an illustration of a field of identical circles. One is different—slightly larger, slightly darker. You found it before you decided to look for it. Your eye moved there on its own, drawn by a difference so small it barely registers consciously. By the time you registered that something was different, you had already seen it.
+      </p>
+
+      <p>
+        That is attention. Not a conscious act of searching. A <strong>reflex</strong>—fast, automatic, and entirely governed by the visual environment. Before your mind decided what to look at, something in the scene had already been selected. This essay is about that selection: how it works, what drives it, and why it is the single most important thing a designer can understand about how human beings actually perceive a page.
+      </p>
+
+      <blockquote>
+        Attention is not a container. It is a direction. It decides what the mind processes before working memory ever sees it.
+      </blockquote>
+
+      <p>
+        The previous essay in this sequence addressed <em>cognitive load</em>—the capacity of working memory, and what happens when that capacity is exceeded. This essay addresses something that comes before capacity even enters the picture. Before working memory can hold something, attention must first <strong>select</strong> it. Capacity is the size of the bucket. Attention is what decides what goes in. They are different systems—and confusing them is one of the most common structural errors in design.
+      </p>
+
+      <h2>I. The Selection</h2>
+
+      <p>
+        At any given moment, the visual environment contains far more information than the mind can process. A single page holds hundreds of elements—letters, shapes, edges, spaces, colours, textures. The eye receives all of it simultaneously. But the mind does not process all of it. It processes <strong>a tiny fraction</strong>—the fraction that attention has selected.
+      </p>
+
+      <p>
+        This selection is not random. It is not neutral. It is <strong>driven by specific properties of the visual environment</strong>, and it happens faster than conscious thought. The moment a scene enters the eye, certain elements are prioritised and others are suppressed—before any deliberate decision is made about what to look at. The mind does not wait to be told where to look. It arrives already looking somewhere.
+      </p>
+
+      <p>
+        This is why two pages can contain identical information and feel entirely different. On one, the reader finds what they need without effort—attention lands on it naturally, guided by the structure. On the other, the reader must <em>search</em>—attention has landed somewhere else, pulled by a visual signal that has nothing to do with what matters. The information is the same. The selection is different. And the selection is everything.
+      </p>
+
+      <h2>II. Two Systems</h2>
+
+      <p>
+        Cognitive psychology identifies two distinct systems that govern where attention goes. They operate at different speeds, respond to different signals, and—crucially—can pull in opposite directions. Understanding their relationship is the foundation of everything that follows.
+      </p>
+
+      <p>
+        The first system is <strong>bottom-up attention</strong>. It is involuntary. It fires automatically in response to properties of the visual scene itself—contrast, size, isolation, novelty, anything that breaks the surrounding pattern. It does not care what is important. It responds to what is <em>different</em>. A single dark circle in a field of light ones captures it instantly. A large element among small ones. A colour among neutrals. An element that sits alone while everything else is grouped. Bottom-up attention does not ask whether something matters. It asks whether something stands out.
+      </p>
+
+      <p>
+        The second system is <strong>top-down attention</strong>. It is voluntary. It is driven by the viewer's goals, expectations, and prior knowledge. When you know what you are looking for—when the structure of a page has told you what to expect—top-down attention filters the scene accordingly. It suppresses irrelevant signals and amplifies relevant ones. It is how a reader can scan a page of text and find a single word without reading every line. Top-down attention requires <em>knowing what to look for</em>. And knowing what to look for requires <strong>structure that makes the organisation legible before reading begins</strong>.
+      </p>
+
+      <p>
+        Bottom-up attention fires first. Always. It is faster than conscious thought—the eye has already moved before the mind has decided whether the movement was useful. Top-down attention then either <strong>confirms</strong> the selection or <strong>overrides</strong> it. When they agree—when the most visually salient element is also the most informationally important one—attention arrives where it should with no friction. When they disagree, the reader must consciously redirect. The eye has gone somewhere. The mind must pull it back. That redirection is not free. It costs time, effort, and a small amount of the finite attentional budget the reader brought to the page.
+      </p>
+
+      <p class="continuation-note">
+        <em>This text continues with sections on Visual Salience, The Cost of Conflict, and Design Implications. For the complete essay with all sections and illustrations, see the full version.</em>
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text);
+  }
+
+  .text-document {
+    max-width: 700px;
+  }
+
+  .text-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .text-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+  }
+
+  .text-header h1 {
+    font-size: 2.75rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .abstract {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .text-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .text-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .text-content h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .text-content strong {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .text-content em {
+    font-style: italic;
+  }
+
+  .text-content blockquote {
+    border-left: 2px solid var(--text-secondary);
+    padding-left: 2rem;
+    margin: 2.5rem 0;
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  .continuation-note {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+</style>
