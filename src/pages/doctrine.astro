@@ -3,256 +3,226 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Doctrine" currentPath="/doctrine">
-  <div class="breadcrumb">
-    <a href="/">Entry</a> / System / Doctrine
-  </div>
 
-  <h1>LALINE Doctrine</h1>
-  <p class="page-meta">System principles and structural constraints · Version 1.0 · Updated January 2026</p>
+  <span class="meta">III · Doctrine</span>
+  <h1>System principles and structural constraints</h1>
 
-  <div class="doctrine-content">
-    <section class="doctrine-section">
-      <h2>1. Purpose</h2>
-      <p>LALINE exists to provide unambiguous access to structured knowledge through permanent, hierarchical architecture.</p>
+  <div class="page-content">
+
+    <section>
+      <h2>Purpose</h2>
+      <p>House of Laline exists to provide unambiguous access to structured knowledge through permanent, hierarchical architecture.</p>
     </section>
 
-    <section class="doctrine-section">
-      <h2>2. Structural Logic</h2>
-      
+    <hr />
+
+    <section>
+      <h2>Structural logic</h2>
+
       <h3>Pacing</h3>
-      <p>The references share a cadence of deliberate deceleration. Content unfolds in predictable intervals—never accelerating to create urgency, never stalling to create drama. Each page operates at the same cognitive speed. Users traverse depth, not breadth.</p>
+      <p>Content unfolds in predictable intervals — never accelerating to create urgency, never stalling to create drama. Each page operates at the same cognitive speed. Users traverse depth, not breadth.</p>
 
       <h3>Hierarchy</h3>
-      <p>Authority emerges from vertical clarity. Primary navigation is sparse (4–6 options maximum). Secondary navigation reveals itself only when contextually necessary. Tertiary layers exist but remain subordinate—never competing with parent structures. Depth is communicated through consistent indentation and containment, never through visual flourish.</p>
+      <p>Authority emerges from vertical clarity. Primary navigation is sparse. Secondary navigation reveals itself only when contextually necessary. Tertiary layers exist but remain subordinate — never competing with parent structures. Depth is communicated through consistent indentation and containment, never through visual flourish.</p>
 
       <h3>Repetition</h3>
-      <p>Structural templates repeat with monastic consistency. A collection page looks identical to every other collection page. A content page uses the same grid, the same spacing, the same typographic system regardless of topic. This repetition is not aesthetic—it is cognitive infrastructure. The user learns the system once.</p>
+      <p>Structural templates repeat with monastic consistency. A collection page looks identical to every other collection page. A content page uses the same grid, the same spacing, the same typographic system regardless of topic. This repetition is not aesthetic — it is cognitive infrastructure. The user learns the system once.</p>
 
-      <h3>Interaction Density</h3>
-      <p>Interactions are rationed. The references deploy interactivity only when it prevents fragmentation (accordions to maintain context, in-page anchors to preserve hierarchy). Everything else is static traversal: click, load, read. No hover states that reveal critical information. No progressive disclosure that hides structural relationships. Density is achieved through layering pages, not layering interface.</p>
+      <h3>Interaction density</h3>
+      <p>Interactions are rationed. Interactivity is deployed only when it prevents fragmentation. Everything else is static traversal: click, load, read. No hover states that reveal critical information. No progressive disclosure that hides structural relationships. Density is achieved through layering pages, not layering interface.</p>
     </section>
 
-    <section class="doctrine-section">
-      <h2>3. Fixed System</h2>
+    <hr />
 
-      <h3>Page Types (Complete Set)</h3>
+    <section>
+      <h2>Fixed system</h2>
+
+      <h3>Page types</h3>
       <dl class="definition-list">
         <dt>Index</dt>
         <dd>Lists collections or categories. No explanatory text beyond a single contextualizing sentence. Entries are alphabetical or chronological, never weighted by importance.</dd>
-        
+
         <dt>Collection</dt>
         <dd>Presents a complete inventory within a defined boundary. Includes metadata, date ranges, and explicit scope statements.</dd>
-        
+
         <dt>Document</dt>
         <dd>Houses singular content. Maximum two levels of internal heading. No sidebar navigation within documents.</dd>
-        
-        <dt>Entry Point</dt>
+
+        <dt>Entry point</dt>
         <dd>The home. Functions solely as a portal to indices. Contains site purpose, last-updated timestamp, contact method.</dd>
       </dl>
 
-      <h3>Section Taxonomy</h3>
-      <dl class="definition-list">
-        <dt>Header</dt>
-        <dd>Site title, primary navigation (persistent), breadcrumb.</dd>
-        
-        <dt>Body</dt>
-        <dd>Single-column content area. Subsections demarcated by whitespace and headings, never by containers or panels.</dd>
-        
-        <dt>Footer</dt>
-        <dd>Publication metadata, versioning, licensing, archive access.</dd>
-      </dl>
+      <h3>What is static</h3>
+      <p>Navigation structure and labels. Page templates and grid systems. Typography scale and spacing intervals. Interaction patterns.</p>
 
-      <h3>Static vs. Allowed to Move</h3>
-      
-      <p class="subsection-label">Static (mandatory):</p>
-      <ul>
-        <li>Navigation structure and labels</li>
-        <li>Page templates and grid systems</li>
-        <li>Typography scale and spacing intervals</li>
-        <li>Interaction patterns (what is clickable, what is readable)</li>
-      </ul>
-
-      <p class="subsection-label">Allowed to move (version-controlled):</p>
-      <ul>
-        <li>Content within defined templates</li>
-        <li>Addition of new collections (following existing type)</li>
-        <li>Archive timestamps and version numbers</li>
-      </ul>
+      <h3>What may move</h3>
+      <p>Content within defined templates. Addition of new collections following existing type. Archive timestamps and version numbers.</p>
     </section>
 
-    <section class="doctrine-section">
-      <h2>4. Explicit Constraints</h2>
+    <hr />
 
-      <h3>Must Never Exist</h3>
+    <section>
+      <h2>Explicit constraints</h2>
+
+      <h3>Must never exist</h3>
       <ul>
         <li>Promotional language or exhortation</li>
         <li>Content that exists in multiple locations simultaneously</li>
-        <li>Navigation that changes based on user behavior or context</li>
+        <li>Navigation that changes based on user behaviour or context</li>
         <li>Multimedia that cannot be replaced with text without loss of meaning</li>
         <li>Anything that expires or becomes inaccessible over time</li>
         <li>Social proof, testimonials, or persuasive framing</li>
         <li>Analytics-driven interface adaptation</li>
       </ul>
 
-      <h3>Allowed Only Sparingly</h3>
+      <h3>Allowed only sparingly</h3>
       <ul>
-        <li>Diagrams (only when representing relationships impossible to describe in prose)</li>
-        <li>Tables (only when showing systematic comparison across fixed attributes)</li>
-        <li>Accordions (only when alternative is fragmenting a single concept across multiple pages)</li>
-        <li>Search (only if collection exceeds 200 documents and manual browsing becomes archaeological)</li>
+        <li>Diagrams — only when representing relationships impossible to describe in prose</li>
+        <li>Tables — only when showing systematic comparison across fixed attributes</li>
+        <li>Accordions — only when the alternative is fragmenting a single concept across multiple pages</li>
+        <li>Search — only if the collection exceeds 200 documents</li>
       </ul>
 
-      <h3>Must Remain Boring and Predictable</h3>
+      <h3>Must remain predictable</h3>
       <ul>
-        <li>Page load behavior (full page loads, no route transitions)</li>
-        <li>Link appearance (underlined, distinct, never ambiguous)</li>
-        <li>Heading hierarchy (semantic HTML, visual consistency)</li>
-        <li>Error states (plain language, path to resolution, no cleverness)</li>
+        <li>Page load behaviour — full page loads, no route transitions</li>
+        <li>Link appearance — underlined, distinct, never ambiguous</li>
+        <li>Heading hierarchy — semantic HTML, visual consistency</li>
+        <li>Error states — plain language, path to resolution, no cleverness</li>
       </ul>
     </section>
 
-    <section class="doctrine-section">
-      <h2>5. Role of Interactivity</h2>
+    <hr />
 
-      <h3>When It Adds Authority</h3>
-      <p>Interactivity adds authority when it preserves context that would otherwise fragment.</p>
-      <ul>
-        <li>Expandable sections keep related information on a single page rather than forcing jumps.</li>
-        <li>Anchor links allow direct citation without creating orphaned content.</li>
-        <li>Sortable tables reveal different organizational logic without duplicating data.</li>
-      </ul>
-      <p>In these cases, the interaction is structural—it manipulates how information is viewed without altering what information is available.</p>
+    <section>
+      <h2>Role of interactivity</h2>
 
-      <h3>When It Weakens Clarity</h3>
-      <p>Interactivity weakens clarity when it:</p>
-      <ul>
-        <li>Conceals structure (hamburger menus hiding navigation)</li>
-        <li>Creates ambiguity about state (what is loaded, what is cached, what will trigger a change)</li>
-        <li>Introduces temporal dependencies (content that only appears after scroll, hover, or delay)</li>
-        <li>Substitutes performance for clarity (animations that mask transitions, skeleton screens that misrepresent loading)</li>
-      </ul>
-      <p>Any interaction that makes the user question "what is here?" or "where am I?" is disqualifying.</p>
+      <h3>When it adds authority</h3>
+      <p>Interactivity adds authority when it preserves context that would otherwise fragment. Expandable sections keep related information on a single page. Anchor links allow direct citation without creating orphaned content. Sortable tables reveal different organizational logic without duplicating data. In these cases, the interaction is structural — it manipulates how information is viewed without altering what information is available.</p>
+
+      <h3>When it weakens clarity</h3>
+      <p>Interactivity weakens clarity when it conceals structure, creates ambiguity about state, introduces temporal dependencies, or substitutes performance for clarity. Any interaction that makes the user question "what is here?" or "where am I?" is disqualifying.</p>
     </section>
 
-    <section class="doctrine-section">
-      <h2>6. Rejection List</h2>
-      
-      <h3>Reject</h3>
+    <hr />
+
+    <section>
+      <h2>Rejection list</h2>
       <ul>
         <li>Hero sections</li>
         <li>Calls to action</li>
         <li>Personalization engines</li>
         <li>Infinite scroll</li>
-        <li>Modal overlays (except for critical errors)</li>
+        <li>Modal overlays</li>
         <li>Feature comparison matrices</li>
-        <li>"Related content" algorithms</li>
+        <li>Related content algorithms</li>
         <li>Newsletter signup forms</li>
         <li>Any language suggesting urgency, scarcity, or timeliness</li>
-        <li>Vanity metrics (view counts, popularity indicators)</li>
+        <li>Vanity metrics</li>
         <li>A/B testing of structure or navigation</li>
-        <li>Responsive layouts that reorder content by viewport</li>
         <li>Dark patterns of any kind</li>
         <li>Anything requiring JavaScript to read text</li>
       </ul>
     </section>
 
-    <section class="doctrine-conclusion">
-      <p>This system assumes a single responsibility: making knowledge findable and stable. Everything else is refusal.</p>
-    </section>
+    <footer class="doctrine-conclusion">
+      This system assumes a single responsibility: making knowledge findable and stable. Everything else is refusal.
+    </footer>
+
   </div>
+
 </BaseLayout>
 
 <style>
-  .breadcrumb {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 3rem;
+  h1 {
+    margin-bottom: var(--space-lg);
   }
 
-  .breadcrumb a {
-    color: var(--text-secondary);
-    text-decoration: underline;
+  .page-content {
+    max-width: var(--content-max);
   }
 
-  .breadcrumb a:hover {
-    color: var(--text);
+  section {
+    margin-bottom: var(--space-lg);
   }
 
-  .page-meta {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 3rem;
-    font-style: italic;
-  }
-
-  .doctrine-content {
-    max-width: 700px;
-  }
-
-  .doctrine-section {
-    margin-bottom: 4rem;
-  }
-
-  .doctrine-section h2 {
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-bottom: 1.5rem;
+  h2 {
     margin-top: 0;
   }
 
-  .doctrine-section h3 {
-    font-size: 1.15rem;
-    font-weight: 400;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+  h3 {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: var(--weight-light);
+    font-style: italic;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--color-ink);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-xs);
   }
 
-  .doctrine-section p {
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-  }
-
+  /* Definition list */
   .definition-list {
-    margin: 1.5rem 0;
+    margin: var(--space-sm) 0;
   }
 
   .definition-list dt {
-    font-weight: 600;
-    color: var(--text);
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-family: var(--font-ui);
+    font-size: var(--text-nav);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-xs);
   }
 
   .definition-list dd {
     margin-left: 0;
-    line-height: 1.8;
-    color: var(--text);
+    line-height: var(--leading-body);
   }
 
-  .subsection-label {
-    font-weight: 600;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-  }
-
+  /* Lists */
   ul {
-    margin: 1rem 0 1.5rem 1.5rem;
-    line-height: 1.8;
+    list-style: none;
+    margin: var(--space-sm) 0 var(--space-md);
   }
 
-  li {
-    margin-bottom: 0.5rem;
+  ul li {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: var(--weight-light);
+    line-height: var(--leading-body);
+    padding: 0.35rem 0;
+    padding-left: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
   }
 
+  ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    font-family: var(--font-ui);
+    font-size: var(--text-micro);
+    color: var(--color-secondary);
+    top: 0.45rem;
+  }
+
+  ul li:last-child {
+    border-bottom: none;
+  }
+
+  /* Conclusion */
   .doctrine-conclusion {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+    font-family: var(--font-body);
     font-style: italic;
-  }
-
-  .doctrine-conclusion p {
     font-size: 1.1rem;
-    line-height: 1.8;
+    line-height: 1.75;
+    color: var(--color-ink);
   }
 </style>
