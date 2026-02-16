@@ -1,6 +1,6 @@
 ---
 import Navigation from '../components/Navigation.astro';
-import '../styles/global.css';
+import '../styles/tokens.css';
 
 interface Props {
   title: string;
@@ -20,7 +20,7 @@ const { title, currentPath = '/', landing = false } = Astro.props;
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
-<body>
+<body class={landing ? 'is-landing' : ''}>
   <div class="layout">
     <Navigation currentPath={currentPath} />
     <main class={landing ? 'main--landing' : 'main--content'}>
@@ -31,9 +31,19 @@ const { title, currentPath = '/', landing = false } = Astro.props;
 </html>
 
 <style>
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body.is-landing {
+    overflow: hidden;
+  }
+
   .layout {
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
   }
 
   /* ── Standard content pages ── */
@@ -42,29 +52,32 @@ const { title, currentPath = '/', landing = false } = Astro.props;
     flex: 1;
     padding: 4rem 5rem;
     max-width: 860px;
+    overflow-y: auto;
+    height: 100vh;
   }
 
-  /* ── Landing page — centred, full height ── */
+  /* ── Landing — full height, no scroll, no centering (index.astro handles layout) ── */
   .main--landing {
     margin-left: var(--nav-width);
     flex: 1;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
   }
 
-  /* ── Responsive ── */
   @media (max-width: 1024px) {
-    .main--content  { padding: 3rem 3.5rem; }
-    .main--landing  { padding: 2rem; }
+    .main--content { padding: 3rem 3.5rem; }
   }
 
   @media (max-width: 768px) {
-    .layout { flex-direction: column; }
+    html, body { overflow: auto; }
+    .layout { flex-direction: column; height: auto; }
     .main--content,
     .main--landing {
       margin-left: 0;
       padding: 2rem 1.5rem;
+      height: auto;
     }
   }
 </style>

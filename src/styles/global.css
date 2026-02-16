@@ -2,26 +2,12 @@
    LALINE — Design Tokens V1.0
    House of Laline · Editorial Publishing House
    Locked: February 2026
-
-   FONT SYSTEM — locked
-   Playfair Display  →  Display, H1           grand presence, rare
-   IBM Plex Mono     →  H2, H3, Nav, Meta     everything structural
-   Spectral          →  Body only             the reading voice
-
-   COLOUR SYSTEM — locked
-   --color-bg          #F7F7F5   cool white
-   --color-ink         #141412   warm near-black
-   --color-secondary   #4A3320   deep espresso — one accent, used consistently
-   --color-surface     #F0F0ED   raised surface
-   --color-border      rgba(20,20,18,0.07)  almost invisible rule
 ═══════════════════════════════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap');
 
-
 /* ─────────────────────────────────────────────────────────────
    LAYER 1 — PRIMITIVES
-   Raw values only. Never use directly in components.
 ───────────────────────────────────────────────────────────── */
 :root {
   --primitive-neutral-50:  #F7F7F5;
@@ -53,53 +39,44 @@
   --primitive-motion-slow:   400ms ease;
 }
 
-
 /* ─────────────────────────────────────────────────────────────
    LAYER 2 — SEMANTIC TOKENS
-   Always use these in components and pages. Never primitives.
 ───────────────────────────────────────────────────────────── */
 :root {
-  /* ── Colour ── */
   --color-bg:        var(--primitive-neutral-50);
   --color-surface:   var(--primitive-neutral-100);
   --color-ink:       var(--primitive-neutral-900);
   --color-secondary: var(--primitive-brown-500);
   --color-border:    rgba(20, 20, 18, 0.07);
 
-  /* ── Fonts ── */
   --font-display: var(--primitive-font-display);
   --font-ui:      var(--primitive-font-mono);
   --font-body:    var(--primitive-font-serif);
 
-  /* ── Weights ── */
   --weight-light:   var(--primitive-weight-light);
   --weight-regular: var(--primitive-weight-regular);
   --weight-medium:  var(--primitive-weight-medium);
   --weight-bold:    var(--primitive-weight-bold);
 
-  /* ── Type scale ── */
-  --text-display: 3.5rem;    /* landing only */
-  --text-h1:      2rem;      /* page titles */
-  --text-h2:      0.9rem;    /* section headings */
-  --text-h3:      0.64rem;   /* sub labels */
-  --text-body:    0.9rem;    /* running text */
-  --text-meta:    0.64rem;   /* dates, refs */
-  --text-micro:   0.56rem;   /* plate refs, tiny labels */
-  --text-nav:     0.52rem;   /* nav items */
+  --text-display: 3.5rem;
+  --text-h1:      2rem;
+  --text-h2:      0.9rem;
+  --text-h3:      0.64rem;
+  --text-body:    0.9rem;
+  --text-meta:    0.64rem;
+  --text-micro:   0.56rem;
+  --text-nav:     0.52rem;
 
-  /* ── Leading ── */
   --leading-tight:   1.1;
   --leading-heading: 1.25;
   --leading-body:    1.6;
 
-  /* ── Tracking ── */
   --tracking-tight:   -0.02em;
   --tracking-normal:   0;
   --tracking-wide:     0.08em;
   --tracking-wider:    0.1em;
   --tracking-widest:   0.12em;
 
-  /* ── Spacing ── */
   --space-xs:  var(--primitive-space-2);
   --space-sm:  var(--primitive-space-3);
   --space-md:  var(--primitive-space-5);
@@ -107,16 +84,13 @@
   --space-xl:  var(--primitive-space-8);
   --space-2xl: var(--primitive-space-9);
 
-  /* ── Layout ── */
   --nav-width:    220px;
   --content-max:  640px;
   --page-padding: var(--primitive-space-8) 5rem;
 }
 
-
 /* ─────────────────────────────────────────────────────────────
    LAYER 3 — BASE CSS
-   Every page inherits these. Never override in components.
 ───────────────────────────────────────────────────────────── */
 
 *, *::before, *::after {
@@ -138,10 +112,9 @@ body {
   line-height: var(--leading-body);
   background: var(--color-bg);
   color: var(--color-ink);
-  min-height: 100vh;
 }
 
-/* ── Display — landing only ── */
+/* ── Display ── */
 .display {
   font-family: var(--font-display);
   font-style: italic;
@@ -152,7 +125,6 @@ body {
   color: var(--color-ink);
 }
 
-/* "of" treatment within display title */
 .display .of {
   font-size: 0.45em;
   opacity: 0.85;
@@ -161,7 +133,7 @@ body {
   vertical-align: middle;
 }
 
-/* ── H1 — page title ── */
+/* ── Headings ── */
 h1 {
   font-family: var(--font-display);
   font-size: var(--text-h1);
@@ -172,7 +144,6 @@ h1 {
   margin-bottom: var(--space-xs);
 }
 
-/* ── H2 — section heading ── */
 h2 {
   font-family: var(--font-ui);
   font-size: var(--text-h2);
@@ -185,7 +156,6 @@ h2 {
   margin-bottom: var(--space-sm);
 }
 
-/* ── H3 — sub label ── */
 h3 {
   font-family: var(--font-ui);
   font-size: var(--text-h3);
@@ -249,29 +219,11 @@ hr {
   margin: var(--space-md) 0;
 }
 
-/* ── Layout ── */
-main {
-  margin-left: var(--nav-width);
-  min-height: 100vh;
-  padding: var(--page-padding);
-}
-
-body.landing main {
-  margin-left: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ── Responsive ── */
+/* ── Responsive tokens only ── */
 @media (max-width: 1024px) {
   :root { --nav-width: 200px; }
-  main { padding: var(--space-xl) var(--space-lg); }
 }
 
 @media (max-width: 768px) {
   :root { --nav-width: 0px; }
-  main { margin-left: 0; padding: var(--space-xl) var(--space-md); }
-  h1 { font-size: var(--primitive-space-7); }
 }

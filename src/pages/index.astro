@@ -1,55 +1,37 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Navigation from '../components/Navigation.astro';
 ---
 
-<BaseLayout title="House of Laline">
-  <Navigation currentPath="/" />
+<BaseLayout title="House of Laline" landing={true}>
 
-  <main class="landing">
+  <div class="top-bar">
+    <span class="top-left">Editorial publishing house</span>
+    <span class="top-right">V1.0 · Est. 2026</span>
+  </div>
 
-    <div class="top-bar">
-      <span class="top-left">Editorial publishing house</span>
-      <span class="top-right">V1.0 · Est. 2026</span>
+  <h1 class="display">House <span class="of">of</span> Laline</h1>
+
+  <div class="bottom-bar">
+    <div class="tagline-block">
+      <p class="tagline">Architecture for the digital world.</p>
+      <a href="/index-page" class="enter">Enter the system →</a>
     </div>
-
-    <h1 class="display">House <span class="of">of</span> Laline</h1>
-
-    <div class="bottom-bar">
-      <div class="tagline-block">
-        <p class="tagline">Architecture for the digital world.</p>
-        <a href="/index-page" class="enter">Enter the system →</a>
-      </div>
-      <div class="meta-stack">
-        <span>London</span>
-        <span>Est. 2026</span>
-      </div>
+    <div class="meta-stack">
+      <span>London</span>
+      <span>Est. 2026</span>
     </div>
+  </div>
 
-  </main>
 </BaseLayout>
 
 <style>
-  main.landing {
-    margin-left: var(--nav-width);
-    height: 100vh;
-    width: calc(100vw - var(--nav-width));
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 3.5rem 4rem 4.5rem 4.5rem;
-    box-sizing: border-box;
-    background: var(--color-bg);
-    overflow: hidden;
-  }
-
   /* ── Top bar ── */
   .top-bar {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding-bottom: 1.75rem;
+    padding: 3.5rem 4rem 1.75rem 4.5rem;
     border-bottom: 1px solid var(--color-border);
     flex-shrink: 0;
   }
@@ -71,7 +53,7 @@ import Navigation from '../components/Navigation.astro';
     opacity: 0.6;
   }
 
-  /* ── Display title ── */
+  /* ── Display title — pushed to lower third ── */
   h1.display {
     font-family: var(--font-display);
     font-style: italic;
@@ -83,7 +65,8 @@ import Navigation from '../components/Navigation.astro';
     white-space: nowrap;
     margin-top: auto;
     margin-bottom: 0;
-    align-self: flex-start;
+    padding: 0 4rem 0 4.5rem;
+    flex-shrink: 0;
   }
 
   h1.display .of {
@@ -101,7 +84,7 @@ import Navigation from '../components/Navigation.astro';
     justify-content: space-between;
     align-items: flex-end;
     border-top: 1px solid var(--color-border);
-    padding-top: 1.25rem;
+    padding: 1.25rem 4rem 4.5rem 4.5rem;
     margin-top: 1.5rem;
     flex-shrink: 0;
   }
