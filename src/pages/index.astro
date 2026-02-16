@@ -13,9 +13,7 @@ import Navigation from '../components/Navigation.astro';
       <span class="top-right">V1.0 · Est. 2026</span>
     </div>
 
-    <div class="title-block">
-      <h1 class="display">House <span class="of">of</span> Laline</h1>
-    </div>
+    <h1 class="display">House <span class="of">of</span> Laline</h1>
 
     <div class="bottom-bar">
       <div class="tagline-block">
@@ -32,24 +30,28 @@ import Navigation from '../components/Navigation.astro';
 </BaseLayout>
 
 <style>
-  /* ── Landing layout ── */
   main.landing {
     margin-left: var(--nav-width);
     height: 100vh;
+    width: calc(100vw - var(--nav-width));
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 3.5rem 4rem 4.5rem 4.5rem;
+    box-sizing: border-box;
     background: var(--color-bg);
+    overflow: hidden;
   }
 
   /* ── Top bar ── */
   .top-bar {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     padding-bottom: 1.75rem;
     border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
   }
 
   .top-left {
@@ -70,22 +72,18 @@ import Navigation from '../components/Navigation.astro';
   }
 
   /* ── Display title ── */
-  .title-block {
-    flex: 1;
-    display: flex;
-    align-items: flex-end;
-  }
-
   h1.display {
     font-family: var(--font-display);
     font-style: italic;
     font-size: clamp(2.5rem, 4.5vw, 5.5rem);
     font-weight: var(--weight-regular);
     letter-spacing: 0.02em;
-    line-height: var(--leading-tight);
+    line-height: 0.92;
     color: var(--color-ink);
-    margin-bottom: 3rem;
     white-space: nowrap;
+    margin-top: auto;
+    margin-bottom: 0;
+    align-self: flex-start;
   }
 
   h1.display .of {
@@ -98,12 +96,14 @@ import Navigation from '../components/Navigation.astro';
 
   /* ── Bottom bar ── */
   .bottom-bar {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     border-top: 1px solid var(--color-border);
     padding-top: 1.25rem;
-    margin-top: -2.5rem;
+    margin-top: 1.5rem;
+    flex-shrink: 0;
   }
 
   .tagline-block {
