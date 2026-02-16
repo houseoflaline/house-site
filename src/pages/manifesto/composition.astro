@@ -3,44 +3,44 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const principles = [
   {
-    number: 'I.1',
-    plateId: 'E01-P03',
-    title: 'Restraint protects meaning',
-    href: '/manifesto/foundations/restraint',
-    abstract: 'Meaning collapses when too many signals compete. Restraint preserves hierarchy.',
+    number: 'II.1',
+    plateId: 'E01-P06',
+    title: 'Hierarchy makes meaning visible',
+    href: '/manifesto/composition/hierarchy',
+    abstract: 'Without hierarchy, everything competes equally. With it, the eye knows where to go.',
   },
   {
-    number: 'I.2',
-    plateId: 'E01-P02',
-    title: 'Authority is recognised',
-    href: '/manifesto/foundations/authority',
-    abstract: 'Authority emerges through coherence held over time, not assertion or display.',
+    number: 'II.2',
+    plateId: 'E01-P07',
+    title: 'Measure creates rhythm',
+    href: '/manifesto/composition/measure',
+    abstract: 'Consistent spacing intervals build the invisible beat that the eye follows across a page.',
   },
   {
-    number: 'I.3',
-    plateId: 'E01-P04',
-    title: 'Pacing is a decision about time',
-    href: '/manifesto/foundations/pacing',
-    abstract: 'Pacing determines how understanding forms by controlling when information is revealed.',
+    number: 'II.3',
+    plateId: 'E01-P08',
+    title: 'Balance is not symmetry',
+    href: '/manifesto/composition/balance',
+    abstract: 'Balance is a state of resolved tension. Symmetry is only one route to it.',
   },
   {
-    number: 'I.4',
-    plateId: 'E01-P05',
-    title: 'Silence is refusal made visible',
-    href: '/manifesto/foundations/silence',
-    abstract: 'Silence reveals what a system has chosen not to include, without explanation.',
+    number: 'II.4',
+    plateId: 'E01-P09',
+    title: 'Unity is the final test',
+    href: '/manifesto/composition/unity',
+    abstract: 'A composition is unified when nothing can be removed without loss.',
   },
 ];
 ---
 
-<BaseLayout title="Foundations" currentPath="/manifesto/foundations">
+<BaseLayout title="Composition" currentPath="/manifesto/composition">
 
-  <h1>Part I: Foundations</h1>
-  <p class="page-meta">Invisible structural principles · 4 principles · January 2026</p>
+  <h1>Part II: Composition</h1>
+  <p class="page-meta">How elements exist · 4 principles · January 2026</p>
 
   <div class="intro">
-    <p>Foundations are the invisible structural principles that must exist before design begins. These are non-negotiable constraints — refusals that create the architecture for everything else.</p>
-    <p>They operate beneath the surface. You cannot see restraint, but you can see its effects. Authority is not displayed; it emerges over time. Pacing is felt, not shown. Silence communicates through absence.</p>
+    <p>Composition is the logic of arrangement. It governs how elements relate to one another — in weight, in space, in sequence. Foundations tell you what to refuse; composition tells you how to place what remains.</p>
+    <p>These four principles are not decorative preferences. They are the structural conditions under which visual communication becomes reliable.</p>
   </div>
 
   <ul class="principles-list">
@@ -58,8 +58,8 @@ const principles = [
     ))}
   </ul>
 
-  <div class="foundations-note">
-    <p>These principles form the bedrock of the LALINE system. All subsequent work — composition, expression, instrumentation — depends on their consistent presence.</p>
+  <div class="section-note">
+    <p>Composition operates on what foundations have made available. The two are inseparable — restraint without placement produces nothing; placement without restraint produces noise.</p>
   </div>
 
 </BaseLayout>
@@ -151,7 +151,7 @@ const principles = [
     opacity: 0.8;
   }
 
-  .foundations-note {
+  .section-note {
     border-top: 1px solid rgba(42, 42, 37, 0.15);
     padding-top: 2rem;
     max-width: 700px;
@@ -160,7 +160,7 @@ const principles = [
     font-style: italic;
   }
 
-  .foundations-note p { margin-bottom: 0; }
+  .section-note p { margin-bottom: 0; }
 
   @media (max-width: 768px) {
     .principle-item { flex-direction: column; gap: 0.5rem; }

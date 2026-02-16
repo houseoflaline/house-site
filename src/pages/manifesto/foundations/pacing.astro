@@ -3,15 +3,12 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Pacing is a decision about time" currentPath="/manifesto/foundations/pacing">
-  <div class="breadcrumb">
-    <a href="/">Entry</a> / <a href="/manifesto">Manifesto</a> / <a href="/manifesto/foundations">Foundations</a> / Pacing
-  </div>
 
   <article class="principle-document">
     <header class="principle-header">
       <div class="principle-meta">
-        <span class="principle-number">I.3</span>
-        <span class="plate-id">E01-P04</span>
+        <span>I.3</span>
+        <span>E01-P04</span>
       </div>
       <h1>Pacing is a decision about time</h1>
       <p class="abstract">Pacing determines how understanding forms by controlling when information is revealed.</p>
@@ -23,42 +20,20 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
       <p>It is a structural decision about time.</p>
 
       <h2>Context</h2>
-      <p>
-        Systems often confuse pacing with urgency—using speed to create pressure. But pacing is about cognitive rhythm: the rate at which information can be absorbed without overwhelming the user's capacity to process it.
-      </p>
-      <p>
-        Deliberate deceleration is not inefficiency. It is respect for how understanding actually forms.
-      </p>
+      <p>Systems often confuse pacing with urgency — using speed to create pressure. But pacing is about cognitive rhythm: the rate at which information can be absorbed without overwhelming the user's capacity to process it.</p>
+      <p>Deliberate deceleration is not inefficiency. It is respect for how understanding actually forms.</p>
 
       <h2>Application</h2>
-      <p>
-        Pacing manifests through consistent intervals. Content unfolds at a predictable rate—never accelerating to create drama, never stalling to withhold. Each page operates at the same cognitive speed, allowing users to traverse depth rather than breadth.
-      </p>
+      <p>Pacing manifests through consistent intervals. Content unfolds at a predictable rate — never accelerating to create drama, never stalling to withhold. Each page operates at the same cognitive speed, allowing users to traverse depth rather than breadth.</p>
 
       <h2>Citation</h2>
-      <p class="citation-text">
-        This principle may be cited as: <strong>I.3 (Pacing)</strong> or by plate reference <strong>E01-P04</strong>.
-      </p>
+      <p class="citation-text">This principle may be cited as: <strong>I.3 (Pacing)</strong> or by plate reference <strong>E01-P04</strong>.</p>
     </section>
   </article>
+
 </BaseLayout>
 
 <style>
-  .breadcrumb {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 3rem;
-  }
-
-  .breadcrumb a {
-    color: var(--text-secondary);
-    text-decoration: underline;
-  }
-
-  .breadcrumb a:hover {
-    color: var(--text);
-  }
-
   .principle-document {
     max-width: 700px;
   }
@@ -66,17 +41,18 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   .principle-header {
     margin-bottom: 3rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(42, 42, 37, 0.15);
   }
 
   .principle-meta {
     display: flex;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
-    font-family: 'Courier New', monospace;
-    font-size: 0.8rem;
-    color: var(--text-tertiary);
+    font-family: var(--font-nav);
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    opacity: 0.45;
   }
 
   .principle-header h1 {
@@ -88,32 +64,38 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
   .abstract {
     font-size: 1.15rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
+    line-height: 1.75;
     font-style: italic;
+    opacity: 0.75;
   }
 
   .principle-content h2 {
-    font-size: 1.3rem;
-    font-weight: 400;
+    font-size: 0.6rem;
+    font-family: var(--font-nav);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
+    opacity: 0.5;
   }
 
   .principle-content p {
     margin-bottom: 1.5rem;
-    line-height: 1.8;
+    line-height: 1.85;
   }
 
   .citation-text {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    font-style: italic;
+    font-family: var(--font-nav);
+    font-size: 0.58rem;
+    letter-spacing: 0.04em;
+    font-style: normal;
+    opacity: 0.55;
   }
 
   .citation-text strong {
-    color: var(--text);
-    font-weight: 600;
+    font-weight: 700;
     font-style: normal;
+    opacity: 1;
   }
 </style>

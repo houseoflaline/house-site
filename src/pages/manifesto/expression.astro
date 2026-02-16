@@ -1,65 +1,65 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const principles = [
+const modes = [
   {
-    number: 'I.1',
-    plateId: 'E01-P03',
-    title: 'Restraint protects meaning',
-    href: '/manifesto/foundations/restraint',
-    abstract: 'Meaning collapses when too many signals compete. Restraint preserves hierarchy.',
+    number: 'III.1',
+    plateId: 'E01-P10',
+    title: 'Visual expression',
+    href: '/manifesto/expression/visual',
+    abstract: 'Meaning carried primarily through image, form, and graphic weight. The eye arrives before the mind.',
   },
   {
-    number: 'I.2',
-    plateId: 'E01-P02',
-    title: 'Authority is recognised',
-    href: '/manifesto/foundations/authority',
-    abstract: 'Authority emerges through coherence held over time, not assertion or display.',
+    number: 'III.2',
+    plateId: 'E01-P11',
+    title: 'Kinetic expression',
+    href: '/manifesto/expression/kinetic',
+    abstract: 'Meaning carried through movement, sequence, and change over time. Duration becomes the medium.',
   },
   {
-    number: 'I.3',
-    plateId: 'E01-P04',
-    title: 'Pacing is a decision about time',
-    href: '/manifesto/foundations/pacing',
-    abstract: 'Pacing determines how understanding forms by controlling when information is revealed.',
+    number: 'III.3',
+    plateId: 'E01-P12',
+    title: 'Verbal expression',
+    href: '/manifesto/expression/verbal',
+    abstract: 'Meaning carried through language — its precision, rhythm, and weight. Text is not a container; it is the substance.',
   },
   {
-    number: 'I.4',
-    plateId: 'E01-P05',
-    title: 'Silence is refusal made visible',
-    href: '/manifesto/foundations/silence',
-    abstract: 'Silence reveals what a system has chosen not to include, without explanation.',
+    number: 'III.4',
+    plateId: 'E01-P13',
+    title: 'Spatial expression',
+    href: '/manifesto/expression/spatial',
+    abstract: 'Meaning carried through the arrangement of empty space. What is absent defines what remains.',
   },
 ];
 ---
 
-<BaseLayout title="Foundations" currentPath="/manifesto/foundations">
+<BaseLayout title="Expression" currentPath="/manifesto/expression">
 
-  <h1>Part I: Foundations</h1>
-  <p class="page-meta">Invisible structural principles · 4 principles · January 2026</p>
+  <h1>Part III: Expression</h1>
+  <p class="page-meta">How work is revealed · 4 modes · January 2026</p>
 
   <div class="intro">
-    <p>Foundations are the invisible structural principles that must exist before design begins. These are non-negotiable constraints — refusals that create the architecture for everything else.</p>
-    <p>They operate beneath the surface. You cannot see restraint, but you can see its effects. Authority is not displayed; it emerges over time. Pacing is felt, not shown. Silence communicates through absence.</p>
+    <p>Expression is the final layer — how the work reaches its audience. After foundations have established constraints and composition has arranged what remains, expression determines the primary vehicle through which meaning travels.</p>
+    <p>Choose one mode as primary. The others may be present, but subordinate. A work that attempts all four equally achieves none of them.</p>
   </div>
 
   <ul class="principles-list">
-    {principles.map(principle => (
+    {modes.map(mode => (
       <li class="principle-item">
-        <div class="principle-number">{principle.number}</div>
+        <div class="principle-number">{mode.number}</div>
         <div class="principle-content">
           <div class="principle-header">
-            <h3><a href={principle.href}>{principle.title}</a></h3>
-            <span class="plate-ref">{principle.plateId}</span>
+            <h3><a href={mode.href}>{mode.title}</a></h3>
+            <span class="plate-ref">{mode.plateId}</span>
           </div>
-          <p class="principle-abstract">{principle.abstract}</p>
+          <p class="principle-abstract">{mode.abstract}</p>
         </div>
       </li>
     ))}
   </ul>
 
-  <div class="foundations-note">
-    <p>These principles form the bedrock of the LALINE system. All subsequent work — composition, expression, instrumentation — depends on their consistent presence.</p>
+  <div class="section-note">
+    <p>Expression without foundation is decoration. Foundation without expression is doctrine. The system requires both.</p>
   </div>
 
 </BaseLayout>
@@ -151,7 +151,7 @@ const principles = [
     opacity: 0.8;
   }
 
-  .foundations-note {
+  .section-note {
     border-top: 1px solid rgba(42, 42, 37, 0.15);
     padding-top: 2rem;
     max-width: 700px;
@@ -160,7 +160,7 @@ const principles = [
     font-style: italic;
   }
 
-  .foundations-note p { margin-bottom: 0; }
+  .section-note p { margin-bottom: 0; }
 
   @media (max-width: 768px) {
     .principle-item { flex-direction: column; gap: 0.5rem; }

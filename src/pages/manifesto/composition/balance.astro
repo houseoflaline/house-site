@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Balance — Manifesto Part II" currentPath="/manifesto/composition/balance">
+  <div class="breadcrumb">
+    <a href="/">Entry</a> / <a href="/manifesto">Manifesto</a> / <a href="/manifesto/composition">Composition</a> / Balance
+  </div>
+
+  <article class="principle-page">
+    <header class="principle-header">
+      <div class="principle-number">II.3</div>
+      <h1>Balance</h1>
+      <p class="principle-statement">Visual weight must be distributed. Equilibrium is not symmetry.</p>
+    </header>
+
+    <section class="principle-content">
+      <h2>What Balance Is</h2>
+      <p>
+        Balance is the distribution of visual weight across a composition. Every element carries weight—mass perceived by the eye based on size, color, density, and position. When weight is concentrated on one side, the composition tilts. When weight is evenly distributed, the composition achieves equilibrium.
+      </p>
+      <p>
+        This is not metaphor. The human visual system perceives imbalance as tension. A composition weighted heavily to one side feels unstable, as if it might topple. This instability can be intentional—used to create dynamism or draw attention—but when unintentional, it produces discomfort. The viewer senses that something is wrong even if they cannot articulate what.
+      </p>
+      <p>
+        Balance does not require symmetry. A large element on one side can be balanced by several smaller elements on the other. A dark shape at the top can be balanced by a light shape of greater size at the bottom. Balance is about equivalence of weight, not mirroring of form. Asymmetric compositions can be perfectly balanced. Symmetric compositions can be unbalanced if weight is concentrated incorrectly.
+      </p>
+
+      <h2>What Balance Is Not</h2>
+      <p>
+        Balance is not equality of space. A composition where every quadrant contains the same amount of content is not necessarily balanced. If one quadrant contains dense, dark elements and another contains sparse, light elements, the weight is unequal despite equal spatial distribution. Balance considers density, not just area.
+      </p>
+      <p>
+        Balance is not neutrality. A balanced composition can be bold, dramatic, and asymmetric. Balance does not mean everything is centered or equidistant. It means the forces within the composition are in equilibrium. A tightrope walker is balanced, but they are not static—they shift constantly to maintain equilibrium. Composition works the same way.
+      </p>
+      <p>
+        Balance is not sameness. Repeating identical elements on both sides creates symmetry, which is one form of balance, but not the only form. More interesting compositions achieve balance through contrast—heavy and light, large and small, dense and sparse—where different weights counteract each other to produce equilibrium.
+      </p>
+
+      <h2>How Balance Works</h2>
+      <p>
+        Visual weight is determined by multiple factors. <strong>Size</strong> is the most obvious—larger elements weigh more. But <strong>color</strong> also carries weight: darker colors weigh more than lighter ones, saturated colors weigh more than muted ones. <strong>Density</strong> affects weight: a block of text weighs more than an equivalent area of white space. <strong>Position</strong> matters: elements near the edge of a composition carry more weight than elements near the center, because the eye must travel further to reach them.
+      </p>
+      <p>
+        To balance a composition, the designer considers these factors holistically. A large, light element may balance a small, dark element. A dense block of text on the left may be balanced by a single image on the right if the image is visually striking. The calculation is intuitive but follows consistent principles: identify the heaviest element, determine where weight concentrates, and distribute counterweights accordingly.
+      </p>
+      <p>
+        There are two primary approaches to balance: <strong>symmetric</strong> and <strong>asymmetric</strong>. Symmetric balance mirrors elements across a central axis. This produces formal, stable compositions. It is easy to achieve but can feel static if overused. Asymmetric balance distributes weight unevenly but maintains equilibrium through careful counterbalancing. This produces dynamic, engaging compositions but requires more skill to execute.
+      </p>
+      <p>
+        A third approach, <strong>radial balance</strong>, distributes weight around a central point, like spokes on a wheel. This is less common in web and print design but appears in logos, badges, and decorative elements. It creates focus and unity but can feel constrained if applied to entire page layouts.
+      </p>
+      <p>
+        Regardless of approach, balance is tested by observing the composition as a whole and asking: does one area dominate to the point of destabilizing the rest? If yes, weight must be redistributed—either by reducing the dominant area or by adding counterweight elsewhere. The goal is not uniformity but equilibrium.
+      </p>
+
+      <h2>Why Balance Matters</h2>
+      <p>
+        Unbalanced compositions distract. The viewer's attention is pulled toward the heaviest area, and once there, they may not explore the rest of the composition. If the imbalance is severe, the viewer may feel discomfort or confusion. They sense that something is wrong but cannot identify the cause. This cognitive friction disrupts comprehension.
+      </p>
+      <p>
+        Balance allows the viewer to move through a composition naturally. When weight is distributed evenly, no single area monopolizes attention. The eye can travel from element to element without resistance. The composition feels complete—each part supporting the others, no part dominating unnecessarily.
+      </p>
+      <p>
+        Balance also communicates intent. A deliberately unbalanced composition signals dynamism, urgency, or tension. A balanced composition signals stability, thoughtfulness, and control. The designer's choice to balance or unbalance is a statement about the nature of the content. Balance is not neutral—it is a tool with meaning.
+      </p>
+      <p>
+        In LALINE Doctrine, balance is evaluated rigorously. Every composition is assessed for weight distribution. If an area feels heavy without justification, it is adjusted. If symmetry produces monotony, asymmetric balance is introduced. The goal is equilibrium that serves the viewer's experience, not formulaic adherence to a single approach. Balance is achieved when the composition feels resolved—when nothing could be added or removed without destabilizing the whole.
+      </p>
+    </section>
+
+    <footer class="principle-citation">
+      <p>Manifesto II.3 — Balance</p>
+      <p>House of Laline, 2026</p>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text);
+  }
+
+  .principle-page {
+    max-width: 700px;
+  }
+
+  .principle-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .principle-number {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .principle-header h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+
+  .principle-statement {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .principle-content h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .principle-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .principle-citation {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+  }
+
+  .principle-citation p {
+    margin-bottom: 0.5rem;
+  }
+</style>

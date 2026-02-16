@@ -2,24 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Index" currentPath="/index">
-  <div class="breadcrumb">
-    <a href="/">Home</a> / Index
-  </div>
-
+<BaseLayout title="Index" currentPath="/index-page">
   <h1>Index</h1>
-  <p class="page-meta">Complete directory of all system resources · Updated February 2026</p>
-
-  <div class="content-section">
-    <p>
-      A reference system for accessing hierarchical knowledge. Content is organized by vertical clarity, not promotional weight. Everything here is findable, stable, and deliberate.
-    </p>
-  </div>
+  <p class="page-meta">Complete directory of all resources · February 2026</p>
 
   <ul class="section-list">
     <li>
-      <a href="/works">Works</a>
-      <p class="section-desc">Editorial structures and design systems for implementation.</p>
+      <a href="/preface">Preface</a>
+      <p class="section-desc">An introduction to the house, its purpose, and its position.</p>
+    </li>
+    <li>
+      <a href="/doctrine">Doctrine</a>
+      <p class="section-desc">System principles, structural constraints, and mandatory rules.</p>
+    </li>
+    <li>
+      <a href="/manifesto">Manifesto</a>
+      <p class="section-desc">Twelve principles across Foundations, Composition, and Expression.</p>
     </li>
     <li>
       <a href="/texts">Texts</a>
@@ -30,64 +28,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="section-desc">Distilled design principles. Citable, quotable maxims.</p>
     </li>
     <li>
-      <a href="/editions">Editions</a>
-      <p class="section-desc">Curated collections of works and plates released together.</p>
+      <a href="/decision-framework">Frameworks</a>
+      <p class="section-desc">Decision frameworks for design practice.</p>
     </li>
     <li>
-      <a href="/archive">Archive</a>
-      <p class="section-desc">Historical record of sold editions and discontinued works.</p>
+      <a href="/measured-design">Measures</a>
+      <p class="section-desc">Modular scale, grid anatomy, rhythm and spacing.</p>
     </li>
     <li>
-      <a href="/doctrine">Doctrine</a>
-      <p class="section-desc">System principles, structural constraints, and mandatory rules.</p>
-    </li>
-    <li>
-      <a href="/methodology">Methodology</a>
-      <p class="section-desc">Documentation of organizational processes and decision frameworks.</p>
-    </li>
-    <li>
-      <a href="/instruments">Instruments</a>
-      <p class="section-desc">Tools for validating design execution against principles.</p>
+      <a href="/style-ecosystem">System</a>
+      <p class="section-desc">Style ecosystem, resources, and glossary.</p>
     </li>
   </ul>
 </BaseLayout>
 
 <style>
-  .breadcrumb {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 3rem;
-  }
-
-  .breadcrumb a {
-    color: var(--text-secondary);
-    text-decoration: underline;
-  }
-
-  .breadcrumb a:hover {
-    color: var(--text);
+  h1 {
+    margin-bottom: 0.5rem;
   }
 
   .page-meta {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 3rem;
+    font-family: var(--font-nav);
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
     font-style: italic;
-  }
-
-  .content-section {
+    color: var(--color-text);
+    opacity: 0.6;
     margin-bottom: 3rem;
   }
 
   .section-list {
     list-style: none;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   .section-list li {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid rgba(42, 42, 37, 0.12);
   }
 
   .section-list li:last-child {
@@ -95,22 +73,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .section-list a {
-    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    color: var(--color-text);
     text-decoration: none;
-    font-size: 1.2rem;
-    display: inline;
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s;
   }
 
   .section-list a:hover {
-    border-bottom-color: var(--text);
+    border-bottom-color: var(--color-text);
+    opacity: 1;
   }
 
   .section-desc {
+    font-family: var(--font-body);
     font-size: 0.95rem;
-    color: var(--text-secondary);
-    margin-top: 0.5rem;
+    color: var(--color-text);
+    opacity: 0.65;
+    margin-top: 0.4rem;
+    margin-bottom: 0;
     line-height: 1.6;
   }
 </style>
