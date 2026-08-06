@@ -61,7 +61,7 @@ const isAtlasActive = isParentActive(['/works']) || isActive(atlasEssayPath);
           <a href="/plates" class={`nav-title ${isParentActive(['/plates']) ? 'active' : ''}`}>Plates</a>
         </div>
         <ul class="nav-sub">
-          <li><a href="/plates#edition-01">Philosophical foundations</a></li>
+          <li><a href="/plates#edition-01">Foundations</a></li>
           <li class={isParentActive(['/plates/']) ? 'dot-active' : ''}><a href="/plates#edition-02">Design fundamentals</a></li>
         </ul>
       </div>
@@ -70,7 +70,7 @@ const isAtlasActive = isParentActive(['/works']) || isActive(atlasEssayPath);
 
     <footer class="nav-footer">
       <img src="/laline-mark.svg" alt="" width="28" height="28" />
-      <span>Build 1.6.0</span>
+      <span class="nav-build-lockup">Build 1.6.0</span>
     </footer>
   </div>
 </nav>
@@ -117,7 +117,7 @@ const isAtlasActive = isParentActive(['/works']) || isActive(atlasEssayPath);
   }
 
   .nav-group {
-    margin-bottom: 1.3rem;
+    margin-bottom: 2rem;
     flex-shrink: 0;
   }
 
@@ -149,7 +149,7 @@ const isAtlasActive = isParentActive(['/works']) || isActive(atlasEssayPath);
     padding-left: 1.5rem;
   }
   .nav-title:hover { opacity: 0.5; }
-  .nav-title.active { color: var(--color-secondary); }
+  .nav-title.active { color: var(--color-ink); }
 
   /* ── Sub items ── */
   .nav-sub {
@@ -169,7 +169,7 @@ const isAtlasActive = isParentActive(['/works']) || isActive(atlasEssayPath);
     content: '';
     width: 3px; height: 3px;
     border-radius: 50%;
-    background: var(--color-secondary);
+    background: var(--color-reading-ink);
     opacity: 0;
     justify-self: end;
     margin-right: 0.25rem;
@@ -181,11 +181,11 @@ const isAtlasActive = isParentActive(['/works']) || isActive(atlasEssayPath);
     font-family: var(--font-ui);
     font-size: var(--text-nav);
     font-weight: var(--weight-regular);
-    color: var(--color-ink);
-    opacity: 0.45;
+    color: var(--color-reading-ink);
+    opacity: 0.82;
     text-decoration: none;
   }
-  .nav-sub a:hover { opacity: 0.7; }
+  .nav-sub a:hover { opacity: 1; }
 
   /* ── Footer ── */
   .nav-footer {
@@ -199,14 +199,11 @@ const isAtlasActive = isParentActive(['/works']) || isActive(atlasEssayPath);
   }
 
   .nav-footer img { display: block; width: 1.75rem; height: 1.75rem; }
-  .nav-footer span {
-    font-family: var(--font-ui);
-    font-size: 0.5rem;
-    font-weight: var(--weight-regular);
-    line-height: 1;
-    letter-spacing: var(--tracking-wider);
+  .nav-footer .nav-build-lockup {
+    font: var(--weight-bold) var(--text-nav)/1 var(--font-ui) !important;
+    letter-spacing: var(--tracking-widest) !important;
     text-transform: uppercase;
-    color: var(--color-secondary);
+    color: var(--color-ink) !important;
   }
 
   @media (max-width: 768px) { nav { display: none; } }
