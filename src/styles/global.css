@@ -1,127 +1,337 @@
-/* Global Styles for House of Laline */
+/* ═══════════════════════════════════════════════════════════════
+   LALINE — Design Tokens V2.0
+   House of Laline · Editorial Publishing House
+   Locked: April 2026
+═══════════════════════════════════════════════════════════════ */
 
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+/* ─────────────────────────────────────────────────────────────
+   LAYER 1 — PRIMITIVES
+───────────────────────────────────────────────────────────── */
 :root {
-  --bg: #EFEFF1;
-  --bg-nav: #F6F6F8;
-  --text: #1a1a1a;
-  --text-secondary: #4A4035;
-  --text-tertiary: #6a6a6a;
-  --border: #D5D5D8;
-  --accent: #1a1a1a;
-  --nav-width: 300px;
+  --primitive-neutral-50:  #F7F7F5;
+  --primitive-neutral-100: #F0F0ED;
+  --primitive-neutral-900: #141412;
+  --primitive-wine-900:    #1F1114;
+  /* Recovered from the original Laline colour studies and style manual. */
+  --primitive-russet-600:  #8B4513;
+
+  --primitive-font-display: 'Cormorant Garamond', Georgia, serif;
+  --primitive-font-mono:    'Courier Prime', 'Courier New', monospace;
+  --primitive-font-serif:   'Spectral', Georgia, serif;
+
+  --primitive-weight-light:   300;
+  --primitive-weight-regular: 400;
+  --primitive-weight-medium:  500;
+  --primitive-weight-bold:    700;
+
+  --primitive-space-1:  0.25rem;
+  --primitive-space-2:  0.5rem;
+  --primitive-space-3:  0.75rem;
+  --primitive-space-4:  1rem;
+  --primitive-space-5:  1.5rem;
+  --primitive-space-6:  2rem;
+  --primitive-space-7:  3rem;
+  --primitive-space-8:  4rem;
+  --primitive-space-9:  6rem;
+
+  --primitive-motion-fast:   120ms ease;
+  --primitive-motion-base:   200ms ease;
+  --primitive-motion-slow:   400ms ease;
 }
 
-* {
+/* ─────────────────────────────────────────────────────────────
+   LAYER 2 — SEMANTIC TOKENS
+───────────────────────────────────────────────────────────── */
+:root {
+  --color-bg:        var(--primitive-neutral-50);
+  --color-surface:   var(--primitive-neutral-100);
+  --color-ink:       var(--primitive-neutral-900);
+  --color-secondary: var(--color-reading-ink);
+  --color-accent:    var(--primitive-russet-600);
+  /* Ink study shortlist: dark oxblood, liked but not the remembered ink. */
+  --color-ink-study-oxblood: #4A1822;
+  --color-ink-study-maroon:  #42152A;
+  --color-ink-study:         var(--color-ink-study-maroon);
+  --color-reading-ink:       var(--color-ink-study-maroon);
+  --color-muted:             rgba(20, 20, 18, 0.58);
+  --color-border:    rgba(20, 20, 18, 0.07);
+  --color-border-strong: rgba(20, 20, 18, 0.18);
+
+  --font-display: var(--primitive-font-display);
+  --font-ui:      var(--primitive-font-mono);
+  --font-body:    var(--primitive-font-serif);
+
+  --weight-light:   var(--primitive-weight-light);
+  --weight-regular: var(--primitive-weight-regular);
+  --weight-medium:  var(--primitive-weight-medium);
+  --weight-bold:    var(--primitive-weight-bold);
+
+  --text-display: 3.5rem;
+  --text-h1:      clamp(2.5rem, 4vw, 3.25rem);
+  --text-h2:      1.125rem;
+  --text-h3:      1.0625rem;
+  --text-body:    1rem;
+  --text-meta:    0.6875rem;
+  --text-micro:   0.625rem;
+  --text-nav:     0.625rem;
+
+  --leading-tight:   1.1;
+  --leading-heading: 1.25;
+  --leading-body:    1.75;
+
+  --tracking-tight:   -0.02em;
+  --tracking-normal:   0;
+  --tracking-wide:     0.08em;
+  --tracking-wider:    0.1em;
+  --tracking-widest:   0.12em;
+
+  --space-xs:  var(--primitive-space-2);
+  --space-sm:  var(--primitive-space-3);
+  --space-md:  var(--primitive-space-5);
+  --space-lg:  var(--primitive-space-7);
+  --space-xl:  var(--primitive-space-8);
+  --space-2xl: var(--primitive-space-9);
+
+  --nav-width:    220px;
+  --content-max:  700px;
+  --page-padding: var(--primitive-space-8) 5rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   LAYER 3 — BASE CSS
+───────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
-  background-color: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-  position: relative;
-  min-height: 100vh;
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  background: var(--color-bg);
+  color: var(--color-ink);
 }
 
-/* Paper texture overlay */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0, 0, 0, 0.012) 2px,
-      rgba(0, 0, 0, 0.012) 4px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 2px,
-      rgba(0, 0, 0, 0.012) 2px,
-      rgba(0, 0, 0, 0.012) 4px
-    );
-  pointer-events: none;
-  opacity: 0.5;
-  z-index: 1;
+/* ── Display ── */
+.display {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-display);
+  font-weight: var(--weight-light);
+  letter-spacing: 0.01em;
+  line-height: var(--leading-tight);
+  color: var(--color-ink);
 }
 
-/* Noise texture for paper grain */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.04;
-  pointer-events: none;
-  z-index: 1;
+.display .of {
+  font-size: 0.45em;
+  opacity: 0.85;
+  letter-spacing: 0.06em;
+  margin: 0 0.05em;
+  vertical-align: middle;
 }
 
-/* Typography */
+/* ── Headings ── */
 h1 {
-  font-size: 2.75rem;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-  line-height: 1.2;
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0.01em;
+  line-height: var(--leading-tight);
+  color: var(--color-ink);
+  margin-bottom: var(--space-xs);
 }
 
 h2 {
-  font-size: 1.65rem;
-  font-weight: 400;
-  margin-bottom: 1rem;
-  margin-top: 2.5rem;
+  font-family: var(--font-ui);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  line-height: var(--leading-heading);
+  color: var(--color-secondary);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
 }
 
 h3 {
-  font-size: 1.2rem;
-  font-weight: 400;
-  margin-bottom: 0.5rem;
+  font-family: var(--font-ui);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  line-height: var(--leading-heading);
+  color: var(--color-secondary);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-xs);
 }
 
+/* ── Body ── */
 p {
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
-  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-light);
+  line-height: var(--leading-body);
+  color: var(--color-reading-ink);
+  margin-bottom: var(--space-md);
+  max-width: var(--content-max);
 }
 
+em { font-style: italic; }
+strong { font-weight: var(--weight-regular); }
+
+/* ── Meta ── */
+.meta {
+  font-family: var(--font-ui);
+  font-size: var(--text-meta);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  display: block;
+  margin-bottom: var(--space-lg);
+}
+
+/* ── Micro ── */
+.micro {
+  font-family: var(--font-ui);
+  font-size: var(--text-micro);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+/* ── Links ── */
 a {
-  color: var(--text);
-  transition: all 0.2s;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity var(--primitive-motion-base);
+}
+a:hover { opacity: 0.55; }
+
+.content-mobile-header { display: none !important; }
+
+/* ── Divider ── */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-md) 0;
 }
 
-/* Responsive */
+/* ─────────────────────────────────────────────────────────────
+   LOCKED CONTENT HIERARCHY
+   Recovered pages may vary in composition, but semantic levels
+   retain one typographic authority and one vertical rhythm.
+───────────────────────────────────────────────────────────── */
+.main--content h1 {
+  max-width: 780px;
+  margin: 0 0 3.5rem !important;
+  font-family: var(--font-display) !important;
+  font-size: var(--text-h1) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: 1.08 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--color-ink) !important;
+}
+
+.main--content h2 {
+  margin: 3.75rem 0 1.25rem !important;
+  font-family: var(--font-ui) !important;
+  font-size: var(--text-h2) !important;
+  font-weight: var(--weight-bold) !important;
+  line-height: 1.35 !important;
+  letter-spacing: var(--tracking-wider) !important;
+  text-transform: uppercase !important;
+  color: var(--color-ink) !important;
+  opacity: 1 !important;
+}
+
+.main--content h3 {
+  margin: 2.5rem 0 0.75rem !important;
+  font-family: var(--font-ui) !important;
+  font-size: var(--text-h3) !important;
+  font-style: normal !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  color: var(--color-ink) !important;
+}
+
+.main--content p,
+.main--content li,
+.main--content dd {
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+}
+
+.main--content p { margin-bottom: 1.5rem; }
+
+.main--content .lead,
+.main--content .abstract {
+  font-size: 1.125rem !important;
+  line-height: 1.75 !important;
+}
+
+.main--content .meta,
+.main--content [class$='-meta']:not(.work-meta),
+.main--content .breadcrumb,
+.main--content .part-number,
+.main--content .part-status {
+  font-family: var(--font-ui) !important;
+  font-size: var(--text-meta) !important;
+  line-height: 1.5 !important;
+  letter-spacing: var(--tracking-wider) !important;
+}
+
+.main--content hr {
+  margin: 4rem 0;
+}
+
+.main--content section {
+  max-width: var(--content-max);
+}
+
+/* ── Responsive tokens only ── */
 @media (max-width: 1024px) {
-  :root {
-    --nav-width: 260px;
-  }
+  :root { --nav-width: 200px; }
 }
 
 @media (max-width: 768px) {
   :root {
-    --nav-width: 100%;
+    --nav-width: 0px;
+    --text-h1: clamp(2.2rem, 11vw, 2.8rem);
+    --text-h2: 1rem;
+    --text-h3: 1rem;
   }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
-  h2 {
-    font-size: 1.4rem;
-  }
-  
-  p {
-    font-size: 1rem;
+
+  .main--content h1 { margin-bottom: 2.75rem !important; }
+  .main--content h2 { margin-top: 3rem !important; }
+  .main--content h3 { margin-top: 2.25rem !important; }
+
+  .content-mobile-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 1.25rem 1.5rem !important;
+    border-bottom: 1px solid var(--color-border);
+    font-family: var(--font-ui) !important;
+    font-size: var(--text-nav) !important;
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
   }
 }

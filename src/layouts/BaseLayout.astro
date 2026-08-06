@@ -1,13 +1,15 @@
 ---
 import Navigation from '../components/Navigation.astro';
 import '../styles/global.css';
+import '../styles/content-system.css';
 
 interface Props {
   title: string;
   currentPath?: string;
+  landing?: boolean;
 }
 
-const { title, currentPath } = Astro.props;
+const { title, currentPath = '/', landing = false } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -15,15 +17,21 @@ const { title, currentPath } = Astro.props;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title} · House of Laline</title>
+  <title>{landing ? title : `${title} · House of Laline`}</title>
+  <link rel="icon" type="image/svg+xml" href="/laline-mark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="layout">
+  <div class={`layout ${landing ? 'layout--landing' : ''}`}>
     <Navigation currentPath={currentPath} />
-    <main>
+    {!landing && (
+      <header class="content-mobile-header">
+        <a href="/">House of Laline</a>
+        <a href="/index-page">Index</a>
+      </header>
+    )}
+    <main class={landing ? 'main--landing' : 'main--content'}>
       <slot />
     </main>
   </div>
@@ -31,34 +39,78 @@ const { title, currentPath } = Astro.props;
 </html>
 
 <style>
+  /* ── Kill all horizontal overflow at root ── */
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* ── Landing pages form the public front door and may scroll. ── */
+  body:has(.layout--landing) {
+    overflow-x: hidden;
+  }
+
   .layout {
     display: flex;
     min-height: 100vh;
-    position: relative;
-    z-index: 2;
   }
 
-  main {
+  .layout--landing {
+    min-height: 100vh;
+  }
+
+  .content-mobile-header { display: none; }
+
+  /* ── Standard content pages ── */
+  .main--content {
     margin-left: var(--nav-width);
     flex: 1;
-    padding: 3rem 4rem;
-    max-width: 900px;
+    padding: 4rem 5rem;
+    min-height: 100vh;
+    max-width: calc(100vw - var(--nav-width));
+    overflow-x: hidden;
   }
 
+  /* ── Landing: full-width editorial sections, no wrapper padding ── */
+  .main--landing {
+    margin-left: var(--nav-width);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: calc(100vw - var(--nav-width));
+    overflow-x: hidden;
+  }
+
+  /* ── Responsive ── */
   @media (max-width: 1024px) {
-    main {
-      padding: 2.5rem 3rem;
-    }
+    .main--content { padding: 3rem 3.5rem; }
   }
 
   @media (max-width: 768px) {
-    .layout {
-      flex-direction: column;
+    .layout { flex-direction: column; }
+    .content-mobile-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      font-family: var(--font-ui);
+      font-size: var(--text-nav);
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
     }
-
-    main {
+    .main--content,
+    .main--landing {
       margin-left: 0;
-      padding: 2rem 1.5rem;
+      max-width: 100vw;
+      height: auto;
     }
+    .main--content { padding: 2rem 1.5rem; }
+    .layout--landing { height: auto; overflow: visible; }
   }
 </style>

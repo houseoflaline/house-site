@@ -8,7 +8,7 @@ const texts = [
     href: '/texts/attention',
     abstract: 'How the eye selects what the mind processes before working memory sees it.',
     published: '2026-01',
-    readTime: '18 min'
+    readTime: '10 min'
   },
   {
     number: 'T02',
@@ -16,7 +16,7 @@ const texts = [
     href: '/texts/cognitive',
     abstract: 'Understanding cognitive load and its implications for interface design.',
     published: '2026-01',
-    readTime: '15 min'
+    readTime: '10 min'
   },
   {
     number: 'T03',
@@ -24,7 +24,7 @@ const texts = [
     href: '/texts/contrast',
     abstract: 'The role of contrast in establishing hierarchy and guiding attention.',
     published: '2026-01',
-    readTime: '12 min'
+    readTime: '7 min'
   },
   {
     number: 'T04',
@@ -32,7 +32,7 @@ const texts = [
     href: '/texts/gestalt',
     abstract: 'How the mind organizes visual information into coherent wholes.',
     published: '2026-01',
-    readTime: '14 min'
+    readTime: '11 min'
   },
   {
     number: 'T05',
@@ -48,7 +48,7 @@ const texts = [
     href: '/texts/sequence',
     abstract: 'The structural role of order in how information is encountered and understood.',
     published: '2026-01',
-    readTime: '16 min'
+    readTime: '10 min'
   },
   {
     number: 'T07',
@@ -94,22 +94,22 @@ const texts = [
 <style>
   .breadcrumb {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     margin-bottom: 3rem;
   }
 
   .breadcrumb a {
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     text-decoration: underline;
   }
 
   .breadcrumb a:hover {
-    color: var(--text);
+    color: var(--color-ink);
   }
 
   .page-meta {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     margin-bottom: 3rem;
     font-style: italic;
   }
@@ -124,7 +124,7 @@ const texts = [
   }
 
   .text-item {
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--color-border);
     padding: 2rem 0;
     display: flex;
     gap: 2rem;
@@ -132,13 +132,13 @@ const texts = [
   }
 
   .text-item:last-child {
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .text-number {
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-ui);
     font-size: 0.875rem;
-    color: var(--text-tertiary);
+    color: var(--color-muted);
     min-width: 2.5rem;
     font-variant-numeric: tabular-nums;
   }
@@ -154,26 +154,26 @@ const texts = [
   }
 
   .text-item h3 a {
-    color: var(--text);
+    color: var(--color-ink);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s;
   }
 
   .text-item h3 a:hover {
-    border-bottom-color: var(--text);
+    border-bottom-color: var(--color-ink);
   }
 
   .text-abstract {
     font-size: 1rem;
     line-height: 1.7;
     margin-bottom: 0.75rem;
-    color: var(--text);
+    color: var(--color-ink);
   }
 
   .text-meta {
     font-size: 0.85rem;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
   }
 
   @media (max-width: 768px) {

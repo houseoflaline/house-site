@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Hierarchy — Manifesto Part II" currentPath="/manifesto/composition/hierarchy">
+  <div class="breadcrumb">
+    <a href="/">Entry</a> / <a href="/manifesto">Manifesto</a> / <a href="/manifesto/composition">Composition</a> / Hierarchy
+  </div>
+
+  <article class="principle-page">
+    <header class="principle-header">
+      <div class="principle-number">II.1</div>
+      <h1>Hierarchy</h1>
+      <p class="principle-statement">What dominates, what submits. Order is not decoration—it is perceptual physics.</p>
+    </header>
+
+    <section class="principle-content">
+      <h2>What Hierarchy Is</h2>
+      <p>
+        Hierarchy is the mechanism by which attention is directed. In any composition, elements compete for notice. Without hierarchy, the eye searches without landing. With hierarchy, the eye arrives immediately at the intended starting point and follows a deliberate path through the composition.
+      </p>
+      <p>
+        This is not a matter of taste. It is perceptual necessity. The human visual system cannot process multiple focal points simultaneously. When two elements demand equal attention, the viewer experiences cognitive friction—a momentary hesitation while the brain attempts to determine priority. Hierarchy eliminates this friction by making priority explicit through scale, contrast, position, and isolation.
+      </p>
+      <p>
+        A single element dominates. All others are subordinate. This does not mean the subordinate elements are unimportant—it means they know their place in the reading sequence. The headline is read before the body text. The primary image is noticed before the caption. The call to action appears after the value proposition has been understood. This sequence is not accidental. It is architected through hierarchy.
+      </p>
+
+      <h2>What Hierarchy Is Not</h2>
+      <p>
+        Hierarchy is not the arrangement of elements by importance alone. A designer may believe that every element on a page is equally important, and this may be true from a content perspective. But visual hierarchy does not reflect content importance—it reflects perceptual sequence. The viewer cannot receive all information simultaneously. Hierarchy determines the order in which meaning is constructed.
+      </p>
+      <p>
+        Hierarchy is not achieved by making everything large. When all elements are emphasized, none are emphasized. Hierarchy requires contrast—not just tonal contrast, but contrast of scale, weight, and spatial priority. An element becomes dominant not by its size alone but by the degree to which it differs from its surroundings.
+      </p>
+      <p>
+        Hierarchy is not fixed. It shifts based on context. A navigation menu may be subordinate on a landing page but dominant on an interior page. A footnote is tertiary in body text but becomes primary when referenced. Hierarchy is responsive to the viewer's needs at each stage of their journey through the composition.
+      </p>
+
+      <h2>How Hierarchy Works</h2>
+      <p>
+        Hierarchy operates through four primary mechanisms: scale, contrast, position, and isolation.
+      </p>
+      <p>
+        <strong>Scale</strong> is the most direct tool. Larger elements command attention before smaller ones. This is not arbitrary—it reflects biological wiring. The visual system prioritizes larger shapes as potential threats or opportunities. A headline at 48 pixels will be noticed before body text at 16 pixels. The ratio matters more than the absolute size. A doubling of scale creates noticeable hierarchy. A 10% increase does not.
+      </p>
+      <p>
+        <strong>Contrast</strong> creates hierarchy through difference. A dark element on a light background draws attention. A bold weight among regular weights stands out. A saturated color in a desaturated palette becomes focal. Contrast does not require extremes—it requires measurable difference. The greater the difference, the stronger the hierarchy.
+      </p>
+      <p>
+        <strong>Position</strong> leverages learned behavior. In cultures that read left-to-right, top-to-bottom, the upper-left corner is the natural entry point. Elements placed here gain priority without needing additional emphasis. The center of a composition draws attention due to symmetry and balance. The edges are subordinate unless isolated. Position is cultural, but within a culture, it is predictable.
+      </p>
+      <p>
+        <strong>Isolation</strong> creates hierarchy through space. An element surrounded by emptiness commands attention even if it is small. The space around it signals importance. Crowded elements compete. Isolated elements dominate. This is why a single image on a page carries more weight than the same image in a grid of twelve.
+      </p>
+      <p>
+        These mechanisms compound. An element that is large, high-contrast, positioned prominently, and surrounded by space becomes unmissably dominant. An element with none of these attributes recedes into the background. Effective hierarchy employs these tools deliberately, assigning each element the appropriate combination of emphasis to achieve the intended reading sequence.
+      </p>
+
+      <h2>Why Hierarchy Matters</h2>
+      <p>
+        Without hierarchy, composition collapses into visual noise. The viewer arrives but cannot begin. Information exists but cannot be received. Every element shouts for attention, and the result is silence—not the productive silence of restraint, but the stunned silence of overwhelm.
+      </p>
+      <p>
+        Hierarchy is the difference between a page that can be read and a page that must be deciphered. It is the difference between a viewer who understands immediately and a viewer who leaves in frustration. It determines whether information is accessible or merely present.
+      </p>
+      <p>
+        Hierarchy also reveals intent. A designer who establishes clear hierarchy demonstrates that they understand what matters and in what order it should be communicated. A designer who allows all elements to compete reveals that they have not made these decisions—or worse, that they believe making such decisions is unnecessary. Hierarchy is evidence of thinking. Its absence is evidence of avoidance.
+      </p>
+      <p>
+        In LALINE Doctrine, hierarchy is non-negotiable. Every composition must have a single, unambiguous entry point. The viewer must know where to look first. From there, the sequence must be intentional, leading the viewer through the composition in an order that serves comprehension. This is not restriction. It is responsibility.
+      </p>
+    </section>
+
+    <footer class="principle-citation">
+      <p>Manifesto II.1 — Hierarchy</p>
+      <p>House of Laline, 2026</p>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: var(--color-reading-ink);
+    margin-bottom: 3rem;
+  }
+
+  .breadcrumb a {
+    color: var(--color-reading-ink);
+    text-decoration: underline;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-ink);
+  }
+
+  .principle-page {
+    max-width: 700px;
+  }
+
+  .principle-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .principle-number {
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .principle-header h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+
+  .principle-statement {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-reading-ink);
+    font-style: italic;
+  }
+
+  .principle-content h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .principle-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .principle-citation {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+
+  .principle-citation p {
+    margin-bottom: 0.5rem;
+  }
+</style>

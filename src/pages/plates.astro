@@ -5,7 +5,7 @@ const edition01Plates = [
   {
     number: 'E01-P01',
     title: 'Quiet is a discipline',
-    href: '/plates/quiet',
+    href: '/manifesto/foundations',
     abstract: 'Quiet is not minimalism. It is the intentional removal of competing signals so hierarchy becomes inevitable.',
     issued: '2026-01-31',
     tags: ['quiet', 'hierarchy', 'restraint']
@@ -13,7 +13,7 @@ const edition01Plates = [
   {
     number: 'E01-P02',
     title: 'Authority is recognised',
-    href: '/plates/authority',
+    href: '/manifesto/foundations/authority',
     abstract: 'Authority emerges through coherence held over time, not assertion or display.',
     issued: '2026-01-31',
     tags: ['authority', 'coherence']
@@ -21,7 +21,7 @@ const edition01Plates = [
   {
     number: 'E01-P03',
     title: 'Restraint protects meaning',
-    href: '/plates/restraint',
+    href: '/manifesto/foundations/restraint',
     abstract: 'Meaning collapses when too many signals compete. Restraint preserves hierarchy.',
     issued: '2026-01-31',
     tags: ['restraint', 'meaning']
@@ -29,7 +29,7 @@ const edition01Plates = [
   {
     number: 'E01-P04',
     title: 'Pacing is a decision about time',
-    href: '/plates/pacing',
+    href: '/manifesto/foundations/pacing',
     abstract: 'Pacing determines how understanding forms by controlling when information is revealed.',
     issued: '2026-01-31',
     tags: ['pacing', 'time']
@@ -37,7 +37,7 @@ const edition01Plates = [
   {
     number: 'E01-P05',
     title: 'Silence is refusal made visible',
-    href: '/plates/silence',
+    href: '/manifesto/foundations/silence',
     abstract: 'Silence reveals what a system has chosen not to include, without explanation.',
     issued: '2026-01-31',
     tags: ['silence', 'refusal']
@@ -160,22 +160,22 @@ const edition02Plates = [
 <style>
   .breadcrumb {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     margin-bottom: 3rem;
   }
 
   .breadcrumb a {
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     text-decoration: underline;
   }
 
   .breadcrumb a:hover {
-    color: var(--text);
+    color: var(--color-ink);
   }
 
   .page-meta {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     margin-bottom: 3rem;
     font-style: italic;
   }
@@ -197,7 +197,7 @@ const edition02Plates = [
 
   .edition-description {
     font-size: 1rem;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     margin-bottom: 2rem;
     font-style: italic;
   }
@@ -208,7 +208,7 @@ const edition02Plates = [
   }
 
   .plate-item {
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--color-border);
     padding: 2rem 0;
     display: flex;
     gap: 2rem;
@@ -216,13 +216,13 @@ const edition02Plates = [
   }
 
   .plate-item:last-child {
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .plate-number {
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-ui);
     font-size: 0.875rem;
-    color: var(--text-tertiary);
+    color: var(--color-muted);
     min-width: 4rem;
     font-variant-numeric: tabular-nums;
   }
@@ -238,26 +238,26 @@ const edition02Plates = [
   }
 
   .plate-item h3 a {
-    color: var(--text);
+    color: var(--color-ink);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s;
   }
 
   .plate-item h3 a:hover {
-    border-bottom-color: var(--text);
+    border-bottom-color: var(--color-ink);
   }
 
   .plate-abstract {
     font-size: 1rem;
     line-height: 1.7;
     margin-bottom: 0.75rem;
-    color: var(--text);
+    color: var(--color-ink);
   }
 
   .plate-meta {
     font-size: 0.85rem;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
   }
 
   @media (max-width: 768px) {

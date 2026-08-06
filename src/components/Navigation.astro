@@ -1,307 +1,198 @@
 ---
 const { currentPath = '/' } = Astro.props;
-
-const navigationSections = [
-  {
-    title: 'Primary',
-    items: [
-      { number: '1.0', label: 'Entry', href: '/' },
-      { number: '2.0', label: 'Index', href: '/index' },
-      { 
-        number: '3.0', 
-        label: 'Manifesto', 
-        href: '/manifesto',
-        nested: [
-          { number: '3.1', label: 'Foundations', href: '/manifesto/foundations' },
-        ]
-      },
-      { number: '4.0', label: 'Works', href: '/works' },
-      { number: '5.0', label: 'Texts', href: '/texts' },
-      { number: '6.0', label: 'Plates', href: '/plates' },
-      { number: '7.0', label: 'Editions', href: '/editions' },
-      { number: '8.0', label: 'Archive', href: '/archive' },
-    ]
-  },
-  {
-    title: 'System',
-    items: [
-      { number: '9.0', label: 'Doctrine', href: '/doctrine' },
-      { number: '10.0', label: 'Methodology', href: '/methodology' },
-      { number: '11.0', label: 'Instruments', href: '/instruments' },
-      { number: '12.0', label: 'Contact', href: '/contact' },
-    ]
-  }
-];
+const isActive = (path: string) => currentPath === path;
+const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWith(p));
 ---
 
 <nav>
-  <div class="nav-header">
-    <div class="site-title-nav">
-      <a href="/">House of Laline</a>
-    </div>
-    <div class="site-subtitle-nav">Structured knowledge system</div>
-  </div>
+  <div class="nav-inner">
 
-  {navigationSections.map(section => (
-    <div class="nav-section">
-      <div class="nav-section-header">
-        <div class="nav-section-title">{section.title}</div>
-        <div class="nav-section-toggle">▼</div>
+    <a href="/" class="nav-brand">House of Laline</a>
+
+    <div class="nav-sections">
+
+      <div class="nav-group">
+        <div class="nav-row">
+          <span class="nav-num">I.</span>
+          <a href="/" class={`nav-title ${isActive('/') ? 'active' : ''}`}>House</a>
+        </div>
       </div>
-      <ul class="nav-list">
-        {section.items.map(item => (
-          <li>
-            <a 
-              href={item.href} 
-              class={currentPath === item.href ? 'active' : ''}
-            >
-              <span class="nav-number">{item.number}</span>
-              <span>{item.label}</span>
-            </a>
-            {item.nested && (
-              <ul class="nav-nested">
-                {item.nested.map(nested => (
-                  <li>
-                    <a 
-                      href={nested.href}
-                      class={currentPath === nested.href ? 'active' : ''}
-                    >
-                      <span class="nav-number">{nested.number}</span>
-                      <span>{nested.label}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
-  ))}
 
-  <div class="nav-footer">
-    Last updated: Feb 5, 2026<br>
-    Version 1.2.4<br>
-    <a href="mailto:contact@laline.house">Email</a>
+      <div class="nav-group group-break">
+        <div class="nav-row">
+          <span class="nav-num">II.</span>
+          <a href="/works" class={`nav-title ${isParentActive(['/works']) ? 'active' : ''}`}>Works</a>
+        </div>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-row">
+          <span class="nav-num">III.</span>
+          <a href="/texts" class={`nav-title ${isParentActive(['/texts']) ? 'active' : ''}`}>Texts</a>
+        </div>
+      </div>
+
+      <div class="nav-group group-break">
+        <div class="nav-row">
+          <span class="nav-num">IV.</span>
+          <a href="/doctrine" class={`nav-title ${isActive('/doctrine') ? 'active' : ''}`}>Doctrine</a>
+        </div>
+        <ul class="nav-sub">
+          <li class={isActive('/preface') ? 'dot-active' : ''}><a href="/preface">Preface</a></li>
+          <li class={isParentActive(['/manifesto']) ? 'dot-active' : ''}><a href="/manifesto">Manifesto</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-row">
+          <span class="nav-num">V.</span>
+          <a href="/plates" class={`nav-title ${isParentActive(['/plates']) ? 'active' : ''}`}>Plates</a>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="nav-footer">
+      <p>LALINE &nbsp; V1.6</p>
+      <p class="footer-gap">Built slowly. Issued when ready.</p>
+    </footer>
   </div>
 </nav>
 
 <style>
   nav {
     width: var(--nav-width);
-    background-color: var(--bg-nav);
-    border-right: 1px solid var(--border);
-    padding: 3rem 0;
-    position: fixed;
     height: 100vh;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
+    position: fixed;
+    top: 0; left: 0;
+    background: var(--color-bg);
+    overflow: hidden;
     z-index: 10;
   }
 
-  .nav-header {
-    padding: 0 2rem;
-    margin-bottom: 3rem;
-  }
-
-  .site-title-nav {
-    font-size: 1.3rem;
-    font-weight: 400;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
-  }
-
-  .site-title-nav a {
-    color: var(--text);
-    text-decoration: none;
-  }
-
-  .site-subtitle-nav {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    font-style: italic;
-    font-weight: 400;
-    letter-spacing: 0.03em;
-  }
-
-  .nav-section {
-    margin-bottom: 2rem;
-  }
-
-  .nav-section-header {
-    padding: 0 2rem;
+  .nav-inner {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    user-select: none;
-    margin-bottom: 1rem;
+    flex-direction: column;
+    height: 100%;
+    padding: 3.5rem 1.5rem 2.25rem;
+    overflow: hidden;
   }
 
-  .nav-section-title {
-    font-size: 0.7rem;
+  /* ── Brand ── */
+  .nav-brand {
+    font-family: var(--font-ui);
+    font-size: var(--text-nav);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--text-secondary);
-    font-weight: 600;
-  }
-
-  .nav-section-toggle {
-    font-size: 0.7rem;
-    color: var(--text-tertiary);
-    transition: transform 0.2s;
-  }
-
-  .nav-section.collapsed .nav-section-toggle {
-    transform: rotate(-90deg);
-  }
-
-  .nav-section.collapsed .nav-list {
-    display: none;
-  }
-
-  .nav-list {
-    list-style: none;
-  }
-
-  .nav-list li {
-    position: relative;
-  }
-
-  .nav-list > li > a {
-    padding: 0.7rem 2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--text);
+    color: var(--color-ink);
     text-decoration: none;
-    font-size: 0.975rem;
-    transition: all 0.2s;
-    position: relative;
+    margin-bottom: 2.5rem;
+    flex-shrink: 0;
   }
+  .nav-brand:hover { opacity: 0.5; }
 
-  .nav-list > li > a:hover {
-    background-color: rgba(0, 0, 0, 0.02);
-  }
-
-  .nav-list > li > a:hover span:last-child {
-    text-decoration: underline;
-  }
-
-  .nav-list > li > a.active {
-    background-color: rgba(0, 0, 0, 0.03);
-  }
-
-  .nav-list > li > a.active::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background-color: var(--accent);
-  }
-
-  .nav-number {
-    font-size: 0.8rem;
-    color: var(--text-tertiary);
-    font-family: 'Courier New', monospace;
-    min-width: 2.5rem;
-    font-variant-numeric: tabular-nums;
-    letter-spacing: 0.02em;
-  }
-
-  .nav-nested {
-    list-style: none;
-    position: relative;
-  }
-
-  .nav-nested::before {
-    content: '';
-    position: absolute;
-    left: 2.75rem;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background-color: var(--border);
-  }
-
-  .nav-nested li {
-    position: relative;
-  }
-
-  .nav-nested > li > a {
-    padding: 0.6rem 2rem 0.6rem 3.5rem;
+  /* ── Sections ── */
+  .nav-sections {
+    flex: 1;
+    overflow: hidden;
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--text-secondary);
+    flex-direction: column;
+  }
+
+  .nav-group {
+    margin-bottom: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .nav-group.group-break { margin-bottom: 3.4rem; }
+
+  /* ── Row ── */
+  .nav-row {
+    display: block;
+  }
+
+  /* ── Numeral — right aligned so dots line up ── */
+  .nav-num {
+    font-family: var(--font-ui);
+    font-size: var(--text-nav);
+    font-weight: var(--weight-medium);
+    color: var(--color-ink);
+    display: block;
+    margin-bottom: 0.1rem;
+  }
+
+  /* ── Title ── */
+  .nav-title {
+    font-family: var(--font-ui);
+    font-size: var(--text-nav);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-ink);
     text-decoration: none;
-    font-size: 0.9rem;
-    transition: all 0.2s;
-    position: relative;
-    letter-spacing: 0.01em;
+    display: block;
+    padding-left: 1.5rem;
+  }
+  .nav-title:hover { opacity: 0.5; }
+  .nav-title.active { color: var(--color-secondary); }
+
+  /* ── Sub items ── */
+  .nav-sub {
+    list-style: none;
+    margin-top: 0.1rem;
+    padding-left: 1.5rem;
   }
 
-  .nav-nested > li > a::before {
+  .nav-sub li {
+    display: grid;
+    grid-template-columns: 0.5rem 1fr;
+    align-items: center;
+    line-height: 1.7;
+  }
+
+  .nav-sub li::before {
     content: '';
-    position: absolute;
-    left: 2.75rem;
-    top: 50%;
-    width: 0.5rem;
-    height: 1px;
-    background-color: var(--border);
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: var(--color-secondary);
+    opacity: 0;
+    justify-self: end;
+    margin-right: 0.25rem;
   }
 
-  .nav-nested > li > a:hover {
-    color: var(--text);
-    background-color: rgba(0, 0, 0, 0.02);
-  }
+  .nav-sub li.dot-active::before { opacity: 1; }
 
-  .nav-nested > li > a:hover span:last-child {
-    text-decoration: underline;
+  .nav-sub a {
+    font-family: var(--font-ui);
+    font-size: var(--text-nav);
+    font-weight: var(--weight-regular);
+    color: var(--color-ink);
+    opacity: 0.45;
+    text-decoration: none;
   }
+  .nav-sub a:hover { opacity: 0.7; }
 
-  .nav-nested > li > a.active {
-    color: var(--text);
-    font-weight: 400;
-  }
-
+  /* ── Footer ── */
   .nav-footer {
     margin-top: auto;
-    padding: 2rem 2rem 0;
-    border-top: 1px solid var(--border);
-    font-size: 0.775rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
+    padding-top: 2rem;
+    flex-shrink: 0;
+    font-family: var(--font-ui);
+    font-size: 0.5rem;
+    font-weight: var(--weight-regular);
+    color: var(--color-secondary);
+    line-height: 1.5;
   }
 
-  .nav-footer a {
-    color: var(--text);
-    text-decoration: underline;
+  .nav-footer p {
+    max-width: none;
+    margin: 0;
+    font: inherit;
+    white-space: nowrap;
   }
 
-  @media (max-width: 768px) {
-    nav {
-      position: static;
-      width: 100%;
-      height: auto;
-      border-right: none;
-      border-bottom: 1px solid var(--border);
-      padding: 2rem 0;
-    }
+  .nav-footer .footer-gap { margin-top: 0.5rem; }
 
-    .nav-nested {
-      display: none;
-    }
-  }
+  @media (max-width: 768px) { nav { display: none; } }
 </style>
-
-<script>
-  document.querySelectorAll('.nav-section-header').forEach(header => {
-    header.addEventListener('click', () => {
-      header.parentElement?.classList.toggle('collapsed');
-    });
-  });
-</script>

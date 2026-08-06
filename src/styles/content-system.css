@@ -1,0 +1,417 @@
+/* ═══════════════════════════════════════════════════════════════
+   LALINE — Content System
+   One semantic hierarchy for Doctrine, Preface, Texts, Manifesto,
+   Plates, Works and every future reading route.
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Document frame ── */
+.main--content :is(
+  .page-content,
+  .text-document,
+  .principle-document,
+  .principle-page,
+  .plate-document,
+  .plate-page,
+  .parts-list,
+  .principles-list,
+  .text-list,
+  .plate-list,
+  .section-list
+) {
+  width: 100%;
+  max-width: var(--content-max) !important;
+}
+
+.main--content :is(.text-header, .principle-header, .plate-header) {
+  margin-bottom: 3rem !important;
+  padding-bottom: 2.5rem !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.main--content :is(.text-header, .principle-header, .plate-header) h1 {
+  margin-bottom: 1rem !important;
+}
+
+/* ── Wayfinding and metadata ── */
+.main--content .breadcrumb {
+  margin-bottom: 3rem !important;
+  color: var(--color-muted) !important;
+  text-transform: none;
+}
+
+.main--content .breadcrumb a {
+  color: inherit !important;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.main--content :is(
+  .meta,
+  .page-meta,
+  .text-meta,
+  .principle-meta,
+  .plate-meta,
+  .work-meta,
+  .part-number,
+  .part-status,
+  .principle-number,
+  .plate-number,
+  .plate-ref,
+  .edition,
+  .reading-time,
+  .text-number
+) {
+  font-family: var(--font-ui) !important;
+  font-size: var(--text-meta) !important;
+  font-style: normal !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: 1.5 !important;
+  letter-spacing: var(--tracking-wider) !important;
+  text-transform: uppercase !important;
+  color: var(--color-muted) !important;
+  opacity: 1 !important;
+}
+
+.main--content :is(.text-meta, .principle-meta, .plate-meta, .work-meta) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Reading voice ── */
+.main--content :is(.lead, .abstract, .text-abstract, .principle-abstract, .plate-abstract) {
+  max-width: var(--content-max);
+  margin-bottom: 0 !important;
+  font-family: var(--font-body) !important;
+  font-size: 1.125rem !important;
+  font-style: italic !important;
+  font-weight: var(--weight-light) !important;
+  line-height: 1.75 !important;
+  color: var(--color-reading-ink) !important;
+  opacity: 0.82 !important;
+}
+
+.main--content :is(.text-content, .principle-content, .plate-content, .page-content) p,
+.main--content :is(.text-content, .principle-content, .plate-content, .page-content) li,
+.main--content :is(.text-content, .principle-content, .plate-content, .page-content) dd {
+  font-family: var(--font-body);
+  font-size: var(--text-body) !important;
+  font-weight: var(--weight-light);
+  line-height: var(--leading-body) !important;
+  color: var(--color-reading-ink);
+}
+
+.main--content :is(.text-content, .principle-content, .plate-content, .page-content) p {
+  margin-bottom: 1.5rem !important;
+}
+
+.main--content blockquote {
+  margin: 3rem 0 !important;
+  padding: 0.25rem 0 0.25rem 2rem !important;
+  border: 0 !important;
+  border-left: 2px solid var(--color-reading-ink) !important;
+  font-family: var(--font-body) !important;
+  font-size: 1.2rem !important;
+  font-style: italic !important;
+  font-weight: var(--weight-light) !important;
+  line-height: 1.7 !important;
+  color: var(--color-ink) !important;
+  text-align: left !important;
+}
+
+/* ── Foundation manuscripts ── */
+.main--content .principle-content .foundation-line {
+  max-width: 38rem;
+}
+
+.main--content .principle-content .foundation-pause {
+  height: 1.5rem;
+}
+
+.main--content .foundation-reflection {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.main--content .foundation-reflection h2 {
+  margin: 0 0 1.5rem !important;
+}
+
+.main--content .foundation-reflection p {
+  margin-bottom: 0.75rem !important;
+  font-style: italic;
+  color: var(--color-ink) !important;
+}
+
+.main--content .foundation-reflection p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* ── Collections and cards ── */
+.main--content :is(.text-item, .plate-item, .principle-item, .part-card, .edition-section) {
+  margin: 0 !important;
+  padding: 2.25rem 0 !important;
+  border: 0 !important;
+  border-top: 1px solid var(--color-border) !important;
+  background: transparent !important;
+}
+
+.main--content :is(.text-item, .plate-item, .principle-item, .part-card, .edition-section):last-child {
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.main--content :is(.text-item, .plate-item, .principle-item, .part-card, .edition-section) h2,
+.main--content :is(.text-item, .plate-item, .principle-item, .part-card, .edition-section) h3 {
+  margin: 0 0 0.75rem !important;
+  font-family: var(--font-display) !important;
+  font-size: 1.6rem !important;
+  font-style: normal !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--color-ink) !important;
+}
+
+.main--content :is(.section-desc, .part-description, .edition-description) {
+  max-width: 600px;
+  font-size: var(--text-body) !important;
+  line-height: var(--leading-body) !important;
+  color: var(--color-reading-ink) !important;
+}
+
+.main--content .part-principles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 1.25rem 0;
+}
+
+.main--content .part-principles span {
+  padding: 0 !important;
+  border: 0 !important;
+  font-family: var(--font-ui) !important;
+  font-size: var(--text-micro) !important;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ── Lists and definitions ── */
+.main--content :is(.definition-list, ul, ol) {
+  max-width: var(--content-max);
+}
+
+.main--content .definition-list dt {
+  margin: 2rem 0 0.5rem !important;
+  font-family: var(--font-ui) !important;
+  font-size: var(--text-h3) !important;
+  font-weight: var(--weight-medium) !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  color: var(--color-ink) !important;
+}
+
+/* ── Notes, citations and endings ── */
+.main--content :is(
+  .continuation-note,
+  .citation-text,
+  .principle-citation,
+  .principle-note,
+  .section-note,
+  .foundations-note,
+  .page-signature,
+  .doctrine-conclusion,
+  .conclusion,
+  .see-also
+) {
+  margin-top: 3rem !important;
+  padding-top: 1.5rem !important;
+  border-top: 1px solid var(--color-border) !important;
+  font-family: var(--font-ui) !important;
+  font-size: var(--text-meta) !important;
+  font-style: normal !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: 1.7 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  color: var(--color-muted) !important;
+  opacity: 1 !important;
+}
+
+/* ── Links ── */
+.main--content :is(.text-content, .principle-content, .plate-content, .page-content) a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+/* ── Essay demonstrations and figures ── */
+.main--content .text-content h4 {
+  margin: 2rem 0 0.75rem;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: var(--weight-bold);
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  color: var(--color-ink);
+}
+
+.main--content .text-content svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.main--content .text-content :is(.illustration-block, .illustration-dual, .illustration-triple) {
+  margin: 3.5rem 0;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.main--content .text-content :is(.illustration-frame, .dual-frame, .triple-frame) {
+  min-width: 0;
+}
+
+.main--content .text-content .illustration-frame {
+  margin: 0 auto;
+}
+
+.main--content .text-content :is(.dual-frames, .triple-frames) {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+.main--content .text-content .dual-frames {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.main--content .text-content .triple-frames {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.main--content .text-content :is(.dual-label, .triple-label, .illustration-caption) {
+  margin-top: 1rem;
+  font-family: var(--font-ui);
+  font-size: var(--text-micro) !important;
+  font-style: normal;
+  line-height: 1.6 !important;
+  letter-spacing: 0.02em;
+  color: var(--color-muted) !important;
+}
+
+.main--content .text-content .illustration-caption {
+  max-width: 580px;
+  margin: 1.5rem auto 0;
+  text-align: center;
+}
+
+.main--content .text-content :is(.contrast-showcase, .showcase-grid, .best-practices) {
+  margin: 2.5rem 0 3.5rem;
+}
+
+.main--content .text-content .showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.main--content .text-content .contrast-card {
+  overflow: hidden;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-bg);
+}
+
+.main--content .text-content .contrast-header {
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-ui);
+}
+
+.main--content .text-content :is(.contrast-label, .contrast-ratio) {
+  font-size: var(--text-micro);
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: var(--color-muted);
+}
+
+.main--content .text-content .contrast-title {
+  margin: 0.35rem 0;
+  font-size: 0.875rem;
+  font-weight: var(--weight-bold);
+  color: var(--color-ink);
+}
+
+.main--content .text-content .contrast-demo {
+  min-height: 220px;
+  padding: 1.25rem;
+}
+
+.main--content .text-content .contrast-demo :is(p, h4) {
+  color: inherit;
+}
+
+.main--content .text-content .contrast-demo .demo-text {
+  font-size: 0.875rem !important;
+  line-height: 1.65 !important;
+}
+
+.main--content .text-content .demo-button {
+  margin-top: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid currentColor;
+  border-radius: 0;
+  font-family: var(--font-ui);
+  font-size: var(--text-micro);
+  letter-spacing: 0.04em;
+}
+
+.main--content .text-content :is(.insight-box, .practice-item) {
+  margin: 1rem 0;
+  padding: 1.5rem;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+}
+
+.main--content .text-content .practice-item {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--color-reading-ink);
+}
+
+.main--content .text-content .essay-closing {
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.main--content .text-content .essay-signature {
+  margin-top: 2rem;
+  font-family: var(--font-ui);
+  font-size: var(--text-meta) !important;
+  font-style: normal;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-muted);
+}
+
+@media (max-width: 768px) {
+  .main--content :is(.text-header, .principle-header, .plate-header) {
+    margin-bottom: 2.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .main--content :is(.text-item, .plate-item, .principle-item, .part-card, .edition-section) {
+    padding: 1.75rem 0 !important;
+  }
+
+  .main--content .text-content :is(.dual-frames, .triple-frames, .showcase-grid) {
+    grid-template-columns: 1fr;
+  }
+}
