@@ -35,17 +35,19 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
         Most digital products begin with a blank canvas and an abundance of options.
         Laline begins with a question: what must this structure allow someone to do?
       </p>
-      <p>
-        Each Work fixes the hierarchy, pacing, navigation and typographic system around
-        that answer. People replace the content and wording within declared boundaries;
-        they do not have to redesign the decisions that make the structure coherent.
-      </p>
+      <div class="position-copy-column">
+        <p>
+          Each Work fixes the hierarchy, pacing, navigation and typographic system around
+          that answer. People replace the content and wording within declared boundaries;
+          they do not have to redesign the decisions that make the structure coherent.
+        </p>
+        <a href="/preface" class="text-link">Why this exists <span aria-hidden="true">→</span></a>
+      </div>
     </div>
-    <a href="/preface" class="text-link">Why this exists <span aria-hidden="true">→</span></a>
   </section>
 
   <section class="featured" id="featured-work" aria-labelledby="atlas-title">
-    <p class="section-number section-reference">W01 · Atlas build 1.0</p>
+    <p class="section-number section-reference">W01 · Atlas version 1.0</p>
     <h2 id="atlas-title" class="section-title section-heading">Atlas</h2>
     <div class="featured-intro">
       <p class="featured-lede">
@@ -335,6 +337,12 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
     margin: 3rem 0 2rem;
   }
   .position-copy p { font-size: 1.05rem; line-height: 1.85; margin: 0; }
+  .position-copy-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.75rem;
+  }
 
   .index-reference {
     margin: 0;
