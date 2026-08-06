@@ -30,6 +30,7 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
 
       <div class="work-actions">
         <a class="enter-work" href={atlasUrl}>Enter Atlas <span aria-hidden="true">↗</span></a>
+        <a class="enter-work enter-work--secondary" href="/texts/how-your-work-meets-the-screen">Read the essay <span aria-hidden="true">→</span></a>
         <p class="availability">Works 01 · Live demonstration</p>
       </div>
     </article>
@@ -51,6 +52,7 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
   .availability { font-family: var(--font-ui); font-size: var(--text-micro); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--color-secondary); }
   .work-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
   .enter-work { display: inline-flex; align-items: center; gap: .75rem; padding-bottom: .35rem; border-bottom: 1px solid var(--color-ink); font-family: var(--font-ui); font-size: var(--text-micro); font-weight: var(--weight-medium); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--color-ink); }
+  .enter-work--secondary { color: var(--color-secondary); border-color: var(--color-secondary); }
   .enter-work:hover { color: var(--color-accent); border-color: var(--color-accent); }
   .work-actions .availability { margin: 0; }
   @media (max-width: 600px) { .volume-list li { grid-template-columns: 28px 1fr; } .volume-list p { grid-column: 2; } }
