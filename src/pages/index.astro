@@ -26,15 +26,31 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
     </div>
 
     <div class="hero-footer">
-      <a href="#featured-work" class="enter">View the first work <span aria-hidden="true">↓</span></a>
+      <span>W01</span>
       <span>Soft release · 2026</span>
     </div>
   </section>
 
+  <section class="position" aria-labelledby="position-title">
+    <p class="eyebrow">The position</p>
+    <h2 id="position-title">Architecture follows intent.</h2>
+    <div class="position-copy">
+      <p>
+        Most digital products begin with a blank canvas and an abundance of options.
+        Laline begins with a question: what must this structure allow someone to do?
+      </p>
+      <p>
+        Each Work fixes the hierarchy, pacing, navigation and typographic system around
+        that answer. People replace the content and wording within declared boundaries;
+        they do not have to redesign the decisions that make the structure coherent.
+      </p>
+    </div>
+    <a href="/preface" class="text-link">Why this exists <span aria-hidden="true">→</span></a>
+  </section>
+
   <section class="featured" id="featured-work" aria-labelledby="atlas-title">
-    <div class="section-number">W01</div>
     <div class="featured-intro">
-      <p class="eyebrow">Featured work</p>
+      <p class="section-number">W01</p>
       <h2 id="atlas-title">Atlas</h2>
       <p class="featured-lede">
         A photographer website system composed of three resolved architectures.
@@ -69,23 +85,6 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
         </div>
       </li>
     </ol>
-  </section>
-
-  <section class="position" aria-labelledby="position-title">
-    <p class="eyebrow">The position</p>
-    <h2 id="position-title">Architecture follows intent.</h2>
-    <div class="position-copy">
-      <p>
-        Most digital products begin with a blank canvas and an abundance of options.
-        Laline begins with a question: what must this structure allow someone to do?
-      </p>
-      <p>
-        Each Work fixes the hierarchy, pacing, navigation and typographic system around
-        that answer. People replace the content and wording within declared boundaries;
-        they do not have to redesign the decisions that make the structure coherent.
-      </p>
-    </div>
-    <a href="/preface" class="text-link">Why this exists <span aria-hidden="true">→</span></a>
   </section>
 
   <section class="house-index" aria-labelledby="house-title">
@@ -239,8 +238,8 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
 
   .featured {
     display: grid;
-    grid-template-columns: 80px minmax(260px, 0.9fr) minmax(360px, 1.25fr);
-    gap: clamp(2rem, 5vw, 5rem);
+    grid-template-columns: minmax(280px, 0.9fr) minmax(380px, 1.1fr);
+    gap: clamp(3rem, 7vw, 7rem);
     padding-top: clamp(6rem, 12vh, 9rem);
     padding-bottom: clamp(6rem, 12vh, 9rem);
     border-bottom: 1px solid var(--color-border);
@@ -252,6 +251,7 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
     font-weight: var(--weight-bold);
     letter-spacing: var(--tracking-wider);
     text-transform: uppercase;
+    margin: 0 0 clamp(2.75rem, 6vh, 4.5rem);
   }
 
   .featured h2,
@@ -274,12 +274,16 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
     margin-bottom: 2rem;
   }
 
-  .volumes { list-style: none; border-top: 1px solid var(--color-ink); }
+  .volumes {
+    list-style: none;
+    margin-top: clamp(3.25rem, 7vh, 5rem);
+    border-top: 1px solid var(--color-ink);
+  }
   .volumes li {
     display: grid;
-    grid-template-columns: 52px 1fr;
-    gap: 1.5rem;
-    padding: 1.75rem 0;
+    grid-template-columns: 36px 1fr;
+    gap: 1rem;
+    padding: 1.15rem 0;
     border-bottom: 1px solid var(--color-border);
   }
   .volume-number {
@@ -289,14 +293,14 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
   }
   .volumes h3 {
     font-family: var(--font-display);
-    font-size: 1.65rem;
+    font-size: 1.35rem;
     font-weight: var(--weight-regular);
     letter-spacing: 0;
     text-transform: none;
     color: var(--color-ink);
     margin: 0 0 0.45rem;
   }
-  .volumes p { color: var(--color-secondary); margin: 0; }
+  .volumes p { color: var(--color-secondary); margin: 0; font-size: 0.9rem; line-height: 1.6; }
 
   .position {
     padding-top: clamp(7rem, 15vh, 11rem);
@@ -332,7 +336,7 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: clamp(4rem, 9vh, 7rem);
+    margin-bottom: clamp(2.75rem, 6vh, 4.5rem);
     font-family: var(--font-ui);
     font-size: var(--text-micro);
     letter-spacing: var(--tracking-widest);
@@ -369,19 +373,19 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
   }
   .index-links {
     padding-left: clamp(3rem, 6vw, 6rem);
-    padding-top: 0;
+    padding-top: clamp(3rem, 6vh, 4.25rem);
     border-left: 1px solid var(--color-border);
     border-top: 1px solid var(--color-ink);
   }
   .index-links a {
     display: grid;
-    grid-template-columns: 120px 1fr 28px;
+    grid-template-columns: 100px 1fr 24px;
     gap: 1rem;
     align-items: baseline;
-    padding: 1.75rem 0;
+    padding: 1.15rem 0;
     border-bottom: 1px solid var(--color-border);
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
   .index-links small,
   .index-links a > span:last-child {
@@ -431,13 +435,24 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
   .footer-note span { white-space: nowrap; }
 
   @media (max-width: 1050px) {
-    .featured { grid-template-columns: 52px 1fr; }
-    .volumes { grid-column: 2; }
+    .featured { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(2rem, 5vw, 4rem); }
     .house-index,
     .site-footer { grid-template-columns: minmax(260px, 0.85fr) minmax(380px, 1.15fr); }
     .index-intro { padding-right: clamp(2rem, 5vw, 4rem); }
     .index-links,
     .footer-note { padding-left: clamp(2rem, 5vw, 4rem); }
+  }
+
+  @media (max-width: 900px) {
+    .featured,
+    .house-index { display: block; }
+    .volumes { margin-top: 4rem; }
+    .index-links {
+      margin-top: 4rem;
+      padding-top: 0;
+      padding-left: 0;
+      border-left: 0;
+    }
   }
 
   @media (max-width: 768px) {
@@ -458,16 +473,11 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
     h1.display { font-size: clamp(3.6rem, 19vw, 6rem); margin-bottom: 2rem; }
     .hero-statement { font-size: 0.8rem; }
     .hero-position { margin-top: 2.5rem; }
-    .featured,
-    .house-index { display: block; }
     .section-number { margin-bottom: 4rem; }
-    .volumes,
-    .index-links { margin-top: 4rem; }
     .position-copy { grid-template-columns: 1fr; gap: 1rem; }
     .index-links a { grid-template-columns: 90px 1fr 24px; }
     .index-meta { margin-bottom: 4rem; }
     .index-reference { padding-top: 0; }
-    .index-links { padding-left: 0; border-left: 0; }
     .site-footer { display: flex; align-items: flex-start; flex-direction: column; }
     .footer-identity { align-items: flex-start; }
     .footer-note { align-items: flex-start; }
