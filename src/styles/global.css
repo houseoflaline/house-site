@@ -52,7 +52,7 @@
   --color-accent:    var(--primitive-russet-600);
   /* Ink study shortlist: dark oxblood, liked but not the remembered ink. */
   --color-ink-study-oxblood: #4A1822;
-  --color-ink-study-maroon:  #5A0F1B;
+  --color-ink-study-maroon:  #42152A;
   --color-ink-study:         var(--color-ink-study-maroon);
   --color-reading-ink:       var(--color-ink-study-maroon);
   --color-muted:             rgba(20, 20, 18, 0.58);
