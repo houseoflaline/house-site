@@ -12,7 +12,10 @@ const isAtlasActive = isParentActive(['/works']) || isActive(atlasEssayPath);
 <nav>
   <div class="nav-inner">
 
-    <a href="/" class="nav-brand">House of Laline</a>
+    <div class="nav-identity">
+      <a href="/" class="nav-brand">House of Laline</a>
+      <span class="nav-build">Build 1.6</span>
+    </div>
 
     <div class="nav-sections">
 
@@ -65,8 +68,7 @@ const isAtlasActive = isParentActive(['/works']) || isActive(atlasEssayPath);
     </div>
 
     <footer class="nav-footer">
-      <p>LALINE &nbsp; V1.6</p>
-      <p class="footer-gap">Built slowly. Issued when ready.</p>
+      <img src="/laline-mark.svg" alt="" width="28" height="28" />
     </footer>
   </div>
 </nav>
@@ -91,6 +93,11 @@ const isAtlasActive = isParentActive(['/works']) || isActive(atlasEssayPath);
   }
 
   /* ── Brand ── */
+  .nav-identity {
+    margin-bottom: 2.5rem;
+    flex-shrink: 0;
+  }
+
   .nav-brand {
     font-family: var(--font-ui);
     font-size: var(--text-nav);
@@ -99,10 +106,20 @@ const isAtlasActive = isParentActive(['/works']) || isActive(atlasEssayPath);
     text-transform: uppercase;
     color: var(--color-ink);
     text-decoration: none;
-    margin-bottom: 2.5rem;
-    flex-shrink: 0;
+    display: block;
   }
   .nav-brand:hover { opacity: 0.5; }
+
+  .nav-build {
+    display: block;
+    margin-top: 0.45rem;
+    font-family: var(--font-ui);
+    font-size: 0.5rem;
+    font-weight: var(--weight-regular);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-secondary);
+  }
 
   /* ── Sections ── */
   .nav-sections {
@@ -190,21 +207,10 @@ const isAtlasActive = isParentActive(['/works']) || isActive(atlasEssayPath);
     margin-top: auto;
     padding-top: 2rem;
     flex-shrink: 0;
-    font-family: var(--font-ui);
-    font-size: 0.5rem;
-    font-weight: var(--weight-regular);
-    color: var(--color-secondary);
-    line-height: 1.5;
+    line-height: 0;
   }
 
-  .nav-footer p {
-    max-width: none;
-    margin: 0;
-    font: inherit;
-    white-space: nowrap;
-  }
-
-  .nav-footer .footer-gap { margin-top: 0.5rem; }
+  .nav-footer img { display: block; width: 1.75rem; height: 1.75rem; }
 
   @media (max-width: 768px) { nav { display: none; } }
 </style>
