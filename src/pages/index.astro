@@ -31,18 +31,18 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
     <p class="eyebrow">The position</p>
     <h2 id="position-title">Architecture follows intent.</h2>
     <div class="position-copy">
-      <p>
-        Most digital products begin with a blank canvas and an abundance of options.
-        Laline begins with a question: what must this structure allow someone to do?
-      </p>
       <div class="position-copy-column">
         <p>
-          Each Work fixes the hierarchy, pacing, navigation and typographic system around
-          that answer. People replace the content and wording within declared boundaries;
-          they do not have to redesign the decisions that make the structure coherent.
+          Most digital products begin with a blank canvas and an abundance of options.
+          Laline begins with a question: what must this structure allow someone to do?
         </p>
         <a href="/preface" class="text-link">Why this exists <span aria-hidden="true">→</span></a>
       </div>
+      <p>
+        Each Work fixes the hierarchy, pacing, navigation and typographic system around
+        that answer. People replace the content and wording within declared boundaries;
+        they do not have to redesign the decisions that make the structure coherent.
+      </p>
     </div>
   </section>
 
@@ -341,6 +341,7 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
     gap: 1.75rem;
   }
 
