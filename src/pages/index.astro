@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
 ---
 
 <BaseLayout title="House of Laline" landing={true}>
@@ -38,7 +40,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         A photographer website system composed of three resolved architectures.
         Each volume begins with what the visitor is there to do.
       </p>
-      <a href="/works" class="text-link">Read about Atlas <span aria-hidden="true">→</span></a>
+      <div class="featured-actions">
+        <a href={atlasUrl} class="text-link">Enter Atlas <span aria-hidden="true">↗</span></a>
+        <a href="/works" class="text-link text-link--quiet">Read the edition note <span aria-hidden="true">→</span></a>
+      </div>
     </div>
 
     <ol class="volumes" aria-label="Atlas volumes">
@@ -138,6 +143,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   :global(html) { scroll-behavior: smooth; }
 
   .mobile-header { display: none; }
+
+  .featured-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+  }
+
+  .text-link--quiet { color: var(--color-secondary); }
 
   .hero,
   .featured,
