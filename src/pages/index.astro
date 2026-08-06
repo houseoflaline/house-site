@@ -85,12 +85,12 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
 
   <section class="house-index" aria-labelledby="house-title">
     <div class="index-intro">
-      <div class="index-meta">
-        <span>House directory</span>
-        <span>Ref. 01—04</span>
-      </div>
-      <h2 id="house-title">Inside the House</h2>
-      <p class="index-statement">A system that can grow without losing its shape.</p>
+      <p class="section-number">Directory · Ref. 01—04</p>
+      <h2 id="house-title">House</h2>
+      <p class="featured-lede">
+        A publishing system organised to grow without losing its shape.
+        Its works, texts and principles remain distinct while reading as parts of one house.
+      </p>
       <p class="index-reference">Four points of entry · One governing structure</p>
     </div>
 
@@ -225,13 +225,24 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
     color: var(--color-ink);
   }
 
-  .featured {
+  .featured,
+  .house-index {
     display: grid;
     grid-template-columns: minmax(280px, 0.9fr) minmax(380px, 1.1fr);
-    gap: clamp(3rem, 7vw, 7rem);
+    gap: 0;
     padding-top: clamp(6rem, 12vh, 9rem);
     padding-bottom: clamp(6rem, 12vh, 9rem);
     border-bottom: 1px solid var(--color-border);
+  }
+
+  .featured-intro,
+  .index-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 1.4rem;
+    padding-right: clamp(3rem, 7vw, 7rem);
+    border-top: 1px solid var(--color-ink);
   }
 
   .section-number {
@@ -265,7 +276,10 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
 
   .volumes {
     list-style: none;
-    margin-top: clamp(3.25rem, 7vh, 5rem);
+    margin-top: 0;
+    padding-top: clamp(3.7rem, 7vh, 5rem);
+    padding-left: clamp(3rem, 6vw, 6rem);
+    border-left: 1px solid var(--color-border);
     border-top: 1px solid var(--color-ink);
   }
   .volumes li {
@@ -306,53 +320,8 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
   }
   .position-copy p { font-size: 1.05rem; line-height: 1.85; margin: 0; }
 
-  .house-index {
-    display: grid;
-    grid-template-columns: minmax(300px, 0.9fr) minmax(440px, 1.1fr);
-    gap: 0;
-    padding-top: clamp(6rem, 12vh, 9rem);
-    padding-bottom: clamp(6rem, 12vh, 9rem);
-  }
-  .index-intro {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-right: clamp(3rem, 7vw, 7rem);
-    padding-top: 1.4rem;
-    border-top: 1px solid var(--color-ink);
-  }
-  .index-meta {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: clamp(2.75rem, 6vh, 4.5rem);
-    font-family: var(--font-ui);
-    font-size: var(--text-micro);
-    letter-spacing: var(--tracking-widest);
-    text-transform: uppercase;
-    color: var(--color-secondary);
-  }
-  .house-index h2 {
-    margin: 0 0 2.5rem;
-    font-family: var(--font-ui);
-    font-size: var(--text-h3);
-    font-weight: var(--weight-medium);
-    letter-spacing: var(--tracking-widest);
-    text-transform: uppercase;
-    color: var(--color-ink);
-  }
-  .index-statement {
-    max-width: 14ch;
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: clamp(2.7rem, 4vw, 4.25rem);
-    font-weight: var(--weight-light);
-    line-height: 0.98;
-    letter-spacing: -0.025em;
-    color: var(--color-ink);
-  }
   .index-reference {
-    margin: 1.5rem 0 0;
+    margin: 0;
     padding-top: 0;
     font-family: var(--font-ui);
     font-size: var(--text-micro);
@@ -362,7 +331,7 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
   }
   .index-links {
     padding-left: clamp(3rem, 6vw, 6rem);
-    padding-top: clamp(3rem, 6vh, 4.25rem);
+    padding-top: clamp(3.7rem, 7vh, 5rem);
     border-left: 1px solid var(--color-border);
     border-top: 1px solid var(--color-ink);
   }
@@ -415,8 +384,8 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
   .footer-note span { white-space: nowrap; }
 
   @media (max-width: 1050px) {
-    .featured { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(2rem, 5vw, 4rem); }
-    .house-index { grid-template-columns: minmax(260px, 0.85fr) minmax(380px, 1.15fr); }
+    .featured,
+    .house-index { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
     .index-intro { padding-right: clamp(2rem, 5vw, 4rem); }
     .index-links { padding-left: clamp(2rem, 5vw, 4rem); }
   }
@@ -424,7 +393,14 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
   @media (max-width: 900px) {
     .featured,
     .house-index { display: block; }
-    .volumes { margin-top: 4rem; }
+    .featured-intro,
+    .index-intro { padding-right: 0; }
+    .volumes {
+      margin-top: 4rem;
+      padding-top: 0;
+      padding-left: 0;
+      border-left: 0;
+    }
     .index-links {
       margin-top: 4rem;
       padding-top: 0;
