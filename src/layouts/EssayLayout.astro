@@ -1,0 +1,166 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+const {
+  frontmatter: {
+    title,
+    abstract,
+    number = 'T08',
+    readTime = '12 min read',
+    work = 'Atlas · Works 01'
+  }
+} = Astro.props;
+---
+
+<BaseLayout title={title} currentPath="/texts/how-your-work-meets-the-screen">
+  <div class="essay-breadcrumb">
+    <a href="/">Entry</a> / <a href="/texts">Texts</a> / {title}
+  </div>
+
+  <article class="atlas-essay">
+    <header class="essay-header">
+      <div class="essay-meta">
+        <span>{number}</span>
+        <span>{work}</span>
+        <span>{readTime}</span>
+      </div>
+      <h1>{title}</h1>
+      <p>{abstract}</p>
+    </header>
+
+    <div class="essay-copy">
+      <slot />
+    </div>
+
+    <footer class="essay-footer">
+      <span>House of Laline · Texts</span>
+      <a href="/works">Return to Atlas <span aria-hidden="true">→</span></a>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .essay-breadcrumb {
+    margin-bottom: clamp(3rem, 8vw, 7rem);
+    font-family: var(--font-ui);
+    font-size: var(--text-meta);
+    color: var(--color-muted);
+  }
+
+  .essay-breadcrumb a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: .2em;
+  }
+
+  .atlas-essay {
+    width: min(100%, 820px);
+  }
+
+  .essay-header {
+    padding-bottom: clamp(3rem, 7vw, 6rem);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .essay-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: .75rem 2rem;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
+    font-family: var(--font-ui);
+    font-size: var(--text-meta);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .main--content .atlas-essay .essay-header h1 {
+    max-width: 12ch;
+    margin: 0 0 2rem !important;
+    font-size: clamp(3.25rem, 7vw, 6.75rem) !important;
+    line-height: .98 !important;
+    letter-spacing: -.035em !important;
+    text-transform: none !important;
+  }
+
+  .main--content .atlas-essay .essay-header p {
+    max-width: 42rem;
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: clamp(1.15rem, 1.8vw, 1.4rem) !important;
+    font-style: italic;
+    font-weight: var(--weight-light);
+    line-height: 1.65 !important;
+    color: var(--color-reading-ink);
+  }
+
+  .essay-copy {
+    padding: clamp(3.5rem, 8vw, 7rem) 0;
+  }
+
+  .main--content .atlas-essay .essay-copy p {
+    margin: 0 0 1.65em;
+    font-family: var(--font-body);
+    font-size: clamp(1.05rem, 1.15vw, 1.18rem) !important;
+    font-weight: var(--weight-light);
+    line-height: 1.82 !important;
+    color: var(--color-reading-ink);
+  }
+
+  .main--content .atlas-essay .essay-copy > p:first-child::first-letter {
+    float: left;
+    margin: .08em .12em 0 0;
+    font-family: var(--font-display);
+    font-size: 4.9em;
+    line-height: .72;
+    color: var(--color-accent);
+  }
+
+  .main--content .atlas-essay .essay-copy h2 {
+    margin: clamp(4rem, 9vw, 7rem) 0 1.5rem !important;
+    font-family: var(--font-display) !important;
+    font-size: clamp(2rem, 4vw, 3.35rem) !important;
+    font-weight: var(--weight-light) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -.015em !important;
+    text-transform: none !important;
+    color: var(--color-ink) !important;
+  }
+
+  .main--content .atlas-essay .essay-copy hr {
+    width: 100%;
+    margin: clamp(4rem, 8vw, 6rem) 0;
+    border: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .essay-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem 0 3rem;
+    border-top: 1px solid var(--color-ink);
+    font-family: var(--font-ui);
+    font-size: var(--text-meta);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .essay-footer a { color: var(--color-ink); }
+
+  @media (max-width: 768px) {
+    .essay-breadcrumb { margin-bottom: 3.5rem; }
+    .essay-meta { flex-direction: column; gap: .45rem; }
+    .main--content .atlas-essay .essay-header h1 { font-size: clamp(2.8rem, 15vw, 4.6rem) !important; }
+    .essay-copy { padding: 3.5rem 0; }
+    .main--content .atlas-essay .essay-copy p { font-size: 1.04rem !important; line-height: 1.75 !important; }
+    .essay-footer { flex-direction: column; padding-bottom: 1rem; }
+  }
+
+  @media (max-width: 420px) {
+    .main--content .atlas-essay .essay-copy > p:first-child::first-letter { font-size: 4.2em; }
+  }
+</style>
+
