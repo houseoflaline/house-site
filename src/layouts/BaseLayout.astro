@@ -1,6 +1,7 @@
 ---
 import Navigation from '../components/Navigation.astro';
 import '../styles/global.css';
+import '../styles/content-system.css';
 
 interface Props {
   title: string;
@@ -17,12 +18,19 @@ const { title, currentPath = '/', landing = false } = Astro.props;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{landing ? title : `${title} · House of Laline`}</title>
+  <link rel="icon" type="image/svg+xml" href="/laline-mark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
   <div class={`layout ${landing ? 'layout--landing' : ''}`}>
     <Navigation currentPath={currentPath} />
+    {!landing && (
+      <header class="content-mobile-header">
+        <a href="/">House of Laline</a>
+        <a href="/index-page">Index</a>
+      </header>
+    )}
     <main class={landing ? 'main--landing' : 'main--content'}>
       <slot />
     </main>
@@ -41,10 +49,9 @@ const { title, currentPath = '/', landing = false } = Astro.props;
     min-height: 100vh;
   }
 
-  /* ── Landing: locked to viewport, no scroll ── */
+  /* ── Landing pages form the public front door and may scroll. ── */
   body:has(.layout--landing) {
-    overflow: hidden;
-    height: 100vh;
+    overflow-x: hidden;
   }
 
   .layout {
@@ -53,9 +60,10 @@ const { title, currentPath = '/', landing = false } = Astro.props;
   }
 
   .layout--landing {
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
   }
+
+  .content-mobile-header { display: none; }
 
   /* ── Standard content pages ── */
   .main--content {
@@ -67,15 +75,15 @@ const { title, currentPath = '/', landing = false } = Astro.props;
     overflow-x: hidden;
   }
 
-  /* ── Landing: full height flex column, no extra padding ── */
+  /* ── Landing: full-width editorial sections, no wrapper padding ── */
   .main--landing {
     margin-left: var(--nav-width);
     flex: 1;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     max-width: calc(100vw - var(--nav-width));
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   /* ── Responsive ── */
@@ -85,6 +93,17 @@ const { title, currentPath = '/', landing = false } = Astro.props;
 
   @media (max-width: 768px) {
     .layout { flex-direction: column; }
+    .content-mobile-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      font-family: var(--font-ui);
+      font-size: var(--text-nav);
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+    }
     .main--content,
     .main--landing {
       margin-left: 0;

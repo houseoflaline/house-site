@@ -60,7 +60,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   h1 { margin-bottom: 0.5rem; }
 
   .page-meta {
-    font-family: var(--font-nav);
+    font-family: var(--font-ui);
     font-size: 0.58rem;
     letter-spacing: 0.08em;
     font-style: italic;
@@ -81,12 +81,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .part-card {
-    border-top: 1px solid rgba(42, 42, 37, 0.15);
+    border-top: 1px solid var(--color-border);
     padding: 2.5rem 0;
   }
 
   .part-number {
-    font-family: var(--font-nav);
+    font-family: var(--font-ui);
     font-size: 0.55rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
@@ -101,14 +101,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .part-card h2 a {
-    color: var(--color-text);
+    color: var(--color-ink);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s;
   }
 
   .part-card h2 a:hover {
-    border-bottom-color: var(--color-text);
+    border-bottom-color: var(--color-ink);
     opacity: 1;
   }
 
@@ -125,16 +125,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .part-principles span {
-    font-family: var(--font-nav);
+    font-family: var(--font-ui);
     font-size: 0.55rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 0.3rem 0.75rem;
-    border: 1px solid rgba(42, 42, 37, 0.25);
+    border: 1px solid var(--color-border-strong);
   }
 
   .part-status {
-    font-family: var(--font-nav);
+    font-family: var(--font-ui);
     font-size: 0.55rem;
     letter-spacing: 0.06em;
     font-style: italic;

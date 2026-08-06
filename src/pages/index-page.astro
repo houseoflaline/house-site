@@ -48,11 +48,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .page-meta {
-    font-family: var(--font-nav);
+    font-family: var(--font-ui);
     font-size: 0.58rem;
     letter-spacing: 0.08em;
     font-style: italic;
-    color: var(--color-text);
+    color: var(--color-ink);
     opacity: 0.6;
     margin-bottom: 3rem;
   }
@@ -65,7 +65,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .section-list li {
     margin-bottom: 1.75rem;
     padding-bottom: 1.75rem;
-    border-bottom: 1px solid rgba(42, 42, 37, 0.12);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .section-list li:last-child {
@@ -75,21 +75,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .section-list a {
     font-family: var(--font-body);
     font-size: 1.15rem;
-    color: var(--color-text);
+    color: var(--color-ink);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s;
   }
 
   .section-list a:hover {
-    border-bottom-color: var(--color-text);
+    border-bottom-color: var(--color-ink);
     opacity: 1;
   }
 
   .section-desc {
     font-family: var(--font-body);
     font-size: 0.95rem;
-    color: var(--color-text);
+    color: var(--color-ink);
     opacity: 0.65;
     margin-top: 0.4rem;
     margin-bottom: 0;

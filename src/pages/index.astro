@@ -3,142 +3,397 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="House of Laline" landing={true}>
+  <header class="mobile-header">
+    <a href="/" class="mobile-brand">House of Laline</a>
+    <a href="/works">Works</a>
+  </header>
 
-  <div class="top-bar">
-    <span class="top-left">Editorial publishing house</span>
-    <span class="top-right">V1.6 · Est. 2026</span>
-  </div>
-
-  <h1 class="display">House <span class="of">of</span> Laline</h1>
-
-  <div class="bottom-bar">
-    <div class="tagline-block">
-      <p class="tagline">Architecture for the digital world.</p>
-      <a href="/index-page" class="enter">Enter the system →</a>
-    </div>
-    <div class="meta-stack">
-      <span>London</span>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-meta">
+      <span>Editorial publishing house</span>
       <span>Est. 2026</span>
     </div>
-  </div>
 
+    <div class="hero-centre">
+      <h1 id="hero-title" class="display">House <span class="of">of</span> Laline</h1>
+      <p class="hero-statement">
+        Resolved digital structures built for specific purposes.
+        The decisions are made. The content remains yours.
+      </p>
+      <p class="eyebrow hero-position">Structures, not templates</p>
+    </div>
+
+    <div class="hero-footer">
+      <a href="#featured-work" class="enter">View the first work <span aria-hidden="true">↓</span></a>
+      <span>Soft release · 2026</span>
+    </div>
+  </section>
+
+  <section class="featured" id="featured-work" aria-labelledby="atlas-title">
+    <div class="section-number">W01</div>
+    <div class="featured-intro">
+      <p class="eyebrow">Featured work</p>
+      <h2 id="atlas-title">Atlas</h2>
+      <p class="featured-lede">
+        A photographer website system composed of three resolved architectures.
+        Each volume begins with what the visitor is there to do.
+      </p>
+      <a href="/works" class="text-link">Read about Atlas <span aria-hidden="true">→</span></a>
+    </div>
+
+    <ol class="volumes" aria-label="Atlas volumes">
+      <li>
+        <span class="volume-number">I</span>
+        <div>
+          <h3>Still</h3>
+          <p>One image at a time, for photographs that need undivided attention.</p>
+        </div>
+      </li>
+      <li>
+        <span class="volume-number">II</span>
+        <div>
+          <h3>Sequence</h3>
+          <p>Authored pacing for bodies of work understood through order.</p>
+        </div>
+      </li>
+      <li>
+        <span class="volume-number">III</span>
+        <div>
+          <h3>Index</h3>
+          <p>Range, relevance and contact for photographers being considered for hire.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="position" aria-labelledby="position-title">
+    <p class="eyebrow">The position</p>
+    <h2 id="position-title">Architecture follows intent.</h2>
+    <div class="position-copy">
+      <p>
+        Most digital products begin with a blank canvas and an abundance of options.
+        Laline begins with a question: what must this structure allow someone to do?
+      </p>
+      <p>
+        Each Work fixes the hierarchy, pacing, navigation and typographic system around
+        that answer. People replace the content and wording within declared boundaries;
+        they do not have to redesign the decisions that make the structure coherent.
+      </p>
+    </div>
+    <a href="/preface" class="text-link">Why this exists <span aria-hidden="true">→</span></a>
+  </section>
+
+  <section class="house-index" aria-labelledby="house-title">
+    <div class="section-number">Index</div>
+    <div>
+      <p class="eyebrow">Inside the house</p>
+      <h2 id="house-title">A system that can grow without losing its shape.</h2>
+    </div>
+
+    <nav class="index-links" aria-label="House sections">
+      <a href="/works">
+        <span>Works</span>
+        <small>Resolved structures and their editions</small>
+        <span aria-hidden="true">01</span>
+      </a>
+      <a href="/texts">
+        <span>Texts</span>
+        <small>Arguments, observations and reading material</small>
+        <span aria-hidden="true">02</span>
+      </a>
+      <a href="/doctrine">
+        <span>Doctrine</span>
+        <small>Principles and structural constraints</small>
+        <span aria-hidden="true">03</span>
+      </a>
+      <a href="/manifesto">
+        <span>Manifesto</span>
+        <small>Foundations, composition and expression</small>
+        <span aria-hidden="true">04</span>
+      </a>
+    </nav>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-identity">
+      <img class="footer-mark" src="/laline-mark.svg" alt="" width="36" height="36" />
+      <div>
+        <p class="footer-name">House of Laline</p>
+        <p>Editorial structures built on clear principles.</p>
+      </div>
+    </div>
+    <div class="footer-note">
+      <span>Built slowly</span>
+      <span>Issued when ready</span>
+      <span>Est. 2026</span>
+    </div>
+  </footer>
 </BaseLayout>
 
 <style>
-  /* ── Top bar ── */
-  .top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 3.5rem 4rem 1.75rem 4.5rem;
-    border-bottom: 1px solid var(--color-border);
-    flex-shrink: 0;
+  :global(html) { scroll-behavior: smooth; }
+
+  .mobile-header { display: none; }
+
+  .hero,
+  .featured,
+  .position,
+  .house-index,
+  .site-footer {
+    padding-left: clamp(1.5rem, 5vw, 4.5rem);
+    padding-right: clamp(1.5rem, 5vw, 4.5rem);
   }
 
-  .top-left {
+  .hero {
+    min-height: 100svh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero-meta,
+  .hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 3.5rem;
+    padding-bottom: 1.5rem;
     font-family: var(--font-ui);
-    font-size: var(--text-nav);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-ink);
+  }
+
+  .hero-meta { border-bottom: 1px solid var(--color-border); }
+  .hero-footer { padding-top: 1.5rem; padding-bottom: 3rem; }
+
+  .hero-centre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 880px;
+    padding: 12vh 0;
+  }
+
+  .eyebrow {
+    font-family: var(--font-ui);
+    font-size: var(--text-micro);
     font-weight: var(--weight-medium);
     letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
-    color: var(--color-secondary);
+    color: var(--color-ink);
+    margin-bottom: 1.5rem;
   }
 
-  .top-right {
+  h1.display {
+    font-size: clamp(4rem, 9vw, 8.5rem);
+    line-height: 0.9;
+    margin: 0 0 3rem;
+  }
+
+  .hero-statement {
+    font-family: var(--font-ui);
+    font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+    font-weight: var(--weight-regular);
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+    max-width: 680px;
+    color: var(--color-ink-study);
+    margin: 0;
+  }
+
+  .hero-position {
+    margin-top: 3rem;
+    margin-bottom: 0;
+    color: var(--color-ink);
+  }
+
+  .enter,
+  .text-link {
     font-family: var(--font-ui);
     font-size: var(--text-nav);
-    letter-spacing: var(--tracking-widest);
-    color: var(--color-secondary);
-    opacity: 0.6;
-  }
-
-  /* ── Display title ── */
-  h1.display {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: clamp(2rem, 5vw, 5.5rem);
-    font-weight: var(--weight-regular);
-    letter-spacing: 0.02em;
-    line-height: 0.92;
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
     color: var(--color-ink);
-    margin-top: auto;
-    margin-bottom: 0;
-    padding: 0 4rem 0 4.5rem;
-    flex-shrink: 0;
-    /* no white-space: nowrap — let it respond to screen */
-    max-width: 100%;
   }
 
-  h1.display .of {
-    font-size: 0.45em;
-    opacity: 0.85;
-    letter-spacing: 0.06em;
-    margin: 0 0.05em;
-    vertical-align: middle;
+  .featured {
+    display: grid;
+    grid-template-columns: 80px minmax(260px, 0.9fr) minmax(360px, 1.25fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    padding-top: clamp(6rem, 12vh, 9rem);
+    padding-bottom: clamp(6rem, 12vh, 9rem);
+    border-bottom: 1px solid var(--color-border);
   }
 
-  /* ── Bottom bar ── */
-  .bottom-bar {
+  .section-number {
+    font-family: var(--font-ui);
+    font-size: var(--text-nav);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+  }
+
+  .featured h2,
+  .position h2,
+  .house-index h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    font-weight: var(--weight-light);
+    letter-spacing: 0;
+    line-height: 1;
+    text-transform: none;
+    color: var(--color-ink);
+    margin: 0 0 2rem;
+  }
+
+  .featured-lede {
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: var(--color-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .volumes { list-style: none; border-top: 1px solid var(--color-ink); }
+  .volumes li {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 1.5rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .volume-number {
+    font-family: var(--font-ui);
+    font-size: var(--text-nav);
+    color: var(--color-secondary);
+  }
+  .volumes h3 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: var(--weight-regular);
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--color-ink);
+    margin: 0 0 0.45rem;
+  }
+  .volumes p { color: var(--color-secondary); margin: 0; }
+
+  .position {
+    padding-top: clamp(7rem, 15vh, 11rem);
+    padding-bottom: clamp(7rem, 15vh, 11rem);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .position h2 { max-width: 800px; }
+  .position-copy {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 6vw, 7rem);
+    max-width: 960px;
+    margin: 3rem 0 2rem;
+  }
+  .position-copy p { font-size: 1.05rem; line-height: 1.85; margin: 0; }
+
+  .house-index {
+    display: grid;
+    grid-template-columns: 80px minmax(260px, 0.75fr) minmax(420px, 1.25fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    padding-top: clamp(6rem, 12vh, 9rem);
+    padding-bottom: clamp(6rem, 12vh, 9rem);
+  }
+  .house-index h2 { font-size: clamp(2.4rem, 4vw, 4rem); }
+  .index-links { border-top: 1px solid var(--color-ink); }
+  .index-links a {
+    display: grid;
+    grid-template-columns: 120px 1fr 28px;
+    gap: 1rem;
+    align-items: baseline;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid var(--color-border);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+  }
+  .index-links small,
+  .index-links a > span:last-child {
+    font-family: var(--font-ui);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-secondary);
+  }
+
+  .site-footer {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    gap: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     border-top: 1px solid var(--color-border);
-    padding: 1.25rem 4rem 4.5rem 4.5rem;
-    margin-top: 1.5rem;
-    flex-shrink: 0;
-  }
-
-  .tagline-block {
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-  }
-
-  .tagline {
-    font-family: var(--font-body);
-    font-size: clamp(0.85rem, 1.5vw, 1.05rem);
-    font-weight: var(--weight-light);
-    font-style: italic;
+    background: var(--color-bg);
     color: var(--color-ink);
-    line-height: 1.85;
-    max-width: none;
-    margin-bottom: 0;
   }
-
-  .enter {
+  .site-footer p,
+  .site-footer a,
+  .site-footer span {
+    color: inherit;
     font-family: var(--font-ui);
-    font-size: var(--text-nav);
-    font-weight: var(--weight-regular);
-    letter-spacing: 0.04em;
-    color: var(--color-secondary);
-    text-decoration: none;
-    transition: opacity var(--primitive-motion-base);
+    font-size: 0.5rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    margin: 0;
   }
-  .enter:hover { opacity: 0.5; }
-
-  .meta-stack {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    font-family: var(--font-ui);
-    font-size: 0.46rem;
-    letter-spacing: var(--tracking-wider);
-    color: var(--color-secondary);
-    opacity: 0.85;
-    line-height: 1.8;
+  .site-footer .footer-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-bottom: 0.5rem;
   }
+  .footer-identity { display: flex; align-items: flex-end; gap: 1rem; }
+  .footer-mark { display: block; width: 2.25rem; height: 2.25rem; flex: none; }
+  .footer-note { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; }
+  .footer-note span { white-space: nowrap; }
 
-  /* ── Responsive ── */
-  @media (max-width: 1024px) {
-    .top-bar { padding: 2.5rem 3rem 1.5rem 3rem; }
-    h1.display { padding: 0 3rem; }
-    .bottom-bar { padding: 1.25rem 3rem 3rem 3rem; }
+  @media (max-width: 1050px) {
+    .featured,
+    .house-index { grid-template-columns: 52px 1fr; }
+    .volumes,
+    .index-links { grid-column: 2; }
   }
 
   @media (max-width: 768px) {
-    .top-bar { padding: 2rem 1.5rem 1.25rem 1.5rem; }
-    h1.display { padding: 0 1.5rem; font-size: clamp(1.75rem, 8vw, 3rem); }
-    .bottom-bar { padding: 1rem 1.5rem 2.5rem 1.5rem; flex-direction: column; gap: 1rem; align-items: flex-start; }
-    .meta-stack { align-items: flex-start; }
+    .mobile-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      font-family: var(--font-ui);
+      font-size: var(--text-nav);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+    }
+    .mobile-brand { font-weight: var(--weight-bold); }
+    .hero { min-height: calc(100svh - 58px); }
+    .hero-meta { padding-top: 1.5rem; }
+    .hero-centre { padding: 10vh 0; }
+    h1.display { font-size: clamp(3.6rem, 19vw, 6rem); margin-bottom: 2rem; }
+    .hero-statement { font-size: 0.8rem; }
+    .hero-position { margin-top: 2.5rem; }
+    .featured,
+    .house-index { display: block; }
+    .section-number { margin-bottom: 4rem; }
+    .volumes,
+    .index-links { margin-top: 4rem; }
+    .position-copy { grid-template-columns: 1fr; gap: 1rem; }
+    .index-links a { grid-template-columns: 90px 1fr 24px; }
+    .site-footer { align-items: flex-start; flex-direction: column; }
+    .footer-identity { align-items: flex-start; }
+    .footer-note { align-items: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) { scroll-behavior: auto; }
   }
 </style>

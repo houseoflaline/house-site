@@ -1,219 +1,48 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const works = [
-  {
-    number: 'W01',
-    title: 'Luella',
-    href: '/works/luella',
-    description: 'Editorial structure for long-form content and essay collections.',
-    expressionSlot: 'Palette variation',
-    status: 'In development'
-  },
-  {
-    number: 'W02',
-    title: 'Aria',
-    href: '/works/aria',
-    description: 'Documentation system with hierarchical navigation and reference architecture.',
-    expressionSlot: 'Typographic contrast',
-    status: 'In development'
-  },
-  {
-    number: 'W03',
-    title: 'Adonis',
-    href: '/works/adonis',
-    description: 'Portfolio structure emphasizing visual hierarchy and project presentation.',
-    expressionSlot: 'Texture variation',
-    status: 'In development'
-  },
-  {
-    number: 'W04',
-    title: 'Céleste',
-    href: '/works/celeste',
-    description: 'Magazine layout system for serial publication and content curation.',
-    expressionSlot: 'Palette variation',
-    status: 'Planned'
-  },
-  {
-    number: 'W05',
-    title: 'René',
-    href: '/works/rene',
-    description: 'Knowledge base architecture for technical documentation and guides.',
-    expressionSlot: 'Single kinetic element',
-    status: 'Planned'
-  },
-];
 ---
 
 <BaseLayout title="Works" currentPath="/works">
-  <div class="breadcrumb">
-    <a href="/">Entry</a> / Works
-  </div>
+  <span class="meta">I · Works</span>
+  <h1>Resolved structures</h1>
 
-  <h1>Works</h1>
-  <p class="page-meta">Editorial structures and design systems · Updated February 2026</p>
-
-  <div class="content-section">
-    <p>
-      Works are editorial structures—architectural frameworks for content without imposed branding. Each demonstrates the LALINE methodology through a single expression slot, showing how constraint enables creativity while maintaining systematic rigor.
+  <div class="page-content">
+    <p class="lead">
+      A Work begins with an intention, not a style. Its hierarchy, pacing,
+      navigation and expression are resolved around what the visitor needs to do.
     </p>
-    <p>
-      These are not templates. They are structural systems that accept your content and expression within defined boundaries.
-    </p>
-  </div>
 
-  <ul class="works-list">
-    {works.map(work => (
-      <li class="work-item">
-        <div class="work-number">{work.number}</div>
-        <div class="work-content">
-          <div class="work-header">
-            <h3><a href={work.href}>{work.title}</a></h3>
-            <span class="work-status">{work.status}</span>
-          </div>
-          <p class="work-description">{work.description}</p>
-          <div class="work-meta">
-            Expression: {work.expressionSlot}
-          </div>
-        </div>
-      </li>
-    ))}
-  </ul>
+    <article class="work">
+      <div class="work-meta">
+        <span>W01</span>
+        <span>Recovered edition · 2026</span>
+      </div>
+      <h2>Atlas</h2>
+      <p class="abstract">A photographer website system composed of three architectures, each built for a different relationship between work and viewer.</p>
 
-  <div class="works-note">
-    <p>
-      <strong>Note on availability:</strong> Works marked "In development" will be released as part of Edition 01 (Échelle Zero). Planned works are scheduled for future editions. All works will be available for purchase with complete source files and implementation documentation.
-    </p>
+      <ol class="volume-list">
+        <li><span>I</span><strong>Still</strong><p>Singular images, given undivided attention.</p></li>
+        <li><span>II</span><strong>Sequence</strong><p>Bodies of work whose meaning develops through order.</p></li>
+        <li><span>III</span><strong>Index</strong><p>Range and relevance made legible for professional evaluation.</p></li>
+      </ol>
+
+      <p class="availability">Live demonstration and release documentation are being prepared.</p>
+    </article>
   </div>
 </BaseLayout>
 
 <style>
-  .breadcrumb {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 3rem;
-  }
-
-  .breadcrumb a {
-    color: var(--text-secondary);
-    text-decoration: underline;
-  }
-
-  .breadcrumb a:hover {
-    color: var(--text);
-  }
-
-  .page-meta {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 3rem;
-    font-style: italic;
-  }
-
-  .content-section {
-    margin-bottom: 3rem;
-  }
-
-  .content-section p {
-    margin-bottom: 1.5rem;
-  }
-
-  .works-list {
-    list-style: none;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-  }
-
-  .work-item {
-    border-top: 1px solid var(--border);
-    padding: 2rem 0;
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-  }
-
-  .work-item:last-child {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .work-number {
-    font-family: 'Courier New', monospace;
-    font-size: 0.875rem;
-    color: var(--text-tertiary);
-    min-width: 2.5rem;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .work-content {
-    flex: 1;
-  }
-
-  .work-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .work-item h3 {
-    font-size: 1.2rem;
-    font-weight: 400;
-  }
-
-  .work-item h3 a {
-    color: var(--text);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
-  }
-
-  .work-item h3 a:hover {
-    border-bottom-color: var(--text);
-  }
-
-  .work-status {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-tertiary);
-    font-family: 'Courier New', monospace;
-  }
-
-  .work-description {
-    font-size: 1rem;
-    line-height: 1.7;
-    margin-bottom: 0.75rem;
-    color: var(--text);
-  }
-
-  .work-meta {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    font-style: italic;
-  }
-
-  .works-note {
-    border-top: 1px solid var(--border);
-    padding-top: 2rem;
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-  }
-
-  .works-note strong {
-    color: var(--text);
-    font-weight: 600;
-  }
-
-  @media (max-width: 768px) {
-    .work-item {
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .work-header {
-      flex-direction: column;
-      gap: 0.5rem;
-      align-items: flex-start;
-    }
-  }
+  .page-content { max-width: 760px; }
+  .lead { font-size: 1.1rem; line-height: 1.85; font-style: italic; }
+  .work { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-ink); }
+  .work-meta { display: flex; justify-content: space-between; gap: 2rem; font-family: var(--font-ui); font-size: var(--text-micro); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--color-secondary); }
+  .work h2 { font-family: var(--font-display); font-size: clamp(3rem, 7vw, 5.5rem); font-weight: var(--weight-light); letter-spacing: 0; text-transform: none; color: var(--color-ink); margin: 3rem 0 1.5rem; }
+  .abstract { font-size: 1.1rem; line-height: 1.8; color: var(--color-secondary); }
+  .volume-list { list-style: none; margin: 3rem 0; border-top: 1px solid var(--color-border); }
+  .volume-list li { display: grid; grid-template-columns: 40px 110px 1fr; gap: 1rem; align-items: baseline; padding: 1.25rem 0; border-bottom: 1px solid var(--color-border); }
+  .volume-list span { font-family: var(--font-ui); font-size: var(--text-micro); color: var(--color-secondary); }
+  .volume-list strong { font-family: var(--font-display); font-size: 1.3rem; font-weight: var(--weight-regular); }
+  .volume-list p { margin: 0; color: var(--color-secondary); }
+  .availability { font-family: var(--font-ui); font-size: var(--text-micro); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--color-secondary); }
+  @media (max-width: 600px) { .volume-list li { grid-template-columns: 28px 1fr; } .volume-list p { grid-column: 2; } }
 </style>

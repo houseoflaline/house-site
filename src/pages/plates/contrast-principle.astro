@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Contrast" currentPath="/plates/contrast-principle">
@@ -50,17 +50,17 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 <style>
   .breadcrumb {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     margin-bottom: 3rem;
   }
 
   .breadcrumb a {
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     text-decoration: underline;
   }
 
   .breadcrumb a:hover {
-    color: var(--text);
+    color: var(--color-ink);
   }
 
   .principle-document {
@@ -70,16 +70,16 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   .principle-header {
     margin-bottom: 3rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .principle-meta {
     display: flex;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-ui);
     font-size: 0.8rem;
-    color: var(--text-tertiary);
+    color: var(--color-muted);
     text-transform: uppercase;
     flex-wrap: wrap;
   }
@@ -90,7 +90,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   }
 
   .principle-meta .see-also a {
-    color: var(--text);
+    color: var(--color-ink);
     text-decoration: underline;
   }
 
@@ -104,7 +104,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   .abstract {
     font-size: 1.15rem;
     line-height: 1.7;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     font-style: italic;
   }
 
@@ -122,18 +122,18 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
   .citation-text {
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     font-style: italic;
   }
 
   .citation-text strong {
-    color: var(--text);
+    color: var(--color-ink);
     font-weight: 600;
     font-style: normal;
   }
 
   .citation-text a {
-    color: var(--text);
+    color: var(--color-ink);
     text-decoration: underline;
   }
 </style>

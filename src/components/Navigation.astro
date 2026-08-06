@@ -14,79 +14,48 @@ const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWi
       <div class="nav-group">
         <div class="nav-row">
           <span class="nav-num">I.</span>
-          <a href="/index-page" class={`nav-title ${isActive('/index-page') ? 'active' : ''}`}>Index</a>
+          <a href="/" class={`nav-title ${isActive('/') ? 'active' : ''}`}>House</a>
         </div>
       </div>
 
-      <div class="nav-group">
+      <div class="nav-group group-break">
         <div class="nav-row">
           <span class="nav-num">II.</span>
-          <a href="/preface" class={`nav-title ${isActive('/preface') ? 'active' : ''}`}>Preface</a>
+          <a href="/works" class={`nav-title ${isParentActive(['/works']) ? 'active' : ''}`}>Works</a>
         </div>
       </div>
 
-      <div class="nav-group gap">
+      <div class="nav-group">
         <div class="nav-row">
           <span class="nav-num">III.</span>
-          <a href="/doctrine" class={`nav-title ${isActive('/doctrine') ? 'active' : ''}`}>Doctrine</a>
+          <a href="/texts" class={`nav-title ${isParentActive(['/texts']) ? 'active' : ''}`}>Texts</a>
         </div>
       </div>
 
-      <div class="nav-group">
+      <div class="nav-group group-break">
         <div class="nav-row">
           <span class="nav-num">IV.</span>
-          <a href="/manifesto" class={`nav-title ${isParentActive(['/manifesto']) ? 'active' : ''}`}>Manifesto</a>
+          <a href="/doctrine" class={`nav-title ${isActive('/doctrine') ? 'active' : ''}`}>Doctrine</a>
         </div>
         <ul class="nav-sub">
-          <li class={isParentActive(['/manifesto/foundations']) ? 'dot-active' : ''}><a href="/manifesto/foundations">Foundations</a></li>
-          <li class={isParentActive(['/manifesto/composition']) ? 'dot-active' : ''}><a href="/manifesto/composition">Composition</a></li>
-          <li class={isParentActive(['/manifesto/expression']) ? 'dot-active' : ''}><a href="/manifesto/expression">Expression</a></li>
+          <li class={isActive('/preface') ? 'dot-active' : ''}><a href="/preface">Preface</a></li>
+          <li class={isParentActive(['/manifesto']) ? 'dot-active' : ''}><a href="/manifesto">Manifesto</a></li>
         </ul>
       </div>
 
-      <div class="nav-group gap">
+      <div class="nav-group">
         <div class="nav-row">
           <span class="nav-num">V.</span>
-          <a href="/canon" class={`nav-title ${isActive('/canon') ? 'active' : ''}`}>Canon</a>
+          <a href="/plates" class={`nav-title ${isParentActive(['/plates']) ? 'active' : ''}`}>Plates</a>
         </div>
-        <ul class="nav-sub">
-          <li class={isActive('/texts') ? 'dot-active' : ''}><a href="/texts">Texts</a></li>
-          <li class={isActive('/plates') ? 'dot-active' : ''}><a href="/plates">Plates</a></li>
-        </ul>
-      </div>
-
-      <div class="nav-group">
-        <div class="nav-row">
-          <span class="nav-num">VI.</span>
-          <a href="/decision-framework" class={`nav-title ${isActive('/decision-framework') ? 'active' : ''}`}>Frameworks</a>
-        </div>
-      </div>
-
-      <div class="nav-group gap">
-        <div class="nav-row">
-          <span class="nav-num">VII.</span>
-          <a href="/measured-design" class={`nav-title ${isParentActive(['/measured-design']) ? 'active' : ''}`}>Measures</a>
-        </div>
-        <ul class="nav-sub">
-          <li class={isActive('/measured-design/modular-scale') ? 'dot-active' : ''}><a href="/measured-design/modular-scale">Modular</a></li>
-          <li class={isActive('/measured-design/grid-anatomy') ? 'dot-active' : ''}><a href="/measured-design/grid-anatomy">Grid</a></li>
-          <li class={isActive('/measured-design/rhythm-spacing') ? 'dot-active' : ''}><a href="/measured-design/rhythm-spacing">Rhythm</a></li>
-        </ul>
-      </div>
-
-      <div class="nav-group">
-        <div class="nav-row">
-          <span class="nav-num">VIII.</span>
-          <a href="/style-ecosystem" class={`nav-title ${isParentActive(['/style-ecosystem', '/resources', '/glossary']) ? 'active' : ''}`}>System</a>
-        </div>
-        <ul class="nav-sub">
-          <li class={isActive('/style-ecosystem') ? 'dot-active' : ''}><a href="/style-ecosystem">Style Ecosystem</a></li>
-          <li class={isActive('/resources') ? 'dot-active' : ''}><a href="/resources">Resources</a></li>
-          <li class={isActive('/glossary') ? 'dot-active' : ''}><a href="/glossary">Glossary</a></li>
-        </ul>
       </div>
 
     </div>
+
+    <footer class="nav-footer">
+      <p>LALINE &nbsp; V1.6</p>
+      <p class="footer-gap">Built slowly. Issued when ready.</p>
+    </footer>
   </div>
 </nav>
 
@@ -131,14 +100,16 @@ const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWi
     flex-direction: column;
   }
 
-  .nav-group { margin-bottom: 1.35rem; flex-shrink: 0; }
-  .nav-group.gap { margin-bottom: 2.75rem; }
+  .nav-group {
+    margin-bottom: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .nav-group.group-break { margin-bottom: 3.4rem; }
 
   /* ── Row ── */
   .nav-row {
-    display: grid;
-    grid-template-columns: 2rem 1fr;
-    align-items: baseline;
+    display: block;
   }
 
   /* ── Numeral — right aligned so dots line up ── */
@@ -147,8 +118,8 @@ const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWi
     font-size: var(--text-nav);
     font-weight: var(--weight-medium);
     color: var(--color-ink);
-    text-align: right;
-    padding-right: 0.4rem;
+    display: block;
+    margin-bottom: 0.1rem;
   }
 
   /* ── Title ── */
@@ -160,6 +131,8 @@ const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWi
     text-transform: uppercase;
     color: var(--color-ink);
     text-decoration: none;
+    display: block;
+    padding-left: 1.5rem;
   }
   .nav-title:hover { opacity: 0.5; }
   .nav-title.active { color: var(--color-secondary); }
@@ -167,14 +140,15 @@ const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWi
   /* ── Sub items ── */
   .nav-sub {
     list-style: none;
-    margin-top: 0.2rem;
+    margin-top: 0.1rem;
+    padding-left: 1.5rem;
   }
 
   .nav-sub li {
     display: grid;
-    grid-template-columns: 2rem 1fr;
+    grid-template-columns: 0.5rem 1fr;
     align-items: center;
-    line-height: 1.85;
+    line-height: 1.7;
   }
 
   .nav-sub li::before {
@@ -184,7 +158,7 @@ const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWi
     background: var(--color-secondary);
     opacity: 0;
     justify-self: end;
-    margin-right: 0.4rem;
+    margin-right: 0.25rem;
   }
 
   .nav-sub li.dot-active::before { opacity: 1; }
@@ -198,6 +172,27 @@ const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWi
     text-decoration: none;
   }
   .nav-sub a:hover { opacity: 0.7; }
+
+  /* ── Footer ── */
+  .nav-footer {
+    margin-top: auto;
+    padding-top: 2rem;
+    flex-shrink: 0;
+    font-family: var(--font-ui);
+    font-size: var(--text-nav);
+    font-weight: var(--weight-regular);
+    color: var(--color-secondary);
+    line-height: 1.5;
+  }
+
+  .nav-footer p {
+    max-width: none;
+    margin: 0;
+    font: inherit;
+    white-space: nowrap;
+  }
+
+  .nav-footer .footer-gap { margin-bottom: 0.6rem; }
 
   @media (max-width: 768px) { nav { display: none; } }
 </style>

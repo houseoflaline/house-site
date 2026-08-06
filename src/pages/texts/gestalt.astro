@@ -11,64 +11,381 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <header class="text-header">
       <div class="text-meta">
         <span class="text-number">T04</span>
-        <span class="reading-time">14 min read</span>
+        <span class="reading-time">11 min read</span>
       </div>
       <h1>Gestalt Perception</h1>
       <p class="abstract">How the mind organizes visual information into coherent wholes.</p>
     </header>
 
     <section class="text-content">
-      <p>
-        Look at a field of dots—mostly uniform, mostly evenly spaced. But somewhere in that field, a few dots have been pulled closer together. You did not need to be told this. You saw it. You grouped them. You perceived a cluster where, mathematically, there is only a collection of identical points at different coordinates. Nothing in the dots themselves says "these belong together." That judgment came from you—instantly, automatically, without thought.
-      </p>
+      <!-- OPENING -->
+        <p class="prose">
+          Look at the background of this page's opening. A field of dots — mostly uniform, mostly evenly spaced. But somewhere in that field, a few dots have been pulled closer together. You did not need to be told this. You saw it. You grouped them. You perceived a cluster where, mathematically, there is only a collection of identical points at different coordinates. Nothing in the dots themselves says "these belong together." That judgment came from you — instantly, automatically, without thought.
+        </p>
 
-      <p>
-        This is what Gestalt psychology discovered in the early twentieth century, and what cognitive science has since confirmed: <strong>the human mind does not passively receive visual information. It actively organises it</strong>—grouping, completing, separating, and interpreting—according to a set of principles so deeply embedded in our neurology that they operate before conscious awareness begins. We do not learn to perceive. We are built to perceive, and the patterns we perceive are not arbitrary. They follow rules.
-      </p>
+        <p class="prose">
+          This is what Gestalt psychology discovered in the early twentieth century, and what cognitive science has since confirmed: <strong>the human mind does not passively receive visual information. It actively organises it</strong> — grouping, completing, separating, and interpreting — according to a set of principles so deeply embedded in our neurology that they operate before conscious awareness begins. We do not learn to perceive. We are built to perceive, and the patterns we perceive are not arbitrary. They follow rules.
+        </p>
 
-      <blockquote>
-        Perception is not the passive reception of stimuli. It is an act of construction—and the rules of that construction are written into the architecture of the mind itself.
-      </blockquote>
+        <blockquote>
+          "Perception is not the passive reception of stimuli. It is an act of construction — and the rules of that construction are written into the architecture of the mind itself."
+        </blockquote>
 
-      <p>
-        These rules are the mechanisms behind everything described in <em>Human Patterns</em>. The Golden Ratio feels right because of how the mind resolves proportion. The Logarithmic Spiral feels alive because of how the mind follows continuity. The Vesica Piscis feels meaningful because of how the mind seeks synthesis from overlap. The patterns are real. But the reason they work—the engine that makes them land—is here.
-      </p>
+        <p class="prose">
+          These rules are the mechanisms behind everything described in <em>Human Patterns</em>. The Golden Ratio feels right because of how the mind resolves proportion. The Logarithmic Spiral feels alive because of how the mind follows continuity. The Vesica Piscis feels meaningful because of how the mind seeks synthesis from overlap. The patterns are real. But the reason they work — the engine that makes them land — is here.
+        </p>
 
-      <h2>I. Proximity</h2>
+        <hr />
 
-      <p>
-        Objects that are close together are perceived as related. Objects that are far apart are perceived as separate. This is the most fundamental Gestalt principle—and one of the most powerful forces in visual organization. When elements share space, the mind assumes they share purpose. This is not conscious reasoning. It is automatic pattern recognition.
-      </p>
+        <!-- ─── I. PROXIMITY ─── -->
+        <h2 id="proximity">I. Proximity</h2>
 
-      <p>
-        Proximity operates at all scales. At the micro level, it determines which words feel connected in a sentence, which letters form a glyph, which pixels constitute an edge. At the macro level, it determines which sections of a page feel like discrete units, which navigation items feel like a group, which blocks of text belong to the same argument.
-      </p>
+        <p class="prose">
+          Proximity is the simplest and most powerful of the Gestalt principles: <strong>things that are near each other are perceived as belonging together</strong>. Not because they share a colour, a shape, or a label. Simply because they are close. Distance, in the mind's accounting, is a statement about relationship.
+        </p>
 
-      <h2>II. Similarity</h2>
+        <!--
+          DEMONSTRATION: Two columns of dots. Same dots, same size, same colour.
+          Left column: evenly spaced rows — no grouping felt.
+          Right column: dots arranged in pairs with a gap between each pair —
+          the pairs are immediately perceived as units.
+          The reader experiences this without being told.
+        -->
+        <div class="illustration-dual">
+          <div class="dual-frames">
+            <div class="dual-frame">
+              <svg width="120" height="180" viewBox="0 0 120 180" fill="none">
+                <!-- 6 rows, evenly spaced. No grouping. -->
+                <g fill="#1a1a18" opacity="0.7">
+                  <circle cx="40" cy="20" r="4"/><circle cx="80" cy="20" r="4"/>
+                  <circle cx="40" cy="50" r="4"/><circle cx="80" cy="50" r="4"/>
+                  <circle cx="40" cy="80" r="4"/><circle cx="80" cy="80" r="4"/>
+                  <circle cx="40" cy="110" r="4"/><circle cx="80" cy="110" r="4"/>
+                  <circle cx="40" cy="140" r="4"/><circle cx="80" cy="140" r="4"/>
+                  <circle cx="40" cy="170" r="4"/><circle cx="80" cy="170" r="4"/>
+                </g>
+              </svg>
+              <div class="dual-label">No grouping</div>
+            </div>
+            <div class="dual-frame">
+              <svg width="120" height="180" viewBox="0 0 120 180" fill="none">
+                <!-- Same dots. But now paired: tight spacing within pairs, wide gap between. -->
+                <g fill="#1a1a18" opacity="0.7">
+                  <!-- Pair 1 -->
+                  <circle cx="40" cy="18" r="4"/><circle cx="80" cy="18" r="4"/>
+                  <circle cx="40" cy="40" r="4"/><circle cx="80" cy="40" r="4"/>
+                  <!-- gap -->
+                  <!-- Pair 2 -->
+                  <circle cx="40" cy="78" r="4"/><circle cx="80" cy="78" r="4"/>
+                  <circle cx="40" cy="100" r="4"/><circle cx="80" cy="100" r="4"/>
+                  <!-- gap -->
+                  <!-- Pair 3 -->
+                  <circle cx="40" cy="138" r="4"/><circle cx="80" cy="138" r="4"/>
+                  <circle cx="40" cy="160" r="4"/><circle cx="80" cy="160" r="4"/>
+                </g>
+              </svg>
+              <div class="dual-label">Three groups</div>
+            </div>
+          </div>
+          <p class="illustration-caption">Same elements. Only spacing changed. Grouping appears.</p>
+        </div>
 
-      <p>
-        Objects that share visual properties are perceived as related, even when separated by space. Similarity can be based on color, size, shape, texture, orientation—any attribute that creates visual consistency. When elements look alike, the mind groups them conceptually, treating them as instances of the same type.
-      </p>
+        <p class="prose">
+          This principle governs more of visual design than almost any other. When a heading sits close to the paragraph beneath it, the reader understands they are connected — without being told. When two items in a navigation are spaced apart, the reader understands they are separate categories. When a label is placed near a data point on a chart, the reader understands attribution. <strong>None of this requires colour, lines, or borders</strong>. Proximity does the work alone.
+        </p>
 
-      <p>
-        This is why consistent visual language matters. A button should look like a button. A heading should look like a heading. Not because convention demands it, but because <strong>similarity communicates category</strong>. When elements that serve different purposes share the same visual treatment, the mind perceives them as equivalent—and structure collapses.
-      </p>
+        <p class="prose">
+          The implications run deeper than layout. Proximity also governs <strong>semantic grouping</strong> — the way meaning clusters in a visual field. A designer who understands proximity does not need to add visual decoration to communicate structure. They need only to control distance. Everything else follows.
+        </p>
 
-      <h2>III. Continuity</h2>
+        <hr />
 
-      <p>
-        The mind prefers to see continuous forms rather than discontinuous ones. When a line is interrupted, the eye continues along its implied trajectory. When elements are aligned, the mind perceives them as connected along an invisible axis. Continuity is the force that makes columns feel like units, that makes edges guide the eye, that makes broken circles feel whole.
-      </p>
+        <!-- ─── II. SIMILARITY ─── -->
+        <h2>II. Similarity</h2>
 
-      <h2>IV. Closure</h2>
+        <p class="prose">
+          Where proximity groups by <em>where</em> things are, similarity groups by <em>what</em> they are. Elements that share a visual property — shape, size, colour, orientation — are perceived as belonging to the same category, even when they are far apart. The mind reads shared appearance as shared identity.
+        </p>
 
-      <p>
-        The mind completes incomplete forms. When presented with a circle with a gap, we see a circle—not a curved line. When shown three sides of a square, we perceive a square—the fourth side exists perceptually even though it is absent visually. Closure is the principle that allows symbols to work, logos to function with negative space, and interfaces to imply boundaries without drawing them.
-      </p>
+        <p class="prose">
+          This is why a consistent typographic system communicates hierarchy without labels. All body text is the same size and weight — and so it reads as one category. All headings share a different size and weight — and so they read as another. The reader does not consciously think "these are headings." The similarity does the categorisation automatically. <strong>Consistency is not a stylistic choice. It is a cognitive instruction.</strong>
+        </p>
 
-      <p class="continuation-note">
-        <em>This text continues with principles of Figure-Ground, Common Fate, and Prägnanz. For the complete essay, see the full version.</em>
-      </p>
+        <p class="prose">
+          Similarity also explains why breaking a pattern carries so much weight. When every element in a system follows the same rule, a single element that breaks that rule becomes immediately conspicuous. The deviation is not just noticed — it is <em>prioritised</em>. The mind treats dissimilarity as signal. This is why a single bold word in a paragraph of regular text draws the eye. It is not louder. It is simply <strong>different from what the mind has already grouped together</strong>.
+        </p>
+
+        <hr />
+
+        <!-- ─── III. CLOSURE ─── -->
+        <h2 id="closure">III. Closure</h2>
+
+        <p class="prose">
+          Closure is the principle that the mind will <strong>complete incomplete forms</strong>. If a shape is almost closed — a circle with a small gap, a rectangle missing one side — the mind fills in the missing element automatically. The completed form is perceived even though it does not physically exist on the page.
+        </p>
+
+        <!--
+          DEMONSTRATION: Three forms, each missing a piece.
+          Left: a circle with a wedge removed — the eye completes it.
+          Centre: a square missing its bottom side — still reads as a square.
+          Right: a triangle with one vertex open — still reads as a triangle.
+          The reader's mind does the completing. No instruction needed.
+        -->
+        <div class="illustration-block">
+          <div class="illustration-frame" style="max-width: 480px;">
+            <svg width="420" height="130" viewBox="0 0 420 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+              <!-- Shape 1: Circle missing a wedge (like Pac-Man but subtler — just a gap) -->
+              <g>
+                <!-- Circle with arc gap at the right -->
+                <path d="M 65,15 A 50,50 0 1,0 65,115" stroke="#1a1a18" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                <!-- The gap is between roughly 330° and 30° — no line drawn there -->
+                <!-- Small label -->
+                <text x="65" y="145" text-anchor="middle" font-family="Inter, sans-serif" font-size="6.5" fill="#8a8a85" letter-spacing="0.6">CIRCLE</text>
+              </g>
+
+              <!-- Shape 2: Square missing its bottom edge -->
+              <g>
+                <line x1="175" y1="20" x2="265" y2="20" stroke="#1a1a18" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="175" y1="20" x2="175" y2="110" stroke="#1a1a18" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="265" y1="20" x2="265" y2="110" stroke="#1a1a18" stroke-width="1.2" stroke-linecap="round"/>
+                <!-- Bottom edge: absent. The mind draws it. -->
+                <!-- Dashed ghost line to hint at what the mind supplies -->
+                <line x1="175" y1="110" x2="265" y2="110" stroke="#b8a88a" stroke-width="0.6" stroke-dasharray="3 4" opacity="0.5"/>
+                <text x="220" y="145" text-anchor="middle" font-family="Inter, sans-serif" font-size="6.5" fill="#8a8a85" letter-spacing="0.6">SQUARE</text>
+              </g>
+
+              <!-- Shape 3: Triangle missing one side -->
+              <g>
+                <line x1="340" y1="110" x2="400" y2="110" stroke="#1a1a18" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="340" y1="110" x2="370" y2="22" stroke="#1a1a18" stroke-width="1.2" stroke-linecap="round"/>
+                <!-- Right side: absent -->
+                <line x1="370" y1="22" x2="400" y2="110" stroke="#b8a88a" stroke-width="0.6" stroke-dasharray="3 4" opacity="0.5"/>
+                <text x="370" y="145" text-anchor="middle" font-family="Inter, sans-serif" font-size="6.5" fill="#8a8a85" letter-spacing="0.6">TRIANGLE</text>
+              </g>
+            </svg>
+          </div>
+          <p class="illustration-caption">Each form is incomplete. Each is still fully recognised. The ghost lines show what the mind supplies.</p>
+        </div>
+
+        <p class="prose">
+          Closure is not a minor perceptual quirk. It is one of the mind's most fundamental strategies for making sense of a noisy, partial, often occluded visual world. In nature, objects are constantly interrupted — by other objects, by shadow, by distance. If the mind could only perceive things that were fully visible, it would be paralysed. Closure allows it to <strong>perceive wholeness from fragments</strong>.
+        </p>
+
+        <p class="prose">
+          In design, closure is both a gift and a responsibility. It allows designers to imply structure without drawing every line — to use negative space as a structural element rather than an absence. A border can be suggested by three sides. A container can be implied by alignment. But closure also means that <strong>incomplete forms will always be completed by the viewer</strong> — whether the designer intended that completion or not. An accidentally broken edge will be read as a closed shape. An unfinished layout will be perceived as finished. The mind does not wait for permission to complete what it sees.
+        </p>
+
+        <hr />
+
+        <!-- ─── IV. CONTINUITY ─── -->
+        <h2 id="continuity">IV. Continuity</h2>
+
+        <p class="prose">
+          The mind follows lines. Not just straight lines — curves, arcs, any path that maintains a consistent direction. When two lines cross, the mind does not see an intersection. It sees <strong>two continuous paths passing through the same point</strong>. The continuity of each path is perceived as more fundamental than the fact of their overlap.
+        </p>
+
+        <!--
+          DEMONSTRATION: Two lines crossing. The eye follows each one through the intersection.
+          Then: a more complex case — three paths overlapping. The mind still separates them.
+          Left panel: simple crossing. Right panel: three overlapping curves.
+        -->
+        <div class="illustration-dual">
+          <div class="dual-frames">
+            <div class="dual-frame">
+              <svg width="160" height="160" viewBox="0 0 160 160" fill="none">
+                <!-- Two straight lines crossing at centre -->
+                <line x1="20" y1="30" x2="140" y2="130" stroke="#1a1a18" stroke-width="1.3" stroke-linecap="round"/>
+                <line x1="20" y1="130" x2="140" y2="30" stroke="#1a1a18" stroke-width="1.3" stroke-linecap="round"/>
+                <!-- Small dots at endpoints to emphasise continuity -->
+                <circle cx="20" cy="30" r="2.2" fill="#b8a88a"/>
+                <circle cx="140" cy="130" r="2.2" fill="#b8a88a"/>
+                <circle cx="20" cy="130" r="2.2" fill="#1a1a18" opacity="0.5"/>
+                <circle cx="140" cy="30" r="2.2" fill="#1a1a18" opacity="0.5"/>
+              </svg>
+              <div class="dual-label">Two paths, one crossing</div>
+            </div>
+            <div class="dual-frame">
+              <svg width="160" height="160" viewBox="0 0 160 160" fill="none">
+                <!-- Three curves overlapping — the eye traces each one through -->
+                <!-- Curve A: gentle S from top-left to bottom-right -->
+                <path d="M 15,25 C 60,10 100,150 145,135" stroke="#1a1a18" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+                <!-- Curve B: arc from top-right to bottom-left -->
+                <path d="M 145,25 C 100,60 60,100 15,135" stroke="#1a1a18" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+                <!-- Curve C: a shallower wave across the middle -->
+                <path d="M 10,80 C 50,40 110,120 150,80" stroke="#1a1a18" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+                <!-- Endpoint markers -->
+                <circle cx="15" cy="25" r="2" fill="#b8a88a"/>
+                <circle cx="145" cy="135" r="2" fill="#b8a88a"/>
+                <circle cx="145" cy="25" r="2" fill="#1a1a18" opacity="0.4"/>
+                <circle cx="15" cy="135" r="2" fill="#1a1a18" opacity="0.4"/>
+                <circle cx="10" cy="80" r="2" fill="#1a1a18" opacity="0.25"/>
+                <circle cx="150" cy="80" r="2" fill="#1a1a18" opacity="0.25"/>
+              </svg>
+              <div class="dual-label">Three paths, still traced</div>
+            </div>
+          </div>
+          <p class="illustration-caption">At every intersection, the mind follows each path through — not across.</p>
+        </div>
+
+        <p class="prose">
+          This is why visual hierarchy works along axes. A column of text is perceived as a single continuous unit because its elements share a vertical line of continuity. A row of navigation items is perceived as a single group because they share a horizontal one. The mind does not need borders or backgrounds to unify them — it needs only a shared direction.
+        </p>
+
+        <p class="prose">
+          Continuity also explains why <strong>broken lines feel different from solid ones</strong>. A dashed border does not read as the same thing as a solid border, even when it occupies the same space. The gaps interrupt continuity — and the mind registers that interruption as a change in meaning. A solid line says "this is a boundary." A dashed line says "this is a suggestion." The difference is entirely perceptual, and entirely automatic.
+        </p>
+
+        <hr />
+
+        <!-- ─── V. FIGURE AND GROUND ─── -->
+        <h2>V. Figure and Ground</h2>
+
+        <p class="prose">
+          Every visual field is divided into two categories: the <strong>figure</strong> — the thing being looked at — and the <strong>ground</strong> — everything else. This separation is not something we decide. It happens automatically, before we are aware of having made it. The mind assigns every element in a scene to one category or the other, and this assignment determines what is perceived as meaningful and what is perceived as context.
+        </p>
+
+        <!--
+          DEMONSTRATION: An ambiguous figure — a shape that can be read as either
+          figure or ground depending on where the eye rests.
+          Original design: two facing profiles that also form a vase shape between them.
+          (Rubin's vase principle, but drawn as an original composition)
+        -->
+        <div class="illustration-block">
+          <div class="illustration-frame" style="max-width: 400px;">
+            <svg width="260" height="180" viewBox="0 0 260 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Two silhouettes facing inward. The negative space between them forms an arch/column. -->
+              <!-- Left silhouette -->
+              <path d="M 0,0 L 0,180 L 75,180
+                       C 75,150 60,140 58,125
+                       C 56,110 70,100 72,85
+                       C 74,70 55,60 50,45
+                       C 45,30 60,15 65,0 Z"
+                    fill="#1a1a18" opacity="0.82"/>
+              <!-- Right silhouette (mirror) -->
+              <path d="M 260,0 L 260,180 L 185,180
+                       C 185,150 200,140 202,125
+                       C 204,110 190,100 188,85
+                       C 186,70 205,60 210,45
+                       C 215,30 200,15 195,0 Z"
+                    fill="#1a1a18" opacity="0.82"/>
+              <!-- The ground between them (the arch) is left as the page colour —
+                   the viewer's eye will flip between reading the dark shapes
+                   and reading the light arch -->
+              <!-- Subtle label -->
+              <text x="130" y="172" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#8a8a85" letter-spacing="0.8" opacity="0.7">TWO FIGURES — OR ONE?</text>
+            </svg>
+          </div>
+          <p class="illustration-caption">The dark shapes are two forms. The light space between them is a third. Which is the figure depends entirely on where you look.</p>
+        </div>
+
+        <p class="prose">
+          The rules the mind uses to assign figure and ground are surprisingly consistent. Smaller areas tend to be perceived as figure. Enclosed areas tend to be perceived as figure. Areas with more texture or detail tend to be perceived as figure. But these are tendencies, not laws — and when they conflict, the result is <strong>perceptual ambiguity</strong>: the moment when the mind flips between two valid readings of the same visual field.
+        </p>
+
+        <p class="prose">
+          For design, figure-ground separation is the foundation of <strong>visual clarity</strong>. A page that does not establish a clear hierarchy of figure and ground is a page the reader cannot navigate. The content must read as figure. Everything else — the background, the margins, the structural elements — must read as ground. When this relationship is disrupted — when a decorative element competes with the content for the figure role — the page becomes genuinely difficult to read. Not because the content is poorly written. Because the <strong>perceptual organisation has failed</strong>.
+        </p>
+
+        <hr />
+
+        <!-- ─── VI. PRÄGNANZ ─── -->
+        <h2 id="pragnanz">VI. Prägnanz</h2>
+
+        <p class="prose">
+          All of the principles described so far — proximity, similarity, closure, continuity, figure-ground — are expressions of a single overarching tendency. The Germans called it <em>Prägnanz</em>. It translates, imperfectly, as "conciseness" or "pregnance." What it means is this: <strong>the mind always moves toward the simplest, most stable interpretation of what it sees</strong>.
+        </p>
+
+        <p class="prose">
+          Prägnanz is not one principle among many. It is the <em>reason</em> the others exist. Proximity groups things together because grouping reduces complexity. Closure completes forms because a closed shape is simpler to process than an open one. Continuity follows paths because a continuous line is a simpler interpretation than two separate segments meeting at a point. Every Gestalt principle is, at its root, a strategy for <strong>minimising the cognitive effort required to make sense of a visual scene</strong>.
+        </p>
+
+        <!--
+          DEMONSTRATION: The same set of elements, shown twice.
+          Left: arranged chaotically — no clear grouping, no alignment, no hierarchy.
+          Right: the same elements, organised — aligned, grouped, hierarchised.
+          The right version is not more "designed." It is simply easier for the mind to process.
+          Prägnanz pulls toward it.
+        -->
+        <div class="illustration-dual">
+          <div class="dual-frames">
+            <div class="dual-frame">
+              <svg width="180" height="190" viewBox="0 0 180 190" fill="none">
+                <!-- Same elements, scattered -->
+                <!-- A few rectangles of different sizes, rotated, no alignment -->
+                <rect x="12" y="15" width="52" height="28" rx="1" fill="#1a1a18" opacity="0.1" stroke="#1a1a18" stroke-width="0.5" transform="rotate(8, 38, 29)"/>
+                <rect x="95" y="8" width="38" height="22" rx="1" fill="#1a1a18" opacity="0.07" stroke="#1a1a18" stroke-width="0.5" transform="rotate(-5, 114, 19)"/>
+                <rect x="60" y="52" width="44" height="24" rx="1" fill="#1a1a18" opacity="0.12" stroke="#1a1a18" stroke-width="0.5" transform="rotate(12, 82, 64)"/>
+                <rect x="8" y="88" width="30" height="18" rx="1" fill="#1a1a18" opacity="0.08" stroke="#1a1a18" stroke-width="0.5" transform="rotate(-9, 23, 97)"/>
+                <rect x="105" y="75" width="55" height="30" rx="1" fill="#1a1a18" opacity="0.1" stroke="#1a1a18" stroke-width="0.5" transform="rotate(6, 132, 90)"/>
+                <rect x="30" y="125" width="48" height="26" rx="1" fill="#1a1a18" opacity="0.09" stroke="#1a1a18" stroke-width="0.5" transform="rotate(-4, 54, 138)"/>
+                <rect x="100" y="130" width="42" height="24" rx="1" fill="#1a1a18" opacity="0.11" stroke="#1a1a18" stroke-width="0.5" transform="rotate(10, 121, 142)"/>
+                <rect x="55" y="158" width="36" height="20" rx="1" fill="#1a1a18" opacity="0.07" stroke="#1a1a18" stroke-width="0.5" transform="rotate(-7, 73, 168)"/>
+                <!-- A couple of dots -->
+                <circle cx="150" cy="55" r="3" fill="#1a1a18" opacity="0.15"/>
+                <circle cx="25" cy="160" r="3" fill="#1a1a18" opacity="0.12"/>
+              </svg>
+              <div class="dual-label">No organisation</div>
+            </div>
+            <div class="dual-frame">
+              <svg width="180" height="190" viewBox="0 0 180 190" fill="none">
+                <!-- Same elements — now aligned, grouped, hierarchised -->
+                <!-- Group A: three rectangles, left-aligned, top -->
+                <rect x="15" y="12" width="150" height="28" rx="1" fill="#1a1a18" opacity="0.13" stroke="#1a1a18" stroke-width="0.5"/>
+                <rect x="15" y="48" width="110" height="22" rx="1" fill="#1a1a18" opacity="0.09" stroke="#1a1a18" stroke-width="0.5"/>
+                <rect x="15" y="78" width="130" height="24" rx="1" fill="#1a1a18" opacity="0.1" stroke="#1a1a18" stroke-width="0.5"/>
+                <!-- Divider space -->
+                <!-- Group B: two rectangles, left-aligned, lower -->
+                <rect x="15" y="122" width="100" height="20" rx="1" fill="#1a1a18" opacity="0.08" stroke="#1a1a18" stroke-width="0.5"/>
+                <rect x="15" y="150" width="80" height="18" rx="1" fill="#1a1a18" opacity="0.07" stroke="#1a1a18" stroke-width="0.5"/>
+                <!-- Dots: aligned to a shared axis -->
+                <circle cx="140" cy="132" r="3" fill="#1a1a18" opacity="0.15"/>
+                <circle cx="140" cy="160" r="3" fill="#1a1a18" opacity="0.12"/>
+              </svg>
+              <div class="dual-label">Organised</div>
+            </div>
+          </div>
+          <p class="illustration-caption">Same elements. The right version is not more complex — it is simpler. Prägnanz pulls toward it.</p>
+        </div>
+
+        <p class="prose">
+          This is why visual order does not feel like an achievement. It feels <strong>inevitable</strong>. When elements are aligned, grouped, and hierarchised, the mind does not register effort — it registers ease. The organisation is transparent. It disappears into the act of reading. Disorder, by contrast, is always felt. It creates friction — a small, persistent resistance that the mind must work against to extract meaning.
+        </p>
+
+        <p class="prose">
+          Prägnanz is also why <strong>good design becomes invisible</strong>. A well-organised page does not call attention to its organisation. It simply allows the content to be read. The moment a reader notices the layout, something has gone wrong — either the organisation has failed, or it has become so elaborate that it is competing with the content for attention. Prägnanz demands neither. It demands only that the mind's path to meaning be as short as possible.
+        </p>
+
+        <hr />
+
+        <!-- ─── VII. THE CONNECTION ─── -->
+        <h2>VII. Why This Matters</h2>
+
+        <p class="prose">
+          The Gestalt principles are not design rules. They are <strong>descriptions of how the mind already works</strong>. They were not invented by designers — they were discovered by psychologists studying perception in the 1910s and 1920s, and they have since been confirmed by decades of cognitive neuroscience. They are not preferences. They are not conventions. They are the operating system of human visual cognition.
+        </p>
+
+        <p class="prose">
+          This means that every design decision — every choice about spacing, alignment, grouping, and hierarchy — is either <em>working with</em> these principles or <em>working against</em> them. There is no neutral position. A layout that places related content far apart is not simply "unconventional." It is actively fighting the mind's tendency to group by proximity. A layout that breaks visual continuity is not "dynamic." It is creating cognitive friction that the reader must overcome before they can access the content.
+        </p>
+
+        <blockquote>
+          "Design does not teach the eye. It either aligns with how the eye already works — or it creates resistance the reader must overcome alone."
+        </blockquote>
+
+        <p class="prose">
+          Return now to <em>Human Patterns</em> — to the Golden Ratio, the Logarithmic Spiral, the Vesica Piscis, the Platonic Solids. Each of those patterns produces a perceptual response. Each one feels a certain way — balanced, alive, complete, trustworthy. The reason they feel that way is not mystical. It is mechanical. It is proximity, similarity, closure, continuity, figure-ground, and Prägnanz — operating together, silently, the moment the eye encounters the form. The patterns are the <em>what</em>. These principles are the <em>how</em>. Together, they form a complete account of why certain structures feel inevitable — and why, once understood, they cannot be unseen.
+        </p>
+
+        <!-- CLOSING -->
+        <footer class="essay-closing">
+          <p class="prose">
+            The mind does not wait to be taught how to see. It arrives already knowing. The work of design is not to instruct perception — it is to stop working against it.
+          </p>
+          <p class="essay-signature">
+            — LALINE, on the architecture of seeing
+          </p>
+        </div>
     </section>
   </article>
 </BaseLayout>
@@ -76,17 +393,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <style>
   .breadcrumb {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     margin-bottom: 3rem;
   }
 
   .breadcrumb a {
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     text-decoration: underline;
   }
 
   .breadcrumb a:hover {
-    color: var(--text);
+    color: var(--color-ink);
   }
 
   .text-document {
@@ -96,16 +413,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .text-header {
     margin-bottom: 3rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .text-meta {
     display: flex;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-ui);
     font-size: 0.8rem;
-    color: var(--text-tertiary);
+    color: var(--color-muted);
     text-transform: uppercase;
   }
 
@@ -119,7 +436,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .abstract {
     font-size: 1.15rem;
     line-height: 1.7;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     font-style: italic;
   }
 
@@ -141,7 +458,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .text-content strong {
     font-weight: 600;
-    color: var(--text);
+    color: var(--color-ink);
   }
 
   .text-content em {
@@ -149,20 +466,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .text-content blockquote {
-    border-left: 2px solid var(--text-secondary);
+    border-left: 2px solid var(--color-reading-ink);
     padding-left: 2rem;
     margin: 2.5rem 0;
     font-size: 1.2rem;
     font-style: italic;
     line-height: 1.7;
-    color: var(--text);
+    color: var(--color-ink);
   }
 
   .continuation-note {
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--color-border);
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
   }
 </style>

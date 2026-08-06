@@ -11,64 +11,227 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <header class="text-header">
       <div class="text-meta">
         <span class="text-number">T01</span>
-        <span class="reading-time">18 min read</span>
+        <span class="reading-time">10 min read</span>
       </div>
       <h1>Attention</h1>
       <p class="abstract">How the eye selects what the mind processes before working memory sees it.</p>
     </header>
 
     <section class="text-content">
-      <p>
-        Look at an illustration of a field of identical circles. One is different—slightly larger, slightly darker. You found it before you decided to look for it. Your eye moved there on its own, drawn by a difference so small it barely registers consciously. By the time you registered that something was different, you had already seen it.
-      </p>
+      <!-- OPENING -->
+        <p class="prose">
+          Look at the illustration behind this page's title. A field of identical circles. One is different — slightly larger, slightly darker. You found it before you decided to look for it. Your eye moved there on its own, drawn by a difference so small it barely registers consciously. By the time you registered that something was different, you had already seen it.
+        </p>
 
-      <p>
-        That is attention. Not a conscious act of searching. A <strong>reflex</strong>—fast, automatic, and entirely governed by the visual environment. Before your mind decided what to look at, something in the scene had already been selected. This essay is about that selection: how it works, what drives it, and why it is the single most important thing a designer can understand about how human beings actually perceive a page.
-      </p>
+        <p class="prose">
+          That is attention. Not a conscious act of searching. A <strong>reflex</strong> — fast, automatic, and entirely governed by the visual environment. Before your mind decided what to look at, something in the scene had already been selected. This essay is about that selection: how it works, what drives it, and why it is the single most important thing a designer can understand about how human beings actually perceive a page.
+        </p>
 
-      <blockquote>
-        Attention is not a container. It is a direction. It decides what the mind processes before working memory ever sees it.
-      </blockquote>
+        <blockquote>
+          "Attention is not a container. It is a direction. It decides what the mind processes before working memory ever sees it."
+        </blockquote>
 
-      <p>
-        The previous essay in this sequence addressed <em>cognitive load</em>—the capacity of working memory, and what happens when that capacity is exceeded. This essay addresses something that comes before capacity even enters the picture. Before working memory can hold something, attention must first <strong>select</strong> it. Capacity is the size of the bucket. Attention is what decides what goes in. They are different systems—and confusing them is one of the most common structural errors in design.
-      </p>
+        <p class="prose">
+          The previous essay in this sequence addressed <em>cognitive load</em> — the capacity of working memory, and what happens when that capacity is exceeded. This essay addresses something that comes before capacity even enters the picture. Before working memory can hold something, attention must first <strong>select</strong> it. Capacity is the size of the bucket. Attention is what decides what goes in. They are different systems — and confusing them is one of the most common structural errors in design.
+        </p>
 
-      <h2>I. The Selection</h2>
+        <hr />
 
-      <p>
-        At any given moment, the visual environment contains far more information than the mind can process. A single page holds hundreds of elements—letters, shapes, edges, spaces, colours, textures. The eye receives all of it simultaneously. But the mind does not process all of it. It processes <strong>a tiny fraction</strong>—the fraction that attention has selected.
-      </p>
+        <!-- ─── I. THE SELECTION ─── -->
+        <h2 id="selection">I. The Selection</h2>
 
-      <p>
-        This selection is not random. It is not neutral. It is <strong>driven by specific properties of the visual environment</strong>, and it happens faster than conscious thought. The moment a scene enters the eye, certain elements are prioritised and others are suppressed—before any deliberate decision is made about what to look at. The mind does not wait to be told where to look. It arrives already looking somewhere.
-      </p>
+        <p class="prose">
+          At any given moment, the visual environment contains far more information than the mind can process. A single page holds hundreds of elements — letters, shapes, edges, spaces, colours, textures. The eye receives all of it simultaneously. But the mind does not process all of it. It processes <strong>a tiny fraction</strong> — the fraction that attention has selected.
+        </p>
 
-      <p>
-        This is why two pages can contain identical information and feel entirely different. On one, the reader finds what they need without effort—attention lands on it naturally, guided by the structure. On the other, the reader must <em>search</em>—attention has landed somewhere else, pulled by a visual signal that has nothing to do with what matters. The information is the same. The selection is different. And the selection is everything.
-      </p>
+        <p class="prose">
+          This selection is not random. It is not neutral. It is <strong>driven by specific properties of the visual environment</strong>, and it happens faster than conscious thought. The moment a scene enters the eye, certain elements are prioritised and others are suppressed — before any deliberate decision is made about what to look at. The mind does not wait to be told where to look. It arrives already looking somewhere.
+        </p>
 
-      <h2>II. Two Systems</h2>
+        <p class="prose">
+          This is why two pages can contain identical information and feel entirely different. On one, the reader finds what they need without effort — attention lands on it naturally, guided by the structure. On the other, the reader must <em>search</em> — attention has landed somewhere else, pulled by a visual signal that has nothing to do with what matters. The information is the same. The selection is different. And the selection is everything.
+        </p>
 
-      <p>
-        Cognitive psychology identifies two distinct systems that govern where attention goes. They operate at different speeds, respond to different signals, and—crucially—can pull in opposite directions. Understanding their relationship is the foundation of everything that follows.
-      </p>
+        <hr />
 
-      <p>
-        The first system is <strong>bottom-up attention</strong>. It is involuntary. It fires automatically in response to properties of the visual scene itself—contrast, size, isolation, novelty, anything that breaks the surrounding pattern. It does not care what is important. It responds to what is <em>different</em>. A single dark circle in a field of light ones captures it instantly. A large element among small ones. A colour among neutrals. An element that sits alone while everything else is grouped. Bottom-up attention does not ask whether something matters. It asks whether something stands out.
-      </p>
+        <!-- ─── II. TWO SYSTEMS ─── -->
+        <h2 id="systems">II. Two Systems</h2>
 
-      <p>
-        The second system is <strong>top-down attention</strong>. It is voluntary. It is driven by the viewer's goals, expectations, and prior knowledge. When you know what you are looking for—when the structure of a page has told you what to expect—top-down attention filters the scene accordingly. It suppresses irrelevant signals and amplifies relevant ones. It is how a reader can scan a page of text and find a single word without reading every line. Top-down attention requires <em>knowing what to look for</em>. And knowing what to look for requires <strong>structure that makes the organisation legible before reading begins</strong>.
-      </p>
+        <p class="prose">
+          Cognitive psychology identifies two distinct systems that govern where attention goes. They operate at different speeds, respond to different signals, and — crucially — can pull in opposite directions. Understanding their relationship is the foundation of everything that follows.
+        </p>
 
-      <p>
-        Bottom-up attention fires first. Always. It is faster than conscious thought—the eye has already moved before the mind has decided whether the movement was useful. Top-down attention then either <strong>confirms</strong> the selection or <strong>overrides</strong> it. When they agree—when the most visually salient element is also the most informationally important one—attention arrives where it should with no friction. When they disagree, the reader must consciously redirect. The eye has gone somewhere. The mind must pull it back. That redirection is not free. It costs time, effort, and a small amount of the finite attentional budget the reader brought to the page.
-      </p>
+        <p class="prose">
+          The first system is <strong>bottom-up attention</strong>. It is involuntary. It fires automatically in response to properties of the visual scene itself — contrast, size, isolation, novelty, anything that breaks the surrounding pattern. It does not care what is important. It responds to what is <em>different</em>. A single dark circle in a field of light ones captures it instantly. A large element among small ones. A colour among neutrals. An element that sits alone while everything else is grouped. Bottom-up attention does not ask whether something matters. It asks whether something stands out.
+        </p>
 
-      <p class="continuation-note">
-        <em>This text continues with sections on Visual Salience, The Cost of Conflict, and Design Implications. For the complete essay with all sections and illustrations, see the full version.</em>
-      </p>
+        <p class="prose">
+          The second system is <strong>top-down attention</strong>. It is voluntary. It is driven by the viewer's goals, expectations, and prior knowledge. When you know what you are looking for — when the structure of a page has told you what to expect — top-down attention filters the scene accordingly. It suppresses irrelevant signals and amplifies relevant ones. It is how a reader can scan a page of text and find a single word without reading every line. Top-down attention requires <em>knowing what to look for</em>. And knowing what to look for requires <strong>structure that makes the organisation legible before reading begins</strong>.
+        </p>
+
+        <!--
+          ILLUSTRATION: CONFLICT vs ALIGNMENT
+          Two panels, same elements.
+          Left (Conflict): The largest, darkest element is in a corner —
+          visually dominant but structurally unimportant. A smaller, quieter
+          element at the top is actually the entry point. Bottom-up pulls
+          the eye to the corner. Top-down needs the top. The reader's eye
+          goes to the wrong place first.
+
+          Right (Alignment): The most visually prominent element IS the
+          entry point. Bottom-up and top-down agree. No conflict.
+          The eye goes directly where it should.
+        -->
+        <div class="illustration-dual">
+          <div class="dual-frames">
+            <!-- LEFT: Conflict -->
+            <div class="dual-frame">
+              <svg width="220" height="200" viewBox="0 0 220 200" fill="none">
+                <!-- The true entry point: small, quiet, at the top -->
+                <rect x="16" y="10" width="188" height="28" rx="2" fill="#1a1a18" opacity="0.08" stroke="#1a1a18" stroke-width="0.4"/>
+                <!-- Mid-level elements -->
+                <rect x="16" y="52" width="90" height="38" rx="2" fill="#1a1a18" opacity="0.07" stroke="#1a1a18" stroke-width="0.35"/>
+                <rect x="114" y="52" width="90" height="38" rx="2" fill="#1a1a18" opacity="0.07" stroke="#1a1a18" stroke-width="0.35"/>
+                <rect x="16" y="98" width="90" height="38" rx="2" fill="#1a1a18" opacity="0.07" stroke="#1a1a18" stroke-width="0.35"/>
+                <rect x="114" y="98" width="90" height="38" rx="2" fill="#1a1a18" opacity="0.07" stroke="#1a1a18" stroke-width="0.35"/>
+                <!-- THE ATTENTIONAL MAGNET: large, dark, bottom-right — visually dominant but unimportant -->
+                <rect x="100" y="148" width="104" height="44" rx="2" fill="#1a1a18" opacity="0.32"/>
+                <!-- Small quiet element bottom-left -->
+                <rect x="16" y="160" width="72" height="24" rx="2" fill="#1a1a18" opacity="0.06" stroke="#1a1a18" stroke-width="0.3"/>
+              </svg>
+              <div class="dual-label">Conflict<br>The eye goes here first →<br>but meaning is here</div>
+            </div>
+            <!-- RIGHT: Alignment -->
+            <div class="dual-frame">
+              <svg width="220" height="200" viewBox="0 0 220 200" fill="none">
+                <!-- Entry point: large, prominent, at the top — visually AND structurally first -->
+                <rect x="16" y="10" width="188" height="42" rx="2" fill="#1a1a18" opacity="0.28"/>
+                <!-- Mid-level elements — clear step down in scale -->
+                <rect x="16" y="66" width="90" height="34" rx="2" fill="#1a1a18" opacity="0.1" stroke="#1a1a18" stroke-width="0.4"/>
+                <rect x="114" y="66" width="90" height="34" rx="2" fill="#1a1a18" opacity="0.1" stroke="#1a1a18" stroke-width="0.4"/>
+                <!-- Detail level — quieter still -->
+                <rect x="16" y="112" width="90" height="26" rx="2" fill="#1a1a18" opacity="0.07" stroke="#1a1a18" stroke-width="0.3"/>
+                <rect x="114" y="112" width="90" height="26" rx="2" fill="#1a1a18" opacity="0.07" stroke="#1a1a18" stroke-width="0.3"/>
+                <!-- Fine detail -->
+                <rect x="16" y="150" width="188" height="16" rx="1" fill="#1a1a18" opacity="0.05"/>
+                <rect x="16" y="172" width="140" height="16" rx="1" fill="#1a1a18" opacity="0.04"/>
+              </svg>
+              <div class="dual-label">Alignment<br>The eye goes here first →<br>and meaning is here</div>
+            </div>
+          </div>
+          <p class="illustration-caption">Same number of elements. Left: visual weight conflicts with informational importance. Right: they agree. The eye behaves differently in each panel — no arrows needed.</p>
+        </div>
+
+        <p class="prose">
+          Bottom-up attention fires first. Always. It is faster than conscious thought — the eye has already moved before the mind has decided whether the movement was useful. Top-down attention then either <strong>confirms</strong> the selection or <strong>overrides</strong> it. When they agree — when the most visually salient element is also the most informationally important one — attention arrives where it should with no friction. When they disagree, the reader must consciously redirect. The eye has gone somewhere. The mind must pull it back. That redirection is not free. It costs time, effort, and a small amount of the finite attentional budget the reader brought to the page.
+        </p>
+
+        <p class="prose">
+          This is the central insight of this essay: <strong>good design does not fight attention. It aligns with it.</strong> It makes the most visually prominent element the most structurally important one. It ensures that what the eye finds first is what the reader needed to find. It removes the need for the reader to override their own reflexes in order to understand the page.
+        </p>
+
+        <hr />
+
+        <!-- ─── III. STRUCTURE AS GUIDE ─── -->
+        <h2 id="guide">III. Structure as Guide</h2>
+
+        <p class="prose">
+          Structure does not fill attention. It <strong>guides</strong> it. A well-organised page tells the eye where to go — not through labels or arrows, but through the relationships between elements. Size communicates importance. Position communicates sequence. Weight communicates priority. When these signals are consistent, the eye follows a path without conscious effort. The reader does not decide to scan from largest to smallest. They simply do — because the page has made that the path of least resistance.
+        </p>
+
+        <!--
+          ILLUSTRATION: HIERARCHY AS PATH
+          A single composition where size relationships create an
+          unambiguous reading path. Large block at top → medium blocks
+          in the middle → small blocks at the bottom. No arrows.
+          No labels. The scale relationships themselves create the
+          sequence. If you "read" this illustration top to bottom,
+          you followed the hierarchy without deciding to.
+        -->
+        <div class="illustration-block">
+          <div class="illustration-frame" style="max-width: 520px;">
+            <svg width="460" height="220" viewBox="0 0 460 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Level 1: single large block — the entry point -->
+              <rect x="10" y="8" width="440" height="58" rx="3" fill="#1a1a18" opacity="0.22"/>
+
+              <!-- Level 2: two medium blocks — clear step down -->
+              <rect x="10" y="82" width="216" height="42" rx="2" fill="#1a1a18" opacity="0.12" stroke="#1a1a18" stroke-width="0.5"/>
+              <rect x="234" y="82" width="216" height="42" rx="2" fill="#1a1a18" opacity="0.12" stroke="#1a1a18" stroke-width="0.5"/>
+
+              <!-- Level 3: four smaller blocks — another step down -->
+              <rect x="10" y="140" width="104" height="30" rx="2" fill="#1a1a18" opacity="0.07" stroke="#1a1a18" stroke-width="0.4"/>
+              <rect x="122" y="140" width="104" height="30" rx="2" fill="#1a1a18" opacity="0.07" stroke="#1a1a18" stroke-width="0.4"/>
+              <rect x="234" y="140" width="104" height="30" rx="2" fill="#1a1a18" opacity="0.07" stroke="#1a1a18" stroke-width="0.4"/>
+              <rect x="346" y="140" width="104" height="30" rx="2" fill="#1a1a18" opacity="0.07" stroke="#1a1a18" stroke-width="0.4"/>
+
+              <!-- Level 4: fine detail lines — the quietest layer -->
+              <rect x="10" y="186" width="440" height="8" rx="1" fill="#1a1a18" opacity="0.04"/>
+              <rect x="10" y="200" width="320" height="8" rx="1" fill="#1a1a18" opacity="0.035"/>
+              <rect x="10" y="214" width="180" height="6" rx="1" fill="#1a1a18" opacity="0.03"/>
+            </svg>
+          </div>
+          <p class="illustration-caption">No arrows. No labels. The size relationships create the path. If you read this top to bottom, you followed the hierarchy without deciding to.</p>
+        </div>
+
+        <p class="prose">
+          This is what hierarchy does at the level of attention. It does not merely organise information logically — it <strong>creates a sequence the eye will follow automatically</strong>. Each step down in scale is a step down in visual salience. Bottom-up attention encounters the largest element first. Top-down attention, having seen the structure, knows what to expect next. The two systems move together. No conflict. No searching. The page communicates its structure before a single word is read.
+        </p>
+
+        <p class="prose">
+          When hierarchy is absent — or when it is present logically but not visually — this alignment breaks. The eye follows bottom-up triggers instead: it lands on whatever is most visually conspicuous, regardless of whether that element is important. The reader must then consciously search for what they actually need. This is not a minor inconvenience. It is <strong>attention working against the reader</strong> — the environment pulling the eye somewhere the mind did not intend to go.
+        </p>
+
+        <hr />
+
+        <!-- ─── IV. THE COST OF CONFLICT ─── -->
+        <h2>IV. The Cost of Conflict</h2>
+
+        <p class="prose">
+          When visual salience and informational importance disagree, the reader pays a cost. It is not always visible as confusion. Sometimes it manifests as a vague sense that a page is <em>harder than it should be</em> — that the information is all there, but extracting it requires more effort than the complexity of the content would suggest. This is attentional conflict. The eye and the mind are pulling in different directions, and the reader is caught between them.
+        </p>
+
+        <p class="prose">
+          The cost is measurable in several ways. The eye makes more movements before settling on the correct element — each unnecessary movement is a small expenditure of attentional budget. Task completion takes longer. Error rates increase — when attention lands on the wrong element first, the reader is more likely to act on it before correcting course. And sustained conflict degrades attention over time. A page that constantly pulls the eye to the wrong place does not just slow the reader down. It <strong>depletes their capacity to pay attention at all</strong>.
+        </p>
+
+        <p class="prose">
+          This is why decorative emphasis is dangerous. An element that is visually prominent but informationally unimportant does not merely fail to help — it <strong>actively harms</strong> the reader's ability to find what matters. It captures bottom-up attention. It holds it for a moment. And in that moment, the reader's eye is somewhere it should not be. The cost is paid from a budget that cannot be replenished mid-page.
+        </p>
+
+        <p class="prose">
+          The solution is not to make everything equally visible. Equal visibility is its own form of chaos — it means nothing stands out, which means attention has no anchor and wanders freely. The solution is <strong>alignment</strong>: ensuring that the visual weight of every element matches its informational weight. The most important thing is the most prominent thing. The least important thing is the quietest thing. No conflicts. No wasted motion. No fighting the page.
+        </p>
+
+        <hr />
+
+        <!-- ─── V. RELEASE ─── -->
+        <h2>V. Release</h2>
+
+        <p class="prose">
+          Attention is not only about capture. It is also about <strong>release</strong>. A page that holds attention indefinitely does not serve the reader — it exhausts them. Sustained attention degrades over time. The mind's ability to select, filter, and prioritise weakens with prolonged use. This is not a failure of the reader. It is a biological constraint — one that design must acknowledge and accommodate.
+        </p>
+
+        <p class="prose">
+          Release happens structurally. A section ends. Visual weight decreases. The density of information thins. The page signals — through spacing, through scale, through the quieting of its elements — that this part is complete. The reader's attention is not needed here anymore. It can rest. It can move on. It can reset before encountering the next thing that requires it.
+        </p>
+
+        <p class="prose">
+          This is why the Manifesto's principle of <em>Pacing</em> is not merely about rhythm or confidence. It is about <strong>attentional recovery</strong>. The pauses between ideas are not decorative. They are the moments where the reader's selective capacity rebuilds. Remove them, and attention degrades faster than the content can be absorbed. The page becomes exhausting — not because it contains too much, but because it never gives attention permission to stop working.
+        </p>
+
+        <p class="prose">
+          Good design captures attention where it is needed. It releases it where it is not. It aligns the two systems — bottom-up and top-down — so they move together rather than pulling apart. And it does all of this <strong>without the reader ever noticing</strong>. When attention is working correctly, it is invisible. The reader simply understands the page. They find what they need. They move through it at their own pace. And when they are done, they leave without having felt the effort it took to make that effortlessness possible.
+        </p>
+
+        <!-- CLOSING -->
+        <footer class="essay-closing">
+          <p class="prose">
+            Human Patterns described what the mind responds to. Gestalt described how it organises. Cognitive Load described how much it can hold. This essay has described where it looks — and why. Together, they form a complete account of what the mind requires in order to perceive clearly. Attention is the first gate. Everything else — organisation, capacity, structure — operates only on what attention has already selected. Design the selection well, and the rest follows.
+          </p>
+          <p class="essay-signature">
+            — LALINE, on the direction that governs all perception
+          </p>
+        </div>
     </section>
   </article>
 </BaseLayout>
@@ -76,17 +239,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <style>
   .breadcrumb {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     margin-bottom: 3rem;
   }
 
   .breadcrumb a {
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     text-decoration: underline;
   }
 
   .breadcrumb a:hover {
-    color: var(--text);
+    color: var(--color-ink);
   }
 
   .text-document {
@@ -96,16 +259,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .text-header {
     margin-bottom: 3rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .text-meta {
     display: flex;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-ui);
     font-size: 0.8rem;
-    color: var(--text-tertiary);
+    color: var(--color-muted);
     text-transform: uppercase;
   }
 
@@ -119,7 +282,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .abstract {
     font-size: 1.15rem;
     line-height: 1.7;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     font-style: italic;
   }
 
@@ -141,7 +304,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .text-content strong {
     font-weight: 600;
-    color: var(--text);
+    color: var(--color-ink);
   }
 
   .text-content em {
@@ -149,20 +312,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .text-content blockquote {
-    border-left: 2px solid var(--text-secondary);
+    border-left: 2px solid var(--color-reading-ink);
     padding-left: 2rem;
     margin: 2.5rem 0;
     font-size: 1.2rem;
     font-style: italic;
     line-height: 1.7;
-    color: var(--text);
+    color: var(--color-ink);
   }
 
   .continuation-note {
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--color-border);
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
   }
 </style>

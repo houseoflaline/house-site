@@ -1,10 +1,10 @@
 /* ═══════════════════════════════════════════════════════════════
-   LALINE — Design Tokens V1.0
+   LALINE — Design Tokens V2.0
    House of Laline · Editorial Publishing House
-   Locked: February 2026
+   Locked: April 2026
 ═══════════════════════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap');
 
 /* ─────────────────────────────────────────────────────────────
    LAYER 1 — PRIMITIVES
@@ -13,10 +13,12 @@
   --primitive-neutral-50:  #F7F7F5;
   --primitive-neutral-100: #F0F0ED;
   --primitive-neutral-900: #141412;
-  --primitive-brown-500:   #4A3320;
+  --primitive-wine-900:    #1F1114;
+  /* Recovered from the original Laline colour studies and style manual. */
+  --primitive-russet-600:  #8B4513;
 
-  --primitive-font-display: 'Playfair Display', Georgia, serif;
-  --primitive-font-mono:    'IBM Plex Mono', monospace;
+  --primitive-font-display: 'Cormorant Garamond', Georgia, serif;
+  --primitive-font-mono:    'Courier Prime', 'Courier New', monospace;
   --primitive-font-serif:   'Spectral', Georgia, serif;
 
   --primitive-weight-light:   300;
@@ -46,8 +48,16 @@
   --color-bg:        var(--primitive-neutral-50);
   --color-surface:   var(--primitive-neutral-100);
   --color-ink:       var(--primitive-neutral-900);
-  --color-secondary: var(--primitive-brown-500);
+  --color-secondary: var(--color-reading-ink);
+  --color-accent:    var(--primitive-russet-600);
+  /* Ink study shortlist: dark oxblood, liked but not the remembered ink. */
+  --color-ink-study-oxblood: #4A1822;
+  --color-ink-study-maroon:  #5A0F1B;
+  --color-ink-study:         var(--color-ink-study-maroon);
+  --color-reading-ink:       var(--color-ink-study-maroon);
+  --color-muted:             rgba(20, 20, 18, 0.58);
   --color-border:    rgba(20, 20, 18, 0.07);
+  --color-border-strong: rgba(20, 20, 18, 0.18);
 
   --font-display: var(--primitive-font-display);
   --font-ui:      var(--primitive-font-mono);
@@ -59,17 +69,17 @@
   --weight-bold:    var(--primitive-weight-bold);
 
   --text-display: 3.5rem;
-  --text-h1:      2rem;
-  --text-h2:      0.9rem;
-  --text-h3:      0.64rem;
-  --text-body:    0.9rem;
-  --text-meta:    0.64rem;
-  --text-micro:   0.56rem;
-  --text-nav:     0.52rem;
+  --text-h1:      clamp(2.5rem, 4vw, 3.25rem);
+  --text-h2:      1.125rem;
+  --text-h3:      1.0625rem;
+  --text-body:    1rem;
+  --text-meta:    0.6875rem;
+  --text-micro:   0.625rem;
+  --text-nav:     0.625rem;
 
   --leading-tight:   1.1;
   --leading-heading: 1.25;
-  --leading-body:    1.6;
+  --leading-body:    1.75;
 
   --tracking-tight:   -0.02em;
   --tracking-normal:   0;
@@ -85,7 +95,7 @@
   --space-2xl: var(--primitive-space-9);
 
   --nav-width:    220px;
-  --content-max:  640px;
+  --content-max:  700px;
   --page-padding: var(--primitive-space-8) 5rem;
 }
 
@@ -119,8 +129,8 @@ body {
   font-family: var(--font-display);
   font-style: italic;
   font-size: var(--text-display);
-  font-weight: var(--weight-regular);
-  letter-spacing: 0.02em;
+  font-weight: var(--weight-light);
+  letter-spacing: 0.01em;
   line-height: var(--leading-tight);
   color: var(--color-ink);
 }
@@ -138,7 +148,7 @@ h1 {
   font-family: var(--font-display);
   font-size: var(--text-h1);
   font-weight: var(--weight-regular);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
   line-height: var(--leading-tight);
   color: var(--color-ink);
   margin-bottom: var(--space-xs);
@@ -174,7 +184,7 @@ p {
   font-size: var(--text-body);
   font-weight: var(--weight-light);
   line-height: var(--leading-body);
-  color: var(--color-ink);
+  color: var(--color-reading-ink);
   margin-bottom: var(--space-md);
   max-width: var(--content-max);
 }
@@ -212,11 +222,88 @@ a {
 }
 a:hover { opacity: 0.55; }
 
+.content-mobile-header { display: none !important; }
+
 /* ── Divider ── */
 hr {
   border: none;
   border-top: 1px solid var(--color-border);
   margin: var(--space-md) 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   LOCKED CONTENT HIERARCHY
+   Recovered pages may vary in composition, but semantic levels
+   retain one typographic authority and one vertical rhythm.
+───────────────────────────────────────────────────────────── */
+.main--content h1 {
+  max-width: 780px;
+  margin: 0 0 3.5rem !important;
+  font-family: var(--font-display) !important;
+  font-size: var(--text-h1) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: 1.08 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--color-ink) !important;
+}
+
+.main--content h2 {
+  margin: 3.75rem 0 1.25rem !important;
+  font-family: var(--font-ui) !important;
+  font-size: var(--text-h2) !important;
+  font-weight: var(--weight-bold) !important;
+  line-height: 1.35 !important;
+  letter-spacing: var(--tracking-wider) !important;
+  text-transform: uppercase !important;
+  color: var(--color-ink) !important;
+  opacity: 1 !important;
+}
+
+.main--content h3 {
+  margin: 2.5rem 0 0.75rem !important;
+  font-family: var(--font-ui) !important;
+  font-size: var(--text-h3) !important;
+  font-style: normal !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  color: var(--color-ink) !important;
+}
+
+.main--content p,
+.main--content li,
+.main--content dd {
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+}
+
+.main--content p { margin-bottom: 1.5rem; }
+
+.main--content .lead,
+.main--content .abstract {
+  font-size: 1.125rem !important;
+  line-height: 1.75 !important;
+}
+
+.main--content .meta,
+.main--content [class$='-meta']:not(.work-meta),
+.main--content .breadcrumb,
+.main--content .part-number,
+.main--content .part-status {
+  font-family: var(--font-ui) !important;
+  font-size: var(--text-meta) !important;
+  line-height: 1.5 !important;
+  letter-spacing: var(--tracking-wider) !important;
+}
+
+.main--content hr {
+  margin: 4rem 0;
+}
+
+.main--content section {
+  max-width: var(--content-max);
 }
 
 /* ── Responsive tokens only ── */
@@ -225,5 +312,26 @@ hr {
 }
 
 @media (max-width: 768px) {
-  :root { --nav-width: 0px; }
+  :root {
+    --nav-width: 0px;
+    --text-h1: clamp(2.2rem, 11vw, 2.8rem);
+    --text-h2: 1rem;
+    --text-h3: 1rem;
+  }
+
+  .main--content h1 { margin-bottom: 2.75rem !important; }
+  .main--content h2 { margin-top: 3rem !important; }
+  .main--content h3 { margin-top: 2.25rem !important; }
+
+  .content-mobile-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 1.25rem 1.5rem !important;
+    border-bottom: 1px solid var(--color-border);
+    font-family: var(--font-ui) !important;
+    font-size: var(--text-nav) !important;
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+  }
 }

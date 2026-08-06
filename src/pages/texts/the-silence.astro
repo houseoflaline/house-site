@@ -101,17 +101,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <style>
   .breadcrumb {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     margin-bottom: 3rem;
   }
 
   .breadcrumb a {
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     text-decoration: underline;
   }
 
   .breadcrumb a:hover {
-    color: var(--text);
+    color: var(--color-ink);
   }
 
   .text-document {
@@ -121,16 +121,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .text-header {
     margin-bottom: 3rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .text-meta {
     display: flex;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-ui);
     font-size: 0.8rem;
-    color: var(--text-tertiary);
+    color: var(--color-muted);
     text-transform: uppercase;
     flex-wrap: wrap;
   }
@@ -141,7 +141,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .text-meta .see-also a {
-    color: var(--text);
+    color: var(--color-ink);
     text-decoration: underline;
   }
 
@@ -155,7 +155,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .abstract {
     font-size: 1.15rem;
     line-height: 1.7;
-    color: var(--text-secondary);
+    color: var(--color-reading-ink);
     font-style: italic;
   }
 
@@ -177,7 +177,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .text-content strong {
     font-weight: 600;
-    color: var(--text);
+    color: var(--color-ink);
   }
 
   .text-content em {
@@ -185,13 +185,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .text-content blockquote {
-    border-left: 2px solid var(--text-secondary);
+    border-left: 2px solid var(--color-reading-ink);
     padding-left: 2rem;
     margin: 2.5rem 0;
     font-size: 1.2rem;
     font-style: italic;
     line-height: 1.7;
-    color: var(--text);
+    color: var(--color-ink);
   }
 
   .refusal-list {
@@ -200,11 +200,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .refusal-item {
     padding: 1.5rem 0;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--color-border);
   }
 
   .refusal-item:last-child {
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .refusal-item strong {
@@ -215,7 +215,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .conclusion {
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--color-border);
     font-style: italic;
   }
 </style>
