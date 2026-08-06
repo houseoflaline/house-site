@@ -23,6 +23,9 @@ const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWi
           <span class="nav-num">II.</span>
           <a href="/works" class={`nav-title ${isParentActive(['/works']) ? 'active' : ''}`}>Works</a>
         </div>
+        <ul class="nav-sub">
+          <li class={isParentActive(['/works']) ? 'dot-active' : ''}><a href="/works#atlas">Atlas</a></li>
+        </ul>
       </div>
 
       <div class="nav-group">
