@@ -2,6 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
+const aureleUrl = import.meta.env.PUBLIC_AURELE_URL ?? 'http://127.0.0.1:4323';
+const atlasReadingUrl = `${atlasUrl.replace(/\/$/, '')}/#reading`;
+const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
 ---
 
 <BaseLayout title="House of Laline" landing={true}>
@@ -56,7 +59,7 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
       </p>
       <div class="featured-actions">
         <a href={atlasUrl} class="text-link">Enter Atlas <span aria-hidden="true">↗</span></a>
-        <a href="/works" class="text-link text-link--quiet">Read the edition note <span aria-hidden="true">→</span></a>
+        <a href={atlasReadingUrl} class="text-link text-link--quiet">Read within Atlas <span aria-hidden="true">↗</span></a>
       </div>
     </div>
 
@@ -83,6 +86,38 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
         </div>
       </li>
     </ol>
+  </section>
+
+  <section class="featured featured--aurele" id="aurele" aria-labelledby="aurele-title">
+    <p class="section-number section-reference">W02 · Aurèle version 1.0</p>
+    <h2 id="aurele-title" class="section-title section-heading">Aurèle</h2>
+    <div class="featured-intro">
+      <p class="featured-lede">
+        An editorial publishing structure for a public record.
+        One identity changes pace across immediate report, accumulated history and considered argument.
+      </p>
+      <div class="featured-actions">
+        <a href={aureleUrl} class="text-link">Enter Aurèle <span aria-hidden="true">↗</span></a>
+        <a href={aureleReadingUrl} class="text-link text-link--quiet">Read within Aurèle <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+
+    <div class="aurele-fragments" aria-label="Selected fragments from the Aurèle demonstration">
+      <article>
+        <span class="fragment-meta">01 · Dispatch</span>
+        <h3>Mona leaves-a!</h3>
+        <p>The smile that slipped away.</p>
+      </article>
+      <article>
+        <span class="fragment-meta">02 · Chronicle · 1911—1913</span>
+        <h3>The image circulates; the object does not.</h3>
+        <p>The accumulating record keeps the interval visible.</p>
+      </article>
+      <article>
+        <span class="fragment-meta">03 · Review</span>
+        <blockquote>Absence did not erase the image. It multiplied it.</blockquote>
+      </article>
+    </div>
   </section>
 
   <section class="house-index" aria-labelledby="house-title">
@@ -324,6 +359,50 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
   }
   .volumes p { color: var(--color-secondary); margin: 0; font-size: 0.9rem; line-height: 1.6; }
 
+  .aurele-fragments {
+    grid-column: 2;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-left: clamp(3rem, 6vw, 6rem);
+  }
+  .aurele-fragments article {
+    min-width: 0;
+    padding: 0 clamp(1rem, 2vw, 2rem) 1.5rem;
+    border-left: 1px solid var(--color-border);
+  }
+  .aurele-fragments article:first-child { padding-left: 0; border-left: 0; }
+  .aurele-fragments article:last-child {
+    grid-column: 1 / -1;
+    margin-top: 1.5rem;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid var(--color-border);
+    border-left: 0;
+  }
+  .fragment-meta {
+    display: block;
+    min-height: 2.8rem;
+    font-family: var(--font-ui);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-reading-ink);
+  }
+  .aurele-fragments h3,
+  .aurele-fragments blockquote {
+    margin: 1rem 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.1vw, 2.3rem);
+    font-weight: var(--weight-light);
+    letter-spacing: -.02em;
+    line-height: 1.06;
+    text-transform: none;
+    color: var(--color-ink);
+  }
+  .aurele-fragments blockquote { max-width: 19ch; color: var(--color-reading-ink); }
+  .aurele-fragments article:nth-child(2) h3 { font-size: clamp(1.2rem, 1.7vw, 1.8rem); line-height: 1.12; }
+  .aurele-fragments p { margin: 0; font-size: .82rem; line-height: 1.55; color: var(--color-secondary); }
+
   .position {
     padding-top: clamp(7rem, 15vh, 11rem);
     padding-bottom: clamp(7rem, 15vh, 11rem);
@@ -427,6 +506,21 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
       padding-top: 0;
       padding-left: 0;
     }
+    .aurele-fragments {
+      grid-template-columns: 1fr;
+      margin-top: 2.5rem;
+      padding-left: 0;
+    }
+    .aurele-fragments article,
+    .aurele-fragments article:first-child {
+      grid-column: auto;
+      margin-top: 0;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--color-border);
+      border-left: 0;
+    }
+    .aurele-fragments article:last-child { border-bottom: 1px solid var(--color-border); }
+    .fragment-meta { min-height: 0; }
     .index-links {
       margin-top: 2.5rem;
       padding-top: 0;
