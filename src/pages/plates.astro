@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+const noticeUrl = import.meta.env.PUBLIC_NOTICE_URL ?? 'http://127.0.0.1:4330';
+const noticeRepositoryUrl = 'https://github.com/houseoflaline/notice';
+
 const edition01Plates = [
   {
     number: 'E01-P01',
@@ -118,6 +121,30 @@ const edition02Plates = [
     </p>
   </div>
 
+  <section class="working-proof" id="notice" aria-labelledby="notice-title">
+    <div class="proof-copy">
+      <p class="proof-reference">E02—P01 · Working proof 01</p>
+      <h2 id="notice-title">Notice</h2>
+      <p class="proof-lede">A resolved announcement for one event, one image and one action.</p>
+      <p class="proof-note">
+        Notice puts emphasis into practice. Replace the declared content and the image; hierarchy, spacing and responsive behaviour remain decided.
+      </p>
+      <div class="proof-actions">
+        <a href={noticeUrl}>Open the proof <span aria-hidden="true">↗</span></a>
+        <a href={noticeRepositoryUrl}>Download free <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <a class="proof-frame" href={noticeUrl} aria-label="Open the Notice working proof">
+      <img src="/images/notice-everything-unsaid.jpg" alt="A dark botanical form dissolving into pale paper." width="1024" height="1536" />
+      <div class="proof-title" aria-hidden="true">
+        <span>Everything</span>
+        <span>that remains</span>
+        <em>unsaid</em>
+      </div>
+      <span class="proof-date">04—28.09.26</span>
+    </a>
+  </section>
+
   <div class="edition-section" id="edition-01">
     <h2 class="edition-title">Edition 01: Philosophical Foundations</h2>
     <p class="edition-description">The invisible structural principles that govern methodology and practice.</p>
@@ -184,6 +211,71 @@ const edition02Plates = [
     margin-bottom: 3rem;
   }
 
+  .working-proof {
+    display: grid;
+    grid-template-columns: minmax(15rem, .72fr) minmax(21rem, 1.28fr);
+    margin: 0 0 clamp(5rem, 10vw, 8rem);
+    border-top: 1px solid var(--color-ink);
+    border-bottom: 1px solid var(--color-ink);
+  }
+
+  .proof-copy {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(2rem, 5vw, 4rem) clamp(2rem, 5vw, 4rem) clamp(2rem, 5vw, 4rem) 0;
+  }
+
+  .proof-reference,
+  .proof-actions a,
+  .proof-date {
+    font-family: var(--font-ui);
+    font-size: var(--text-micro);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+  }
+
+  .proof-reference { margin: 0; color: var(--color-reading-ink); }
+
+  :global(.main--content) .proof-copy h2 {
+    position: relative;
+    z-index: 1;
+    margin: auto 0 clamp(2rem, 3vw, 2.75rem);
+    font-family: var(--font-display) !important;
+    font-size: clamp(3.8rem, 8vw, 7rem) !important;
+    font-weight: var(--weight-light) !important;
+    letter-spacing: -.04em !important;
+    line-height: .9 !important;
+    text-transform: none !important;
+  }
+
+  .proof-lede {
+    max-width: 26ch;
+    margin: 0 0 1.5rem;
+    color: var(--color-reading-ink);
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    line-height: 1.55;
+  }
+
+  .proof-note { max-width: 42ch; margin: 0 0 2.5rem; color: var(--color-secondary); font-size: .92rem; line-height: 1.65; }
+  .proof-actions { display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
+  .proof-actions a { padding-bottom: .35rem; border-bottom: 1px solid currentColor; color: var(--color-ink); text-decoration: none; }
+  .proof-actions a:last-child { color: var(--color-reading-ink); }
+
+  .proof-frame {
+    position: relative;
+    min-height: clamp(35rem, 68vw, 52rem);
+    border-left: 1px solid var(--color-ink);
+    color: var(--color-ink);
+    overflow: hidden;
+  }
+  .proof-frame img { display: block; width: 58%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.08); mix-blend-mode: multiply; }
+  .proof-title { position: absolute; z-index: 1; top: 24%; right: 2%; width: 53%; color: var(--color-ink); font-family: var(--font-display); font-size: clamp(2.4rem, 3.8vw, 3.8rem); letter-spacing: -.065em; line-height: .8; }
+  .proof-title span, .proof-title em { display: block; font-weight: var(--weight-regular); }
+  .proof-title span:nth-child(2) { padding-left: .3em; }
+  .proof-title em { color: var(--color-reading-ink); font-style: italic; }
+  .proof-date { position: absolute; right: 1.3rem; bottom: 1.3rem; color: var(--color-reading-ink); }
+
   .edition-section {
     margin-bottom: 4rem;
   }
@@ -217,6 +309,14 @@ const edition02Plates = [
 
   .plate-item:last-child {
     border-bottom: 1px solid var(--color-border);
+  }
+
+  @media (max-width: 760px) {
+    .working-proof { grid-template-columns: 1fr; }
+    .proof-copy { min-height: 31rem; padding-right: 0; }
+    .proof-frame { min-height: 36rem; border-top: 1px solid var(--color-ink); border-left: 0; }
+    .proof-frame img { width: 100%; opacity: .72; }
+    .proof-title { top: auto; right: 1rem; bottom: 4.5rem; left: 1rem; width: auto; font-size: clamp(3.2rem, 15vw, 5.5rem); }
   }
 
   .plate-number {
