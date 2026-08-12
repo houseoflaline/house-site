@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
 ---
 
 <BaseLayout title="Works" currentPath="/works">
@@ -12,9 +14,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       navigation and expression are resolved around what the visitor needs to do.
     </p>
 
-    <article class="work">
+    <article class="work" id="atlas">
       <div class="work-meta">
-        <span>W01</span>
+        <span>W01 · Build 1.0</span>
         <span>Recovered edition · 2026</span>
       </div>
       <h2>Atlas</h2>
@@ -26,7 +28,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <li><span>III</span><strong>Index</strong><p>Range and relevance made legible for professional evaluation.</p></li>
       </ol>
 
-      <p class="availability">Live demonstration and release documentation are being prepared.</p>
+      <div class="work-actions">
+        <a class="enter-work" href={atlasUrl}>Enter Atlas <span aria-hidden="true">↗</span></a>
+        <a class="enter-work enter-work--secondary" href="/texts/how-your-work-meets-the-screen">Read the essay <span aria-hidden="true">→</span></a>
+        <p class="availability">Works 01 · Live demonstration</p>
+      </div>
     </article>
   </div>
 </BaseLayout>
@@ -44,5 +50,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .volume-list strong { font-family: var(--font-display); font-size: 1.3rem; font-weight: var(--weight-regular); }
   .volume-list p { margin: 0; color: var(--color-secondary); }
   .availability { font-family: var(--font-ui); font-size: var(--text-micro); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--color-secondary); }
+  .work-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
+  .enter-work { display: inline-flex; align-items: center; gap: .75rem; padding-bottom: .35rem; border-bottom: 1px solid var(--color-ink); font-family: var(--font-ui); font-size: var(--text-micro); font-weight: var(--weight-medium); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--color-ink); }
+  .enter-work--secondary { color: var(--color-secondary); border-color: var(--color-secondary); }
+  .enter-work:hover { color: var(--color-accent); border-color: var(--color-accent); }
+  .work-actions .availability { margin: 0; }
   @media (max-width: 600px) { .volume-list li { grid-template-columns: 28px 1fr; } .volume-list p { grid-column: 2; } }
 </style>

@@ -2,6 +2,11 @@
 const { currentPath = '/' } = Astro.props;
 const isActive = (path: string) => currentPath === path;
 const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWith(p));
+const atlasEssayPath = '/texts/how-your-work-meets-the-screen';
+const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
+const isHouseActive = isActive('/') || isActive('/preface');
+const isDoctrineActive = isActive('/doctrine') || isParentActive(['/manifesto']);
+const isAtlasActive = isParentActive(['/works']) || isActive(atlasEssayPath);
 ---
 
 <nav>
@@ -14,33 +19,40 @@ const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWi
       <div class="nav-group">
         <div class="nav-row">
           <span class="nav-num">I.</span>
-          <a href="/" class={`nav-title ${isActive('/') ? 'active' : ''}`}>House</a>
+          <a href="/" class={`nav-title ${isHouseActive ? 'active' : ''}`}>House</a>
         </div>
+        <ul class="nav-sub">
+          <li class={isActive('/preface') ? 'dot-active' : ''}><a href="/preface">Preface</a></li>
+        </ul>
       </div>
 
-      <div class="nav-group group-break">
+      <div class="nav-group">
         <div class="nav-row">
           <span class="nav-num">II.</span>
-          <a href="/works" class={`nav-title ${isParentActive(['/works']) ? 'active' : ''}`}>Works</a>
+          <a href="/doctrine" class={`nav-title ${isDoctrineActive ? 'active' : ''}`}>Doctrine</a>
         </div>
+        <ul class="nav-sub">
+          <li class={isParentActive(['/manifesto']) ? 'dot-active' : ''}><a href="/manifesto">Manifesto</a></li>
+        </ul>
       </div>
 
       <div class="nav-group">
         <div class="nav-row">
           <span class="nav-num">III.</span>
-          <a href="/texts" class={`nav-title ${isParentActive(['/texts']) ? 'active' : ''}`}>Texts</a>
-        </div>
-      </div>
-
-      <div class="nav-group group-break">
-        <div class="nav-row">
-          <span class="nav-num">IV.</span>
-          <a href="/doctrine" class={`nav-title ${isActive('/doctrine') ? 'active' : ''}`}>Doctrine</a>
+          <a href="/works" class={`nav-title ${isAtlasActive ? 'active' : ''}`}>Works</a>
         </div>
         <ul class="nav-sub">
-          <li class={isActive('/preface') ? 'dot-active' : ''}><a href="/preface">Preface</a></li>
-          <li class={isParentActive(['/manifesto']) ? 'dot-active' : ''}><a href="/manifesto">Manifesto</a></li>
+          <li class={isParentActive(['/works']) ? 'dot-active' : ''}><a href="/works#atlas">Atlas</a></li>
+          <li class={isActive(atlasEssayPath) ? 'dot-active' : ''}><a href={atlasEssayPath}>Reading</a></li>
+          <li><a href={atlasUrl}>Live demo <span aria-hidden="true">↗</span></a></li>
         </ul>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-row">
+          <span class="nav-num">IV.</span>
+          <a href="/texts" class={`nav-title ${isParentActive(['/texts']) && !isActive(atlasEssayPath) ? 'active' : ''}`}>Texts</a>
+        </div>
       </div>
 
       <div class="nav-group">
@@ -48,13 +60,17 @@ const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWi
           <span class="nav-num">V.</span>
           <a href="/plates" class={`nav-title ${isParentActive(['/plates']) ? 'active' : ''}`}>Plates</a>
         </div>
+        <ul class="nav-sub">
+          <li><a href="/plates#edition-01">Foundations</a></li>
+          <li class={isParentActive(['/plates/']) ? 'dot-active' : ''}><a href="/plates#edition-02">Design fundamentals</a></li>
+        </ul>
       </div>
 
     </div>
 
     <footer class="nav-footer">
-      <p>LALINE &nbsp; V1.6</p>
-      <p class="footer-gap">Built slowly. Issued when ready.</p>
+      <img src="/laline-mark.svg" alt="" width="28" height="28" />
+      <span class="nav-build-lockup">Build 1.6.0</span>
     </footer>
   </div>
 </nav>
@@ -101,11 +117,9 @@ const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWi
   }
 
   .nav-group {
-    margin-bottom: 1.3rem;
+    margin-bottom: 2rem;
     flex-shrink: 0;
   }
-
-  .nav-group.group-break { margin-bottom: 3.4rem; }
 
   /* ── Row ── */
   .nav-row {
@@ -135,7 +149,7 @@ const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWi
     padding-left: 1.5rem;
   }
   .nav-title:hover { opacity: 0.5; }
-  .nav-title.active { color: var(--color-secondary); }
+  .nav-title.active { color: var(--color-ink); }
 
   /* ── Sub items ── */
   .nav-sub {
@@ -155,7 +169,7 @@ const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWi
     content: '';
     width: 3px; height: 3px;
     border-radius: 50%;
-    background: var(--color-secondary);
+    background: var(--color-reading-ink);
     opacity: 0;
     justify-self: end;
     margin-right: 0.25rem;
@@ -167,32 +181,31 @@ const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWi
     font-family: var(--font-ui);
     font-size: var(--text-nav);
     font-weight: var(--weight-regular);
-    color: var(--color-ink);
-    opacity: 0.45;
+    color: var(--color-reading-ink);
+    opacity: 0.82;
     text-decoration: none;
   }
-  .nav-sub a:hover { opacity: 0.7; }
+  .nav-sub a:hover { opacity: 1; }
 
   /* ── Footer ── */
   .nav-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     margin-top: auto;
     padding-top: 2rem;
     flex-shrink: 0;
-    font-family: var(--font-ui);
-    font-size: 0.5rem;
-    font-weight: var(--weight-regular);
-    color: var(--color-secondary);
-    line-height: 1.5;
+    line-height: 0;
   }
 
-  .nav-footer p {
-    max-width: none;
-    margin: 0;
-    font: inherit;
-    white-space: nowrap;
+  .nav-footer img { display: block; width: 1.75rem; height: 1.75rem; }
+  .nav-footer .nav-build-lockup {
+    font: var(--weight-bold) var(--text-nav)/1 var(--font-ui) !important;
+    letter-spacing: var(--tracking-widest) !important;
+    text-transform: uppercase;
+    color: var(--color-ink) !important;
+    transform: translateY(0.42rem);
   }
-
-  .nav-footer .footer-gap { margin-top: 0.5rem; }
 
   @media (max-width: 768px) { nav { display: none; } }
 </style>

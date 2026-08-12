@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
 ---
 
 <BaseLayout title="House of Laline" landing={true}>
@@ -23,22 +25,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="eyebrow hero-position">Structures, not templates</p>
     </div>
 
-    <div class="hero-footer">
-      <a href="#featured-work" class="enter">View the first work <span aria-hidden="true">↓</span></a>
-      <span>Soft release · 2026</span>
+  </section>
+
+  <section class="position" aria-labelledby="position-title">
+    <p class="eyebrow">The position</p>
+    <h2 id="position-title">Architecture follows intent.</h2>
+    <div class="position-copy">
+      <div class="position-copy-column">
+        <p>
+          Most digital products begin with a blank canvas and an abundance of options.
+          Laline begins with a question: what must this structure allow someone to do?
+        </p>
+        <a href="/preface" class="text-link">Why this exists <span aria-hidden="true">→</span></a>
+      </div>
+      <p>
+        Each Work fixes the hierarchy, pacing, navigation and typographic system around
+        that answer. People replace the content and wording within declared boundaries;
+        they do not have to redesign the decisions that make the structure coherent.
+      </p>
     </div>
   </section>
 
   <section class="featured" id="featured-work" aria-labelledby="atlas-title">
-    <div class="section-number">W01</div>
+    <p class="section-number section-reference">W01 · Atlas version 1.0</p>
+    <h2 id="atlas-title" class="section-title section-heading">Atlas</h2>
     <div class="featured-intro">
-      <p class="eyebrow">Featured work</p>
-      <h2 id="atlas-title">Atlas</h2>
       <p class="featured-lede">
         A photographer website system composed of three resolved architectures.
         Each volume begins with what the visitor is there to do.
       </p>
-      <a href="/works" class="text-link">Read about Atlas <span aria-hidden="true">→</span></a>
+      <div class="featured-actions">
+        <a href={atlasUrl} class="text-link">Enter Atlas <span aria-hidden="true">↗</span></a>
+        <a href="/works" class="text-link text-link--quiet">Read the edition note <span aria-hidden="true">→</span></a>
+      </div>
     </div>
 
     <ol class="volumes" aria-label="Atlas volumes">
@@ -66,66 +85,42 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </ol>
   </section>
 
-  <section class="position" aria-labelledby="position-title">
-    <p class="eyebrow">The position</p>
-    <h2 id="position-title">Architecture follows intent.</h2>
-    <div class="position-copy">
-      <p>
-        Most digital products begin with a blank canvas and an abundance of options.
-        Laline begins with a question: what must this structure allow someone to do?
-      </p>
-      <p>
-        Each Work fixes the hierarchy, pacing, navigation and typographic system around
-        that answer. People replace the content and wording within declared boundaries;
-        they do not have to redesign the decisions that make the structure coherent.
-      </p>
-    </div>
-    <a href="/preface" class="text-link">Why this exists <span aria-hidden="true">→</span></a>
-  </section>
-
   <section class="house-index" aria-labelledby="house-title">
+    <p class="section-number section-reference">Directory · Ref. 01—04</p>
+    <h2 id="house-title" class="section-title section-heading">House</h2>
     <div class="index-intro">
-      <div class="index-meta">
-        <span>House directory</span>
-        <span>Ref. 01—04</span>
-      </div>
-      <h2 id="house-title">Inside the House</h2>
-      <p class="index-statement">A system that can grow without losing its shape.</p>
+      <p class="featured-lede">
+        A publishing system organised to grow without losing its shape.
+        Its works, texts and principles remain distinct while reading as parts of one house.
+      </p>
       <p class="index-reference">Four points of entry · One governing structure</p>
     </div>
 
     <nav class="index-links" aria-label="House sections">
-      <a href="/works">
-        <span>Works</span>
-        <small>Resolved structures and their editions</small>
-        <span aria-hidden="true">01</span>
-      </a>
-      <a href="/texts">
-        <span>Texts</span>
-        <small>Arguments, observations and reading material</small>
-        <span aria-hidden="true">02</span>
-      </a>
-      <a href="/doctrine">
-        <span>Doctrine</span>
-        <small>Principles and structural constraints</small>
-        <span aria-hidden="true">03</span>
-      </a>
       <a href="/manifesto">
+        <span class="index-number" aria-hidden="true">01</span>
         <span>Manifesto</span>
         <small>Foundations, composition and expression</small>
-        <span aria-hidden="true">04</span>
+      </a>
+      <a href="/texts">
+        <span class="index-number" aria-hidden="true">02</span>
+        <span>Texts</span>
+        <small>Arguments, observations and reading material</small>
+      </a>
+      <a href="/plates">
+        <span class="index-number" aria-hidden="true">03</span>
+        <span>Plates</span>
+        <small>Design principles made visible</small>
+      </a>
+      <a href="/works">
+        <span class="index-number" aria-hidden="true">04</span>
+        <span>Works</span>
+        <small>Resolved structures and their editions</small>
       </a>
     </nav>
   </section>
 
   <footer class="site-footer">
-    <div class="footer-identity">
-      <img class="footer-mark" src="/laline-mark.svg" alt="" width="36" height="36" />
-      <div>
-        <p class="footer-name">House of Laline</p>
-        <p>Editorial structures built on clear principles.</p>
-      </div>
-    </div>
     <div class="footer-note">
       <span>Built slowly</span>
       <span>Issued when ready</span>
@@ -139,6 +134,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .mobile-header { display: none; }
 
+  .featured-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+  }
+
+  .text-link--quiet { color: var(--color-secondary); }
+
   .hero,
   .featured,
   .position,
@@ -149,10 +152,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .hero {
-    min-height: 100svh;
+    min-height: 92svh;
     display: grid;
-    grid-template-rows: auto 1fr auto;
-    border-bottom: 1px solid var(--color-border);
+    grid-template-rows: auto 1fr;
   }
 
   .hero-meta,
@@ -204,14 +206,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     line-height: 1.8;
     letter-spacing: 0.01em;
     max-width: 680px;
-    color: var(--color-ink-study);
+    color: var(--color-ink);
     margin: 0;
   }
 
   .hero-position {
     margin-top: 3rem;
     margin-bottom: 0;
-    color: var(--color-ink);
+    color: var(--color-reading-ink);
   }
 
   .enter,
@@ -224,13 +226,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--color-ink);
   }
 
-  .featured {
+  .featured,
+  .house-index {
     display: grid;
-    grid-template-columns: 80px minmax(260px, 0.9fr) minmax(360px, 1.25fr);
-    gap: clamp(2rem, 5vw, 5rem);
+    grid-template-columns: minmax(280px, 0.9fr) minmax(380px, 1.1fr);
+    gap: 0;
     padding-top: clamp(6rem, 12vh, 9rem);
     padding-bottom: clamp(6rem, 12vh, 9rem);
-    border-bottom: 1px solid var(--color-border);
+  }
+
+  .featured-intro,
+  .index-intro {
+    grid-column: 1;
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 0;
+    padding-right: clamp(3rem, 7vw, 7rem);
   }
 
   .section-number {
@@ -239,10 +252,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: var(--weight-bold);
     letter-spacing: var(--tracking-wider);
     text-transform: uppercase;
+    margin: 0;
   }
 
-  .featured h2,
+  .section-reference {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+    max-width: none;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-ink);
+  }
+
+  .section-heading {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding-top: clamp(2.75rem, 6vh, 4.5rem);
+  }
+
+  .section-title,
   .position h2,
+  .featured h2,
   .house-index h2 {
     font-family: var(--font-display);
     font-size: clamp(2.8rem, 5vw, 5rem);
@@ -251,24 +281,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     line-height: 1;
     text-transform: none;
     color: var(--color-ink);
-    margin: 0 0 2rem;
+    margin: 0 0 2.25rem;
   }
 
   .featured-lede {
     font-size: 1.08rem;
     line-height: 1.8;
     color: var(--color-secondary);
-    margin-bottom: 2rem;
+    margin: 0 0 1.5rem;
   }
 
-  .volumes { list-style: none; border-top: 1px solid var(--color-ink); }
+  .volumes {
+    grid-column: 2;
+    grid-row: 3;
+    list-style: none;
+    margin-top: 0;
+    padding-top: 0;
+    padding-left: clamp(3rem, 6vw, 6rem);
+  }
   .volumes li {
     display: grid;
-    grid-template-columns: 52px 1fr;
-    gap: 1.5rem;
-    padding: 1.75rem 0;
+    grid-template-columns: 36px 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
     border-bottom: 1px solid var(--color-border);
   }
+  .volumes li:first-child { padding-top: 0; }
+  .volumes li:last-child { border-bottom: 0; }
   .volume-number {
     font-family: var(--font-ui);
     font-size: var(--text-nav);
@@ -276,19 +315,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   .volumes h3 {
     font-family: var(--font-display);
-    font-size: 1.65rem;
+    font-size: 1.35rem;
     font-weight: var(--weight-regular);
     letter-spacing: 0;
     text-transform: none;
     color: var(--color-ink);
     margin: 0 0 0.45rem;
   }
-  .volumes p { color: var(--color-secondary); margin: 0; }
+  .volumes p { color: var(--color-secondary); margin: 0; font-size: 0.9rem; line-height: 1.6; }
 
   .position {
     padding-top: clamp(7rem, 15vh, 11rem);
     padding-bottom: clamp(7rem, 15vh, 11rem);
-    border-bottom: 1px solid var(--color-border);
   }
   .position h2 { max-width: 800px; }
   .position-copy {
@@ -299,54 +337,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin: 3rem 0 2rem;
   }
   .position-copy p { font-size: 1.05rem; line-height: 1.85; margin: 0; }
-
-  .house-index {
-    display: grid;
-    grid-template-columns: minmax(300px, 0.9fr) minmax(440px, 1.1fr);
-    gap: 0;
-    padding-top: clamp(6rem, 12vh, 9rem);
-    padding-bottom: clamp(6rem, 12vh, 9rem);
-  }
-  .index-intro {
+  .position-copy-column {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-right: clamp(3rem, 7vw, 7rem);
-    padding-top: 1.4rem;
-    border-top: 1px solid var(--color-ink);
-  }
-  .index-meta {
-    width: 100%;
-    display: flex;
     justify-content: space-between;
-    margin-bottom: clamp(4rem, 9vh, 7rem);
-    font-family: var(--font-ui);
-    font-size: var(--text-micro);
-    letter-spacing: var(--tracking-widest);
-    text-transform: uppercase;
-    color: var(--color-secondary);
+    gap: 1.75rem;
   }
-  .house-index h2 {
-    margin: 0 0 2.5rem;
-    font-family: var(--font-ui);
-    font-size: var(--text-h3);
-    font-weight: var(--weight-medium);
-    letter-spacing: var(--tracking-widest);
-    text-transform: uppercase;
-    color: var(--color-ink);
-  }
-  .index-statement {
-    max-width: 14ch;
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: clamp(2.7rem, 4vw, 4.25rem);
-    font-weight: var(--weight-light);
-    line-height: 0.98;
-    letter-spacing: -0.025em;
-    color: var(--color-ink);
-  }
+
   .index-reference {
-    margin: 1.5rem 0 0;
+    margin: 0;
     padding-top: 0;
     font-family: var(--font-ui);
     font-size: var(--text-micro);
@@ -355,23 +355,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--color-secondary);
   }
   .index-links {
+    grid-column: 2;
+    grid-row: 3;
     padding-left: clamp(3rem, 6vw, 6rem);
     padding-top: 0;
-    border-left: 1px solid var(--color-border);
-    border-top: 1px solid var(--color-ink);
   }
   .index-links a {
     display: grid;
-    grid-template-columns: 120px 1fr 28px;
+    grid-template-columns: 36px 100px 1fr;
     gap: 1rem;
     align-items: baseline;
-    padding: 1.75rem 0;
+    padding: 1rem 0;
     border-bottom: 1px solid var(--color-border);
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
+  .index-links a:first-child { padding-top: 0; }
+  .index-links a:last-child { border-bottom: 0; }
   .index-links small,
-  .index-links a > span:last-child {
+  .index-number {
     font-family: var(--font-ui);
     font-size: var(--text-micro);
     letter-spacing: var(--tracking-wide);
@@ -379,8 +381,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .site-footer {
-    display: grid;
-    grid-template-columns: minmax(300px, 0.9fr) minmax(440px, 1.1fr);
+    display: flex;
+    justify-content: flex-end;
     align-items: flex-end;
     gap: 0;
     padding-top: 3rem;
@@ -399,32 +401,38 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     text-transform: uppercase;
     margin: 0;
   }
-  .site-footer .footer-name {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    letter-spacing: 0;
-    text-transform: none;
-    margin-bottom: 0.5rem;
-  }
-  .footer-identity { display: flex; align-items: flex-end; gap: 1rem; }
-  .footer-mark { display: block; width: 2.25rem; height: 2.25rem; flex: none; }
   .footer-note {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 0.5rem;
-    padding-left: clamp(3rem, 6vw, 6rem);
+    padding-left: 0;
   }
   .footer-note span { white-space: nowrap; }
 
   @media (max-width: 1050px) {
-    .featured { grid-template-columns: 52px 1fr; }
-    .volumes { grid-column: 2; }
-    .house-index,
-    .site-footer { grid-template-columns: minmax(260px, 0.85fr) minmax(380px, 1.15fr); }
+    .featured,
+    .house-index { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
     .index-intro { padding-right: clamp(2rem, 5vw, 4rem); }
-    .index-links,
-    .footer-note { padding-left: clamp(2rem, 5vw, 4rem); }
+    .index-links { padding-left: clamp(2rem, 5vw, 4rem); }
+  }
+
+  @media (max-width: 900px) {
+    .featured,
+    .house-index { display: block; }
+    .featured-intro,
+    .index-intro { padding-right: 0; }
+    .volumes {
+      margin-top: 2.5rem;
+      padding-top: 0;
+      padding-left: 0;
+    }
+    .index-links {
+      margin-top: 2.5rem;
+      padding-top: 0;
+      padding-left: 0;
+      border-left: 0;
+    }
   }
 
   @media (max-width: 768px) {
@@ -439,24 +447,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       text-transform: uppercase;
     }
     .mobile-brand { font-weight: var(--weight-bold); }
-    .hero { min-height: calc(100svh - 58px); }
+    .hero { min-height: calc(92svh - 58px); }
     .hero-meta { padding-top: 1.5rem; }
     .hero-centre { padding: 10vh 0; }
     h1.display { font-size: clamp(3.6rem, 19vw, 6rem); margin-bottom: 2rem; }
     .hero-statement { font-size: 0.8rem; }
     .hero-position { margin-top: 2.5rem; }
-    .featured,
-    .house-index { display: block; }
     .section-number { margin-bottom: 4rem; }
-    .volumes,
-    .index-links { margin-top: 4rem; }
+    .section-reference { margin-bottom: 0; }
     .position-copy { grid-template-columns: 1fr; gap: 1rem; }
-    .index-links a { grid-template-columns: 90px 1fr 24px; }
+    .index-links a { grid-template-columns: 28px 80px 1fr; }
     .index-meta { margin-bottom: 4rem; }
     .index-reference { padding-top: 0; }
-    .index-links { padding-left: 0; border-left: 0; }
-    .site-footer { display: flex; align-items: flex-start; flex-direction: column; }
-    .footer-identity { align-items: flex-start; }
     .footer-note { align-items: flex-start; }
   }
 
