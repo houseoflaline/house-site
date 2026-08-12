@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
-const aureleUrl = import.meta.env.PUBLIC_AURELE_URL ?? 'http://127.0.0.1:4323';
+const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'https://atlas.laline.house';
+const aureleUrl = import.meta.env.PUBLIC_AURELE_URL ?? 'https://aurele.laline.house';
 const atlasReadingUrl = `${atlasUrl.replace(/\/$/, '')}/#reading`;
 const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
 ---
