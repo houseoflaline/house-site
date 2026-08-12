@@ -7,9 +7,16 @@ interface Props {
   title: string;
   currentPath?: string;
   landing?: boolean;
+  description?: string;
 }
 
-const { title, currentPath = '/', landing = false } = Astro.props;
+const {
+  title,
+  currentPath = '/',
+  landing = false,
+  description = 'House of Laline creates resolved digital structures built for specific purposes.'
+} = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!DOCTYPE html>
@@ -17,6 +24,13 @@ const { title, currentPath = '/', landing = false } = Astro.props;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <meta name="theme-color" content="#f7f7f5">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content={landing ? title : `${title} · House of Laline`}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonicalUrl}>
+  <link rel="canonical" href={canonicalUrl}>
   <title>{landing ? title : `${title} · House of Laline`}</title>
   <link rel="icon" type="image/svg+xml" href="/laline-mark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
