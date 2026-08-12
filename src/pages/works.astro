@@ -2,6 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
+const aureleUrl = import.meta.env.PUBLIC_AURELE_URL ?? 'http://127.0.0.1:4323';
+const atlasReadingUrl = `${atlasUrl.replace(/\/$/, '')}/#reading`;
+const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
 ---
 
 <BaseLayout title="Works" currentPath="/works">
@@ -16,7 +19,7 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
 
     <article class="work" id="atlas">
       <div class="work-meta">
-        <span>W01 · Build 1.0</span>
+        <span>W01 · Version 1.0</span>
         <span>Recovered edition · 2026</span>
       </div>
       <h2>Atlas</h2>
@@ -30,8 +33,29 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
 
       <div class="work-actions">
         <a class="enter-work" href={atlasUrl}>Enter Atlas <span aria-hidden="true">↗</span></a>
-        <a class="enter-work enter-work--secondary" href="/texts/how-your-work-meets-the-screen">Read the essay <span aria-hidden="true">→</span></a>
+        <a class="enter-work enter-work--secondary" href={atlasReadingUrl}>Read within Atlas <span aria-hidden="true">↗</span></a>
         <p class="availability">Works 01 · Live demonstration</p>
+      </div>
+    </article>
+
+    <article class="work" id="aurele">
+      <div class="work-meta">
+        <span>W02 · Version 1.0</span>
+        <span>Public record edition · 2026</span>
+      </div>
+      <h2>Aurèle</h2>
+      <p class="abstract">An editorial publishing structure whose identity remains constant while the record changes pace.</p>
+
+      <ol class="volume-list">
+        <li><span>I</span><strong>Dispatch</strong><p>What is known now, reported precisely and left open to revision.</p></li>
+        <li><span>II</span><strong>Chronicle</strong><p>What becomes known over time, with sequence and correction preserved.</p></li>
+        <li><span>III</span><strong>Review</strong><p>What the completed record has come to mean.</p></li>
+      </ol>
+
+      <div class="work-actions">
+        <a class="enter-work" href={aureleUrl}>Enter Aurèle <span aria-hidden="true">↗</span></a>
+        <a class="enter-work enter-work--secondary" href={aureleReadingUrl}>Read within Aurèle <span aria-hidden="true">↗</span></a>
+        <p class="availability">Works 02 · Complete demonstration</p>
       </div>
     </article>
   </div>
@@ -41,15 +65,16 @@ const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
   .page-content { max-width: 760px; }
   .lead { font-size: 1.1rem; line-height: 1.85; font-style: italic; }
   .work { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-ink); }
+  .work + .work { margin-top: clamp(5rem, 10vw, 8rem); }
   .work-meta { display: flex; justify-content: space-between; gap: 2rem; font-family: var(--font-ui); font-size: var(--text-micro); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--color-secondary); }
-  .work h2 { font-family: var(--font-display); font-size: clamp(3rem, 7vw, 5.5rem); font-weight: var(--weight-light); letter-spacing: 0; text-transform: none; color: var(--color-ink); margin: 3rem 0 1.5rem; }
+  :global(.main--content) .work h2 { font-family: var(--font-display) !important; font-size: clamp(3rem, 7vw, 5.5rem) !important; font-weight: var(--weight-light) !important; line-height: 1 !important; letter-spacing: 0 !important; text-transform: none !important; color: var(--color-ink) !important; margin: 3rem 0 1.5rem !important; }
   .abstract { font-size: 1.1rem; line-height: 1.8; color: var(--color-secondary); }
   .volume-list { list-style: none; margin: 3rem 0; border-top: 1px solid var(--color-border); }
   .volume-list li { display: grid; grid-template-columns: 40px 110px 1fr; gap: 1rem; align-items: baseline; padding: 1.25rem 0; border-bottom: 1px solid var(--color-border); }
   .volume-list span { font-family: var(--font-ui); font-size: var(--text-micro); color: var(--color-secondary); }
   .volume-list strong { font-family: var(--font-display); font-size: 1.3rem; font-weight: var(--weight-regular); }
   .volume-list p { margin: 0; color: var(--color-secondary); }
-  .availability { font-family: var(--font-ui); font-size: var(--text-micro); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--color-secondary); }
+  :global(.main--content) .availability { font-family: var(--font-ui) !important; font-size: var(--text-micro) !important; font-style: normal !important; letter-spacing: var(--tracking-wide) !important; line-height: 1.5 !important; text-transform: uppercase !important; color: var(--color-secondary) !important; }
   .work-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
   .enter-work { display: inline-flex; align-items: center; gap: .75rem; padding-bottom: .35rem; border-bottom: 1px solid var(--color-ink); font-family: var(--font-ui); font-size: var(--text-micro); font-weight: var(--weight-medium); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--color-ink); }
   .enter-work--secondary { color: var(--color-secondary); border-color: var(--color-secondary); }

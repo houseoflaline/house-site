@@ -2,11 +2,9 @@
 const { currentPath = '/' } = Astro.props;
 const isActive = (path: string) => currentPath === path;
 const isParentActive = (paths: string[]) => paths.some(p => currentPath.startsWith(p));
-const atlasEssayPath = '/texts/how-your-work-meets-the-screen';
-const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'http://127.0.0.1:4322';
 const isHouseActive = isActive('/') || isActive('/preface');
 const isDoctrineActive = isActive('/doctrine') || isParentActive(['/manifesto']);
-const isAtlasActive = isParentActive(['/works']) || isActive(atlasEssayPath);
+const isWorksActive = isParentActive(['/works']);
 ---
 
 <nav>
@@ -39,19 +37,18 @@ const isAtlasActive = isParentActive(['/works']) || isActive(atlasEssayPath);
       <div class="nav-group">
         <div class="nav-row">
           <span class="nav-num">III.</span>
-          <a href="/works" class={`nav-title ${isAtlasActive ? 'active' : ''}`}>Works</a>
+          <a href="/works" class={`nav-title ${isWorksActive ? 'active' : ''}`}>Works</a>
         </div>
         <ul class="nav-sub">
           <li class={isParentActive(['/works']) ? 'dot-active' : ''}><a href="/works#atlas">Atlas</a></li>
-          <li class={isActive(atlasEssayPath) ? 'dot-active' : ''}><a href={atlasEssayPath}>Reading</a></li>
-          <li><a href={atlasUrl}>Live demo <span aria-hidden="true">↗</span></a></li>
+          <li><a href="/works#aurele">Aurèle</a></li>
         </ul>
       </div>
 
       <div class="nav-group">
         <div class="nav-row">
           <span class="nav-num">IV.</span>
-          <a href="/texts" class={`nav-title ${isParentActive(['/texts']) && !isActive(atlasEssayPath) ? 'active' : ''}`}>Texts</a>
+          <a href="/texts" class={`nav-title ${isParentActive(['/texts']) ? 'active' : ''}`}>Texts</a>
         </div>
       </div>
 
