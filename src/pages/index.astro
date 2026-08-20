@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'https://atlas.laline.house';
 const aureleUrl = import.meta.env.PUBLIC_AURELE_URL ?? 'https://aurele.laline.house';
+const allureUrl = import.meta.env.PUBLIC_ALLURE_URL ?? 'https://allure.laline.house';
 const atlasReadingUrl = `${atlasUrl.replace(/\/$/, '')}/#reading`;
 const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
 ---
@@ -15,17 +16,17 @@ const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
 
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-meta">
-      <span>Editorial publishing house</span>
-      <span>Est. 2026</span>
+      <span>Independent design house</span>
+      <span>Est. 2025</span>
     </div>
 
     <div class="hero-centre">
       <h1 id="hero-title" class="display">House <span class="of">of</span> Laline</h1>
       <p class="hero-statement">
-        Resolved digital structures built for specific purposes.
-        The decisions are made. The content remains yours.
+        <span>Digital structures shaped around what the work needs to do.</span>
+        <span>Hierarchy, pacing and behaviour are resolved.</span>
+        <span>The content remains yours.</span>
       </p>
-      <p class="eyebrow hero-position">Structures, not templates</p>
     </div>
 
   </section>
@@ -88,7 +89,7 @@ const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
     </ol>
   </section>
 
-  <section class="featured featured--aurele" id="aurele" aria-labelledby="aurele-title">
+  <section class="featured" id="aurele" aria-labelledby="aurele-title">
     <p class="section-number section-reference">W02 · Aurèle version 1.0</p>
     <h2 id="aurele-title" class="section-title section-heading">Aurèle</h2>
     <div class="featured-intro">
@@ -102,22 +103,49 @@ const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
       </div>
     </div>
 
-    <div class="aurele-fragments" aria-label="Selected fragments from the Aurèle demonstration">
-      <article>
-        <span class="fragment-meta">01 · Dispatch</span>
-        <h3>Mona leaves-a!</h3>
-        <p>The smile that slipped away.</p>
-      </article>
-      <article>
-        <span class="fragment-meta">02 · Chronicle · 1911—1913</span>
-        <h3>The image circulates; the object does not.</h3>
-        <p>The accumulating record keeps the interval visible.</p>
-      </article>
-      <article>
-        <span class="fragment-meta">03 · Review</span>
-        <blockquote>Absence did not erase the image. It multiplied it.</blockquote>
-      </article>
+    <ol class="volumes" aria-label="Aurèle structures">
+      <li>
+        <span class="volume-number">I</span>
+        <div><h3>Dispatch</h3><p>Mona leaves-a! The smile that slipped away.</p></div>
+      </li>
+      <li>
+        <span class="volume-number">II</span>
+        <div><h3>Chronicle</h3><p>1911—1913. The image circulates; the object does not. The accumulating record keeps the interval visible.</p></div>
+      </li>
+      <li>
+        <span class="volume-number">III</span>
+        <div><h3>Review</h3><p>Absence did not erase the image. It multiplied it.</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="featured" id="allure" aria-labelledby="allure-title">
+    <p class="section-number section-reference">W03 · Allure working edition</p>
+    <h2 id="allure-title" class="section-title section-heading">Allure</h2>
+    <div class="featured-intro">
+      <p class="featured-lede">
+        A portfolio structure that presents one professional record through three resolved hierarchies.
+        The facts remain constant; their emphasis, pace and mode of reading change.
+      </p>
+      <div class="featured-actions">
+        <a href={allureUrl} class="text-link">Enter Allure <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
+
+    <ol class="volumes" aria-label="Allure structures">
+      <li>
+        <span class="volume-number">I</span>
+        <div><h3>Retenue</h3><p>Work organised by fact and proof.</p></div>
+      </li>
+      <li>
+        <span class="volume-number">II</span>
+        <div><h3>Éclat</h3><p>Work organised by capability and connection.</p></div>
+      </li>
+      <li>
+        <span class="volume-number">III</span>
+        <div><h3>Poise</h3><p>Work organised by time and consequence.</p></div>
+      </li>
+    </ol>
   </section>
 
   <section class="house-index" aria-labelledby="house-title">
@@ -156,11 +184,7 @@ const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
   </section>
 
   <footer class="site-footer">
-    <div class="footer-note">
-      <span>Built slowly</span>
-      <span>Issued when ready</span>
-      <span>Est. 2026</span>
-    </div>
+    <span>Est. 2025</span>
   </footer>
 </BaseLayout>
 
@@ -245,10 +269,8 @@ const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
     margin: 0;
   }
 
-  .hero-position {
-    margin-top: 3rem;
-    margin-bottom: 0;
-    color: var(--color-reading-ink);
+  .hero-statement span {
+    display: block;
   }
 
   .enter,
@@ -359,50 +381,6 @@ const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
   }
   .volumes p { color: var(--color-secondary); margin: 0; font-size: 0.9rem; line-height: 1.6; }
 
-  .aurele-fragments {
-    grid-column: 2;
-    grid-row: 3;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    padding-left: clamp(3rem, 6vw, 6rem);
-  }
-  .aurele-fragments article {
-    min-width: 0;
-    padding: 0 clamp(1rem, 2vw, 2rem) 1.5rem;
-    border-left: 1px solid var(--color-border);
-  }
-  .aurele-fragments article:first-child { padding-left: 0; border-left: 0; }
-  .aurele-fragments article:last-child {
-    grid-column: 1 / -1;
-    margin-top: 1.5rem;
-    padding: 1.5rem 0 0;
-    border-top: 1px solid var(--color-border);
-    border-left: 0;
-  }
-  .fragment-meta {
-    display: block;
-    min-height: 2.8rem;
-    font-family: var(--font-ui);
-    font-size: var(--text-micro);
-    letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
-    color: var(--color-reading-ink);
-  }
-  .aurele-fragments h3,
-  .aurele-fragments blockquote {
-    margin: 1rem 0;
-    font-family: var(--font-display);
-    font-size: clamp(1.35rem, 2.1vw, 2.3rem);
-    font-weight: var(--weight-light);
-    letter-spacing: -.02em;
-    line-height: 1.06;
-    text-transform: none;
-    color: var(--color-ink);
-  }
-  .aurele-fragments blockquote { max-width: 19ch; color: var(--color-reading-ink); }
-  .aurele-fragments article:nth-child(2) h3 { font-size: clamp(1.2rem, 1.7vw, 1.8rem); line-height: 1.12; }
-  .aurele-fragments p { margin: 0; font-size: .82rem; line-height: 1.55; color: var(--color-secondary); }
-
   .position {
     padding-top: clamp(7rem, 15vh, 11rem);
     padding-bottom: clamp(7rem, 15vh, 11rem);
@@ -441,9 +419,10 @@ const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
   }
   .index-links a {
     display: grid;
-    grid-template-columns: 36px 100px 1fr;
-    gap: 1rem;
-    align-items: baseline;
+    grid-template-columns: 36px 1fr;
+    column-gap: 1rem;
+    row-gap: 0.35rem;
+    align-items: start;
     padding: 1rem 0;
     border-bottom: 1px solid var(--color-border);
     font-family: var(--font-display);
@@ -451,18 +430,27 @@ const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
   }
   .index-links a:first-child { padding-top: 0; }
   .index-links a:last-child { border-bottom: 0; }
-  .index-links small,
   .index-number {
     font-family: var(--font-ui);
     font-size: var(--text-micro);
     letter-spacing: var(--tracking-wide);
     color: var(--color-secondary);
   }
+  .index-number { grid-row: 1 / span 2; padding-top: 0.25rem; }
+  .index-links small {
+    grid-column: 2;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: var(--weight-light);
+    line-height: 1.6;
+    letter-spacing: 0;
+    color: var(--color-secondary);
+  }
 
   .site-footer {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
     gap: 0;
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -480,14 +468,7 @@ const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
     text-transform: uppercase;
     margin: 0;
   }
-  .footer-note {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
-    padding-left: 0;
-  }
-  .footer-note span { white-space: nowrap; }
+  .site-footer span { white-space: nowrap; }
 
   @media (max-width: 1050px) {
     .featured,
@@ -506,21 +487,6 @@ const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
       padding-top: 0;
       padding-left: 0;
     }
-    .aurele-fragments {
-      grid-template-columns: 1fr;
-      margin-top: 2.5rem;
-      padding-left: 0;
-    }
-    .aurele-fragments article,
-    .aurele-fragments article:first-child {
-      grid-column: auto;
-      margin-top: 0;
-      padding: 1.5rem 0;
-      border-top: 1px solid var(--color-border);
-      border-left: 0;
-    }
-    .aurele-fragments article:last-child { border-bottom: 1px solid var(--color-border); }
-    .fragment-meta { min-height: 0; }
     .index-links {
       margin-top: 2.5rem;
       padding-top: 0;
@@ -546,14 +512,12 @@ const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
     .hero-centre { padding: 10vh 0; }
     h1.display { font-size: clamp(3.6rem, 19vw, 6rem); margin-bottom: 2rem; }
     .hero-statement { font-size: 0.8rem; }
-    .hero-position { margin-top: 2.5rem; }
     .section-number { margin-bottom: 4rem; }
     .section-reference { margin-bottom: 0; }
     .position-copy { grid-template-columns: 1fr; gap: 1rem; }
-    .index-links a { grid-template-columns: 28px 80px 1fr; }
+    .index-links a { grid-template-columns: 28px 1fr; }
     .index-meta { margin-bottom: 4rem; }
     .index-reference { padding-top: 0; }
-    .footer-note { align-items: flex-start; }
   }
 
   @media (prefers-reduced-motion: reduce) {

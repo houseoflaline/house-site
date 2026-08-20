@@ -2,109 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const noticeUrl = import.meta.env.PUBLIC_NOTICE_URL ?? 'https://notice.laline.house';
-const noticeRepositoryUrl = 'https://github.com/houseoflaline/notice';
-
-const edition01Plates = [
-  {
-    number: 'E01-P01',
-    title: 'Quiet is a discipline',
-    href: '/manifesto/foundations',
-    abstract: 'Quiet is not minimalism. It is the intentional removal of competing signals so hierarchy becomes inevitable.',
-    issued: '2026-01-31',
-    tags: ['quiet', 'hierarchy', 'restraint']
-  },
-  {
-    number: 'E01-P02',
-    title: 'Authority is recognised',
-    href: '/manifesto/foundations/authority',
-    abstract: 'Authority emerges through coherence held over time, not assertion or display.',
-    issued: '2026-01-31',
-    tags: ['authority', 'coherence']
-  },
-  {
-    number: 'E01-P03',
-    title: 'Restraint protects meaning',
-    href: '/manifesto/foundations/restraint',
-    abstract: 'Meaning collapses when too many signals compete. Restraint preserves hierarchy.',
-    issued: '2026-01-31',
-    tags: ['restraint', 'meaning']
-  },
-  {
-    number: 'E01-P04',
-    title: 'Pacing is a decision about time',
-    href: '/manifesto/foundations/pacing',
-    abstract: 'Pacing determines how understanding forms by controlling when information is revealed.',
-    issued: '2026-01-31',
-    tags: ['pacing', 'time']
-  },
-  {
-    number: 'E01-P05',
-    title: 'Silence is refusal made visible',
-    href: '/manifesto/foundations/silence',
-    abstract: 'Silence reveals what a system has chosen not to include, without explanation.',
-    issued: '2026-01-31',
-    tags: ['silence', 'refusal']
-  },
-];
-
-const edition02Plates = [
-  {
-    number: 'E02-P01',
-    title: 'Emphasis directs attention',
-    href: '/plates/emphasis',
-    abstract: 'A composition without emphasis has no entry point. Every element competes. Nothing lands.',
-    issued: '2026-02-07',
-    tags: ['emphasis', 'attention']
-  },
-  {
-    number: 'E02-P02',
-    title: 'Balance creates stability',
-    href: '/plates/balance',
-    abstract: 'Visual weight distributed evenly produces equilibrium. Distributed unevenly produces tension.',
-    issued: '2026-02-07',
-    tags: ['balance', 'weight']
-  },
-  {
-    number: 'E02-P03',
-    title: 'Contrast creates distinction',
-    href: '/plates/contrast-principle',
-    abstract: 'Without difference, there is no signal. Without signal, nothing can be seen.',
-    issued: '2026-02-07',
-    tags: ['contrast', 'perception']
-  },
-  {
-    number: 'E02-P04',
-    title: 'Repetition creates unity',
-    href: '/plates/repetition',
-    abstract: 'Patterns repeated become infrastructure. The mind learns them once, then relies on them.',
-    issued: '2026-02-07',
-    tags: ['repetition', 'consistency']
-  },
-  {
-    number: 'E02-P05',
-    title: 'Proportion creates harmony',
-    href: '/plates/proportion',
-    abstract: 'Relationships between sizes matter more than absolute measurements.',
-    issued: '2026-02-07',
-    tags: ['proportion', 'harmony']
-  },
-  {
-    number: 'E02-P06',
-    title: 'Movement guides the eye',
-    href: '/plates/movement',
-    abstract: 'The reading path exists whether designed or accidental.',
-    issued: '2026-02-07',
-    tags: ['movement', 'sequence']
-  },
-  {
-    number: 'E02-P07',
-    title: 'White space enables breathing',
-    href: '/plates/white-space',
-    abstract: 'Empty space is not absence. It is structure made visible.',
-    issued: '2026-02-07',
-    tags: ['space', 'clarity']
-  },
-];
 ---
 
 <BaseLayout title="Plates" currentPath="/plates">
@@ -113,25 +10,25 @@ const edition02Plates = [
   </div>
 
   <h1>Plates</h1>
-  <p class="page-meta">Distilled design principles · 2 Editions · 12 Plates · Updated February 2026</p>
+  <p class="page-meta">Small distributable structures · 1 Plate · 2026</p>
 
   <div class="content-section">
     <p>
-      Plates are citable design maxims. Each statement captures a principle through compression—removing explanation to reveal structure. They are numbered for reference and organized by edition.
+      Plates are small, complete structures issued for a specific use. Each one is resolved, portable and prepared to stand independently from the House site.
     </p>
   </div>
 
   <section class="working-proof" id="notice" aria-labelledby="notice-title">
     <div class="proof-copy">
-      <p class="proof-reference">E02—P01 · Working proof 01</p>
+      <p class="proof-reference">P01 · First working proof</p>
       <h2 id="notice-title">Notice</h2>
       <p class="proof-lede">A resolved announcement for one event, one image and one action.</p>
       <p class="proof-note">
         Notice puts emphasis into practice. Replace the declared content and the image; hierarchy, spacing and responsive behaviour remain decided.
       </p>
       <div class="proof-actions">
-        <a href={noticeUrl}>Open the proof <span aria-hidden="true">↗</span></a>
-        <a href={noticeRepositoryUrl}>Download free <span aria-hidden="true">↗</span></a>
+        <a href={noticeUrl}>Open Notice <span aria-hidden="true">↗</span></a>
+        <span>Astro marketplace · Preparing release</span>
       </div>
     </div>
     <a class="proof-frame" href={noticeUrl} aria-label="Open the Notice working proof">
@@ -145,43 +42,6 @@ const edition02Plates = [
     </a>
   </section>
 
-  <div class="edition-section" id="edition-01">
-    <h2 class="edition-title">Edition 01: Philosophical Foundations</h2>
-    <p class="edition-description">The invisible structural principles that govern methodology and practice.</p>
-    <ul class="plate-list">
-      {edition01Plates.map(plate => (
-        <li class="plate-item">
-          <div class="plate-number">{plate.number}</div>
-          <div class="plate-content">
-            <h3><a href={plate.href}>{plate.title}</a></h3>
-            <p class="plate-abstract">{plate.abstract}</p>
-            <div class="plate-meta">
-              Issued {plate.issued} · {plate.tags.join(', ')}
-            </div>
-          </div>
-        </li>
-      ))}
-    </ul>
-  </div>
-
-  <div class="edition-section" id="edition-02">
-    <h2 class="edition-title">Edition 02: Design Fundamentals</h2>
-    <p class="edition-description">The seven classical principles of visual design, examined through structural rigor.</p>
-    <ul class="plate-list">
-      {edition02Plates.map(plate => (
-        <li class="plate-item">
-          <div class="plate-number">{plate.number}</div>
-          <div class="plate-content">
-            <h3><a href={plate.href}>{plate.title}</a></h3>
-            <p class="plate-abstract">{plate.abstract}</p>
-            <div class="plate-meta">
-              Issued {plate.issued} · {plate.tags.join(', ')}
-            </div>
-          </div>
-        </li>
-      ))}
-    </ul>
-  </div>
 </BaseLayout>
 
 <style>
@@ -227,6 +87,7 @@ const edition02Plates = [
 
   .proof-reference,
   .proof-actions a,
+  .proof-actions span,
   .proof-date {
     font-family: var(--font-ui);
     font-size: var(--text-micro);
@@ -260,7 +121,7 @@ const edition02Plates = [
   .proof-note { max-width: 42ch; margin: 0 0 2.5rem; color: var(--color-secondary); font-size: .92rem; line-height: 1.65; }
   .proof-actions { display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
   .proof-actions a { padding-bottom: .35rem; border-bottom: 1px solid currentColor; color: var(--color-ink); text-decoration: none; }
-  .proof-actions a:last-child { color: var(--color-reading-ink); }
+  .proof-actions span { color: var(--color-reading-ink); }
 
   .proof-frame {
     position: relative;
@@ -276,41 +137,6 @@ const edition02Plates = [
   .proof-title em { color: var(--color-reading-ink); font-style: italic; }
   .proof-date { position: absolute; right: 1.3rem; bottom: 1.3rem; color: var(--color-reading-ink); }
 
-  .edition-section {
-    margin-bottom: 4rem;
-  }
-
-  .edition-title {
-    font-size: 1.4rem;
-    font-weight: 400;
-    margin-bottom: 0.75rem;
-    margin-top: 0;
-  }
-
-  .edition-description {
-    font-size: 1rem;
-    color: var(--color-reading-ink);
-    margin-bottom: 2rem;
-    font-style: italic;
-  }
-
-  .plate-list {
-    list-style: none;
-    margin-top: 2rem;
-  }
-
-  .plate-item {
-    border-top: 1px solid var(--color-border);
-    padding: 2rem 0;
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-  }
-
-  .plate-item:last-child {
-    border-bottom: 1px solid var(--color-border);
-  }
-
   @media (max-width: 760px) {
     .working-proof { grid-template-columns: 1fr; }
     .proof-copy { min-height: 31rem; padding-right: 0; }
@@ -319,51 +145,4 @@ const edition02Plates = [
     .proof-title { top: auto; right: 1rem; bottom: 4.5rem; left: 1rem; width: auto; font-size: clamp(2.5rem, 12vw, 4.5rem); }
   }
 
-  .plate-number {
-    font-family: var(--font-ui);
-    font-size: 0.875rem;
-    color: var(--color-muted);
-    min-width: 4rem;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .plate-content {
-    flex: 1;
-  }
-
-  .plate-item h3 {
-    font-size: 1.2rem;
-    font-weight: 400;
-    margin-bottom: 0.75rem;
-  }
-
-  .plate-item h3 a {
-    color: var(--color-ink);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
-  }
-
-  .plate-item h3 a:hover {
-    border-bottom-color: var(--color-ink);
-  }
-
-  .plate-abstract {
-    font-size: 1rem;
-    line-height: 1.7;
-    margin-bottom: 0.75rem;
-    color: var(--color-ink);
-  }
-
-  .plate-meta {
-    font-size: 0.85rem;
-    color: var(--color-reading-ink);
-  }
-
-  @media (max-width: 768px) {
-    .plate-item {
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-  }
 </style>

@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════
    LALINE — Design Tokens V2.0
-   House of Laline · Editorial Publishing House
+   House of Laline · Independent Design House
    Locked: April 2026
 ═══════════════════════════════════════════════════════════════ */
 
@@ -14,6 +14,7 @@
   --primitive-neutral-100: #F0F0ED;
   --primitive-neutral-900: #141412;
   --primitive-wine-900:    #1F1114;
+  --primitive-oxblood-800: #3B171A;
   /* Recovered from the original Laline colour studies and style manual. */
   --primitive-russet-600:  #8B4513;
 
@@ -50,6 +51,7 @@
   --color-ink:       var(--primitive-neutral-900);
   --color-secondary: var(--color-reading-ink);
   --color-accent:    var(--primitive-russet-600);
+  --color-identity-ink: var(--primitive-oxblood-800);
   /* Ink study shortlist: dark oxblood, liked but not the remembered ink. */
   --color-ink-study-oxblood: #4A1822;
   --color-ink-study-maroon:  #42152A;
