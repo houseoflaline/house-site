@@ -4,29 +4,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="Doctrine" currentPath="/doctrine">
 
-  <span class="meta">III · Doctrine</span>
-  <h1>System principles and structural constraints</h1>
+  <span class="meta">II · Doctrine</span>
+  <h1 class="doctrine-title">Principles and boundaries</h1>
 
   <div class="page-content">
 
-    <section>
-      <h2>Purpose</h2>
-      <p>House of Laline exists to provide unambiguous access to structured knowledge through permanent, hierarchical architecture.</p>
+    <section class="doctrine-intro">
+      <h2 class="doctrine-section-title">Purpose</h2>
+      <p>House of Laline creates resolved digital structures through clear hierarchy, deliberate pacing and declared boundaries. Each edition may take a different form; its internal logic remains stable.</p>
     </section>
 
     <hr />
 
     <section>
-      <h2>Structural logic</h2>
+      <h2 class="doctrine-section-title">Structural logic</h2>
 
       <h3>Pacing</h3>
-      <p>Content unfolds in predictable intervals — never accelerating to create urgency, never stalling to create drama. Each page operates at the same cognitive speed. Users traverse depth, not breadth.</p>
+      <p>Content unfolds in predictable intervals, never accelerating to create urgency or stalling to create drama. Each page operates at the same cognitive speed. Users traverse depth, not breadth.</p>
 
       <h3>Hierarchy</h3>
-      <p>Authority emerges from vertical clarity. Primary navigation is sparse. Secondary navigation reveals itself only when contextually necessary. Tertiary layers exist but remain subordinate — never competing with parent structures. Depth is communicated through consistent indentation and containment, never through visual flourish.</p>
+      <p>Authority emerges from vertical clarity. Primary navigation is sparse. Secondary navigation remains visibly subordinate and appears only where it belongs. Tertiary layers never compete with their parent structure. Depth is communicated through consistent indentation and containment, not visual flourish.</p>
 
       <h3>Repetition</h3>
-      <p>Structural templates repeat with monastic consistency. A collection page looks identical to every other collection page. A content page uses the same grid, the same spacing, the same typographic system regardless of topic. This repetition is not aesthetic — it is cognitive infrastructure. The user learns the system once.</p>
+      <p>Within an edition, repeated page types retain the same hierarchy, spacing and behaviour. Across editions, composition may change because purpose changes. Repetition is not a universal visual style; it is the cognitive infrastructure that allows each system to be learned once.</p>
 
       <h3>Interaction density</h3>
       <p>Interactions are rationed. Interactivity is deployed only when it prevents fragmentation. Everything else is static traversal: click, load, read. No hover states that reveal critical information. No progressive disclosure that hides structural relationships. Density is achieved through layering pages, not layering interface.</p>
@@ -35,82 +35,99 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <hr />
 
     <section>
-      <h2>Fixed system</h2>
+      <h2 class="doctrine-section-title">Fixed system</h2>
 
       <h3>Page types</h3>
-      <dl class="definition-list">
+      <dl class="definition-list doctrine-definition-list">
         <dt>Index</dt>
-        <dd>Lists collections or categories. No explanatory text beyond a single contextualizing sentence. Entries are alphabetical or chronological, never weighted by importance.</dd>
+        <dd>Maps a complete set of routes, categories or records within a declared boundary.</dd>
 
         <dt>Collection</dt>
-        <dd>Presents a complete inventory within a defined boundary. Includes metadata, date ranges, and explicit scope statements.</dd>
+        <dd>Presents a complete inventory within a defined boundary, with its metadata and scope made explicit.</dd>
 
         <dt>Document</dt>
-        <dd>Houses singular content. Maximum two levels of internal heading. No sidebar navigation within documents.</dd>
+        <dd>Houses singular content in a stable reading order with a restrained internal hierarchy.</dd>
 
         <dt>Entry point</dt>
-        <dd>The home. Functions solely as a portal to indices. Contains site purpose, current work and last-updated timestamp.</dd>
+        <dd>Establishes identity and purpose, then provides a clear route into the edition or collection.</dd>
       </dl>
 
-      <h3>What is static</h3>
-      <p>Navigation structure and labels. Page templates and grid systems. Typography scale and spacing intervals. Interaction patterns.</p>
-
-      <h3>What may move</h3>
-      <p>Content within defined templates. Addition of new collections following existing type. Archive timestamps and version numbers.</p>
+      <div class="edition-boundaries" aria-label="Edition boundaries">
+        <div>
+          <h3>Fixed within an edition</h3>
+          <p>Navigation relationships, typographic hierarchy, spacing logic, page behaviours and declared content boundaries.</p>
+        </div>
+        <div>
+          <h3>Replaceable within an edition</h3>
+          <p>Content in declared fields, new records following the established type, archive dates and version information.</p>
+        </div>
+        <div>
+          <h3>Variable across editions</h3>
+          <p>Grid, palette, tempo, page types, image behaviour and interaction when the purpose of the work requires them.</p>
+        </div>
+      </div>
     </section>
 
     <hr />
 
     <section>
-      <h2>Explicit constraints</h2>
+      <h2 class="doctrine-section-title">Explicit constraints</h2>
 
-      <h3>Must never exist</h3>
-      <ul>
-        <li>Promotional language or exhortation</li>
-        <li>Content that exists in multiple locations simultaneously</li>
-        <li>Navigation that changes based on user behaviour or context</li>
-        <li>Multimedia that cannot be replaced with text without loss of meaning</li>
-        <li>Anything that expires or becomes inaccessible over time</li>
-        <li>Social proof, testimonials, or persuasive framing</li>
-        <li>Analytics-driven interface adaptation</li>
-      </ul>
+      <div class="constraint-groups">
+        <div class="constraint-group">
+          <h3>Must never exist</h3>
+          <ul>
+            <li>Promotional language that invents urgency or scarcity</li>
+            <li>Essential content concealed behind transient interaction</li>
+            <li>Navigation that changes through inferred user behaviour</li>
+            <li>Essential media without an equivalent description or attribution</li>
+            <li>Content designed to expire or become inaccessible</li>
+            <li>Social proof, testimonials or persuasive framing</li>
+            <li>Analytics-driven interface adaptation</li>
+          </ul>
+        </div>
 
-      <h3>Allowed only sparingly</h3>
-      <ul>
-        <li>Diagrams — only when representing relationships impossible to describe in prose</li>
-        <li>Tables — only when showing systematic comparison across fixed attributes</li>
-        <li>Accordions — only when the alternative is fragmenting a single concept across multiple pages</li>
-        <li>Search — only if the collection exceeds 200 documents</li>
-      </ul>
+        <div class="constraint-group">
+          <h3>Allowed only sparingly</h3>
+          <ul>
+            <li>Diagrams, when prose cannot represent the relationship clearly</li>
+            <li>Tables, when fixed attributes require systematic comparison</li>
+            <li>Accordions, when they prevent one concept being fragmented across pages</li>
+            <li>Search, when manual browsing no longer provides reasonable access</li>
+          </ul>
+        </div>
 
-      <h3>Must remain predictable</h3>
-      <ul>
-        <li>Page load behaviour — full page loads, no route transitions</li>
-        <li>Link appearance — underlined, distinct, never ambiguous</li>
-        <li>Heading hierarchy — semantic HTML, visual consistency</li>
-        <li>Error states — plain language, path to resolution, no cleverness</li>
-      </ul>
+        <div class="constraint-group">
+          <h3>Must remain predictable</h3>
+          <ul>
+            <li>Page and route behaviour</li>
+            <li>Link appearance and destination</li>
+            <li>Heading hierarchy and reading order</li>
+            <li>Error states and paths to resolution</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <hr />
 
     <section>
-      <h2>Role of interactivity</h2>
+      <h2 class="doctrine-section-title">Role of interactivity</h2>
 
       <h3>When it adds authority</h3>
-      <p>Interactivity adds authority when it preserves context that would otherwise fragment. Expandable sections keep related information on a single page. Anchor links allow direct citation without creating orphaned content. Sortable tables reveal different organizational logic without duplicating data. In these cases, the interaction is structural — it manipulates how information is viewed without altering what information is available.</p>
+      <p>Interactivity adds authority when it preserves context that would otherwise fragment. Expandable sections keep related information on a single page. Anchor links allow direct citation without creating orphaned content. Sortable tables reveal different organizational logic without duplicating data. In these cases, the interaction is structural; it changes how information is viewed without altering what information is available.</p>
 
       <h3>When it weakens clarity</h3>
-      <p>Interactivity weakens clarity when it conceals structure, creates ambiguity about state, introduces temporal dependencies, or substitutes performance for clarity. Any interaction that makes the user question "what is here?" or "where am I?" is disqualifying.</p>
+      <p>Interactivity weakens clarity when it conceals structure, creates ambiguity about state, introduces temporal dependencies, or substitutes performance for clarity. Any interaction that makes the user question 'what is here?' or 'where am I?' is disqualifying.</p>
     </section>
 
     <hr />
 
     <section>
-      <h2>Rejection list</h2>
-      <ul>
-        <li>Hero sections</li>
-        <li>Calls to action</li>
+      <h2 class="doctrine-section-title">Rejection list</h2>
+      <ul class="rejection-list">
+        <li>Decorative hero sections without structural purpose</li>
+        <li>Conversion-led calls to action</li>
         <li>Personalization engines</li>
         <li>Infinite scroll</li>
         <li>Modal overlays</li>
@@ -121,12 +138,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <li>Vanity metrics</li>
         <li>A/B testing of structure or navigation</li>
         <li>Dark patterns of any kind</li>
-        <li>Anything requiring JavaScript to read text</li>
+        <li>Core reading that requires JavaScript to become available</li>
       </ul>
     </section>
 
-    <footer class="doctrine-conclusion">
-      This system assumes a single responsibility: making knowledge findable and stable. Everything else is refusal.
+    <footer class="page-signature">
+      - House of Laline
     </footer>
 
   </div>
@@ -134,8 +151,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
-  h1 {
-    margin-bottom: var(--space-lg);
+  .doctrine-title {
+    margin: 0 0 1.5rem !important;
+    font-family: var(--font-display) !important;
+    font-size: clamp(1.9rem, 2.6vw, 2.25rem) !important;
+    font-weight: var(--weight-medium) !important;
+    line-height: 1.1 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
   }
 
   .page-content {
@@ -143,44 +166,94 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   section {
-    margin-bottom: var(--space-lg);
+    margin-bottom: 0 !important;
   }
 
-  h2 {
-    margin-top: 0;
+  .page-content hr {
+    margin: 2.75rem 0 !important;
+  }
+
+  .doctrine-section-title {
+    margin: 0 0 1.5rem !important;
+    font-family: var(--font-display) !important;
+    font-size: clamp(1.6rem, 2.4vw, 1.9rem) !important;
+    font-weight: var(--weight-medium) !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
   }
 
   h3 {
+    margin: 1.75rem 0 0.65rem !important;
+    font-family: var(--font-display) !important;
+    font-size: 1.2rem !important;
+    font-weight: var(--weight-medium) !important;
+    font-style: normal !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    color: var(--color-identity-ink) !important;
+  }
+
+  .doctrine-intro p { max-width: 42rem; }
+
+  /* Page types */
+  .doctrine-definition-list {
+    display: grid;
+    grid-template-columns: minmax(7rem, 0.35fr) minmax(0, 1fr);
+    margin: 0 !important;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .doctrine-definition-list dt,
+  .doctrine-definition-list dd {
+    margin: 0 !important;
+    padding: 1rem 0 !important;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .doctrine-definition-list dt {
+    padding-right: 1.5rem !important;
+    font-family: var(--font-display) !important;
+    font-size: 1.1rem !important;
+    font-weight: var(--weight-medium) !important;
+    line-height: 1.35 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    color: var(--color-identity-ink) !important;
+  }
+
+  .doctrine-definition-list dd {
     font-family: var(--font-body);
     font-size: var(--text-body);
     font-weight: var(--weight-light);
-    font-style: italic;
-    letter-spacing: 0;
-    text-transform: none;
-    color: var(--color-ink);
-    margin-top: var(--space-md);
-    margin-bottom: var(--space-xs);
+    line-height: 1.65;
+    color: var(--color-reading-ink);
   }
 
-  /* Definition list */
-  .definition-list {
-    margin: var(--space-sm) 0;
+  /* What an edition holds fixed */
+  .edition-boundaries {
+    margin-top: 2.25rem;
+    border-top: 1px solid var(--color-border);
   }
 
-  .definition-list dt {
-    font-family: var(--font-ui);
-    font-size: var(--text-nav);
-    font-weight: var(--weight-medium);
-    letter-spacing: var(--tracking-wider);
-    text-transform: uppercase;
-    color: var(--color-secondary);
-    margin-top: var(--space-md);
-    margin-bottom: var(--space-xs);
+  .edition-boundaries > div,
+  .constraint-group {
+    display: grid;
+    grid-template-columns: minmax(9rem, 0.4fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--color-border);
   }
 
-  .definition-list dd {
-    margin-left: 0;
-    line-height: var(--leading-body);
+  .edition-boundaries h3,
+  .constraint-group h3 {
+    margin: 0 !important;
+  }
+
+  .edition-boundaries p {
+    margin: 0 !important;
+    line-height: 1.65 !important;
   }
 
   /* Lists */
@@ -195,34 +268,76 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: var(--weight-light);
     line-height: var(--leading-body);
     padding: 0.35rem 0;
-    padding-left: 1rem;
+    padding-left: 0;
     border-bottom: 1px solid var(--color-border);
     position: relative;
-  }
-
-  ul li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    font-family: var(--font-ui);
-    font-size: var(--text-micro);
-    color: var(--color-secondary);
-    top: 0.45rem;
   }
 
   ul li:last-child {
     border-bottom: none;
   }
 
-  /* Conclusion */
-  .doctrine-conclusion {
+  .constraint-groups {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .constraint-group ul {
+    margin: 0 !important;
+  }
+
+  .constraint-group li {
+    padding: 0 0 0.45rem !important;
+    border-bottom: 0;
+    line-height: 1.6 !important;
+  }
+
+  .constraint-group li:last-child { padding-bottom: 0 !important; }
+
+  .rejection-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
+    margin: 0 !important;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .rejection-list li {
+    padding: 0.65rem 0 !important;
+    border-bottom: 1px solid var(--color-border);
+    line-height: 1.5 !important;
+  }
+
+  :global(.main--content) .page-signature {
     margin-top: var(--space-xl);
     padding-top: var(--space-md);
     border-top: 1px solid var(--color-border);
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: 1.1rem;
-    line-height: 1.75;
-    color: var(--color-ink);
+    font-family: var(--font-display) !important;
+    font-size: 1rem !important;
+    font-style: italic !important;
+    font-weight: var(--weight-regular) !important;
+    line-height: var(--leading-body) !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    color: var(--color-identity-ink) !important;
+    transform: translateY(1.25rem);
+  }
+
+  @media (max-width: 640px) {
+    .doctrine-definition-list,
+    .edition-boundaries > div,
+    .constraint-group,
+    .rejection-list {
+      grid-template-columns: 1fr;
+    }
+
+    .doctrine-definition-list dt {
+      padding-bottom: 0.25rem !important;
+      border-bottom: 0;
+    }
+
+    .doctrine-definition-list dd { padding-top: 0 !important; }
+
+    .edition-boundaries > div,
+    .constraint-group { gap: 0.75rem; }
   }
 </style>

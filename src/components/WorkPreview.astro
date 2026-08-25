@@ -1,0 +1,246 @@
+---
+interface Props {
+  work: 'atlas' | 'aurele' | 'allure';
+  volume: number;
+}
+
+const { work, volume } = Astro.props;
+const indexImages = [1, 2, 3].map((number) => `/work-previews/atlas-index-0${number}.jpg`);
+---
+
+<div class={`edition-preview edition-preview--${work} edition-preview--${work}-${volume + 1}`} aria-hidden="true">
+  {work === 'atlas' && volume === 0 && (
+    <div class="atlas-still">
+      <header><span>Elena Vasquez</span><span>Photographs</span></header>
+      <div class="atlas-still__field">
+        <img src="/work-previews/atlas-still.jpg" alt="" loading="lazy" />
+        <span>01 / 06</span>
+      </div>
+      <footer><span>Still</span><span>One photograph at a time</span></footer>
+    </div>
+  )}
+
+  {work === 'atlas' && volume === 1 && (
+    <div class="atlas-sequence">
+      <header><span>Elena Vasquez</span><span>Sequence</span></header>
+      <div class="atlas-sequence__opening">
+        <p>Photographs from the Mediterranean</p>
+        <h3>Before the Light Changed</h3>
+        <span>1853–1862</span>
+      </div>
+      <figure>
+        <img src="/work-previews/atlas-sequence.jpg" alt="" loading="lazy" />
+        <figcaption>Light, distance and the order of looking.</figcaption>
+      </figure>
+    </div>
+  )}
+
+  {work === 'atlas' && volume === 2 && (
+    <div class="atlas-index">
+      <header><strong>Elena Vasquez</strong><span>Archive &nbsp; Projects &nbsp; Contact</span></header>
+      <nav><span>All work</span><span>Landscape</span><span>Portrait</span><span>Studies</span></nav>
+      <div class="atlas-index__grid">
+        {indexImages.map((src, index) => (
+          <figure>
+            <img src={src} alt="" loading="lazy" />
+            <figcaption>0{index + 1} / Mediterranean study</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {work === 'aurele' && volume === 0 && (
+    <div class="aurele-dispatch">
+      <header><span>House of Laline · Works 02</span><strong>Aurèle</strong><span>I · Dispatch</span></header>
+      <div class="aurele-dispatch__columns">
+        <aside><b>Briefing</b><img src="/work-previews/aurele-mona-lisa.jpg" alt="" loading="lazy" /><span>Paris · 21 August</span></aside>
+        <main><span>Immediate report</span><h3>Mona leaves a!</h3><p>The smile that slipped away.</p></main>
+        <aside><b>What is known</b><p>The image circulates; the object does not.</p><span>Developing</span></aside>
+      </div>
+    </div>
+  )}
+
+  {work === 'aurele' && volume === 1 && (
+    <div class="aurele-chronicle">
+      <header><span>House of Laline · Works 02</span><strong>Aurèle</strong><span>II · Chronicle</span></header>
+      <div class="aurele-chronicle__lead"><span>1911–1913</span><h3>The image circulates; the object does not.</h3></div>
+      <ol>
+        <li><time>21 Aug</time><i></i><b>01</b><p>Absence entered the public record.</p></li>
+        <li><time>29 Aug</time><i></i><b>02</b><p>The interval became visible.</p></li>
+        <li><time>12 Dec</time><i></i><b>03</b><p>The image returned changed.</p></li>
+      </ol>
+    </div>
+  )}
+
+  {work === 'aurele' && volume === 2 && (
+    <div class="aurele-review">
+      <header><span>House of Laline · Works 02</span><strong>Aurèle</strong><span>III · Review</span></header>
+      <div class="aurele-review__lead">
+        <span>Considered argument</span>
+        <h3>Absence did not erase the image. It multiplied it.</h3>
+        <p>On attention, reproduction and the life of a public object.</p>
+      </div>
+      <div class="aurele-review__body"><p>The record changes what can be seen.</p><img src="/work-previews/aurele-mona-lisa.jpg" alt="" loading="lazy" /><span>Fig. 01</span></div>
+    </div>
+  )}
+
+  {work === 'allure' && volume === 0 && (
+    <div class="allure-retenue">
+      <div class="allure-retenue__paper">
+        <header><span>Curriculum vitae</span><span>2026</span></header>
+        <p>Industrial inventor · Product engineer</p>
+        <h3>Mara Venn</h3>
+        <dl><div><dt>Practice</dt><dd>Independent practice</dd></div><div><dt>Location</dt><dd>London, United Kingdom</dd></div><div><dt>Record</dt><dd>Experience · 2009–2026</dd></div></dl>
+        <footer><span>Retenue</span><span>The evidence</span><span>I / III</span></footer>
+      </div>
+    </div>
+  )}
+
+  {work === 'allure' && volume === 1 && (
+    <div class="allure-eclat">
+      <header><strong>Portfolio / 26</strong><span>II · Éclat</span></header>
+      <i class="allure-eclat__orb allure-eclat__orb--one"></i><i class="allure-eclat__orb allure-eclat__orb--two"></i>
+      <p>Industrial inventor.<br />Product engineer.</p>
+      <h3>Mara<br />Venn.</h3>
+      <div class="allure-eclat__cards"><span>01 · Data</span><span>02 · Product</span><span>03 · Change</span></div>
+    </div>
+  )}
+
+  {work === 'allure' && volume === 2 && (
+    <div class="allure-poise">
+      <header><span>III · Poise</span><span>The experience</span></header>
+      <div class="allure-poise__intro"><p>Selected experience · 2009–2026</p><h3>Mara Venn</h3><h4>Industrial inventor<br />Product engineer</h4><span>Independent practice · London</span></div>
+      <nav><span><b>01</b>Experience<small>2009–2026</small></span><span><b>02</b>Selected work<small>3 projects</small></span><span><b>03</b>Record<small>CV · Evidence</small></span><span><b>↗</b>Contact<small>London, UK</small></span></nav>
+    </div>
+  )}
+</div>
+
+<style>
+  .edition-preview {
+    position: relative;
+    min-height: clamp(21rem, 46vw, 34rem);
+    overflow: hidden;
+    border: 1px solid currentColor;
+    font-family: var(--font-ui);
+    line-height: 1.2;
+  }
+
+  .edition-preview :where(h3, h4, p, figure, dl, dd, ol) { margin: 0; }
+  .edition-preview :where(header, footer) { letter-spacing: .12em; text-transform: uppercase; }
+  .edition-preview img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  .edition-preview--atlas { background: #faf9f7; color: #1a1a18; }
+  .edition-preview--atlas header,
+  .edition-preview--atlas footer { display: flex; justify-content: space-between; font-size: clamp(.42rem, .75vw, .68rem); }
+
+  .atlas-still { display: grid; grid-template-rows: auto 1fr auto; min-height: inherit; padding: clamp(1rem, 2.5vw, 2rem); }
+  .atlas-still__field { position: relative; width: min(67%, 34rem); margin: clamp(1.5rem, 4vw, 3rem) auto; background: #1a1a18; }
+  .atlas-still__field img { opacity: .87; filter: grayscale(100%); }
+  .atlas-still__field span { position: absolute; right: .75rem; bottom: .6rem; color: #faf9f7; font-size: .58rem; letter-spacing: .12em; }
+
+  .atlas-sequence { min-height: inherit; padding: clamp(1rem, 2.5vw, 2rem); background: #f4f1ec; }
+  .atlas-sequence__opening { width: 57%; padding: clamp(2rem, 7vw, 5.5rem) 0 clamp(1.5rem, 4vw, 3rem); text-align: center; }
+  .atlas-sequence__opening p,
+  .atlas-sequence__opening span { font-size: clamp(.42rem, .8vw, .7rem); letter-spacing: .12em; text-transform: uppercase; }
+  .atlas-sequence__opening h3 { margin: .8rem 0; font-family: var(--font-display); font-size: clamp(1.7rem, 4.5vw, 4rem); font-weight: 300; line-height: .95; }
+  .atlas-sequence figure { position: absolute; top: 12%; right: 5%; width: 35%; height: 72%; }
+  .atlas-sequence figure img { filter: grayscale(100%); }
+  .atlas-sequence figcaption { padding-top: .45rem; font-family: var(--font-reading); font-size: clamp(.45rem, .75vw, .68rem); }
+
+  .atlas-index { min-height: inherit; padding: clamp(.75rem, 2vw, 1.5rem); }
+  .atlas-index header { display: flex; justify-content: space-between; padding-bottom: .7rem; border-bottom: 1px solid; font-size: clamp(.42rem, .8vw, .7rem); }
+  .atlas-index nav { display: flex; gap: 1.4rem; padding: .7rem 0; font-size: clamp(.4rem, .7vw, .62rem); text-transform: uppercase; }
+  .atlas-index__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.5rem, 1.5vw, 1rem); }
+  .atlas-index__grid figure { min-width: 0; }
+  .atlas-index__grid img { aspect-ratio: .78; filter: grayscale(100%); }
+  .atlas-index__grid figcaption { padding-top: .4rem; font-size: clamp(.37rem, .65vw, .58rem); text-transform: uppercase; }
+
+  .edition-preview--aurele { padding: clamp(1rem, 2.5vw, 2rem); background: #f3efe6; color: #171311; }
+  .edition-preview--aurele > div { min-height: inherit; }
+  .edition-preview--aurele header { display: grid; grid-template-columns: 1fr auto 1fr; align-items: start; font-size: clamp(.4rem, .7vw, .62rem); }
+  .edition-preview--aurele header strong { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.75rem); font-weight: 300; letter-spacing: -.04em; text-transform: none; }
+  .edition-preview--aurele header span:last-child { text-align: right; }
+
+  .aurele-dispatch__columns { display: grid; grid-template-columns: .72fr 1.5fr .78fr; gap: clamp(1rem, 3vw, 2.5rem); margin-top: clamp(2rem, 5vw, 4rem); }
+  .aurele-dispatch aside { display: flex; flex-direction: column; gap: .8rem; font-size: clamp(.48rem, .85vw, .76rem); }
+  .aurele-dispatch aside b,
+  .aurele-dispatch main > span { color: #4b1827; letter-spacing: .13em; text-transform: uppercase; }
+  .aurele-dispatch aside img { aspect-ratio: .84; filter: sepia(15%); }
+  .aurele-dispatch main { padding: 0 clamp(.5rem, 2vw, 1.5rem); border-inline: 1px solid rgba(23, 19, 17, .22); }
+  .aurele-dispatch h3 { margin: clamp(1.5rem, 4vw, 3rem) 0 1rem; font-family: var(--font-display); font-size: clamp(2rem, 5.5vw, 5rem); font-weight: 300; line-height: .9; }
+  .aurele-dispatch main p,
+  .aurele-dispatch aside p { font-family: var(--font-reading); color: #4b1827; }
+
+  .aurele-chronicle__lead { width: 74%; margin: clamp(2rem, 5vw, 4rem) auto; text-align: center; }
+  .aurele-chronicle__lead span { color: #4b1827; font-size: clamp(.45rem, .75vw, .66rem); letter-spacing: .14em; }
+  .aurele-chronicle__lead h3 { margin-top: .9rem; font-family: var(--font-display); font-size: clamp(1.8rem, 4.7vw, 4.25rem); font-weight: 300; line-height: .95; }
+  .aurele-chronicle ol { list-style: none; padding: 0; border-top: 1px solid rgba(23, 19, 17, .25); }
+  .aurele-chronicle li { display: grid; grid-template-columns: 4rem .7rem 2rem 1fr; gap: 1rem; align-items: center; min-height: 3.4rem; border-bottom: 1px solid rgba(23, 19, 17, .18); font-size: clamp(.45rem, .82vw, .73rem); }
+  .aurele-chronicle li i { width: .48rem; height: .48rem; border: 1px solid #4b1827; border-radius: 50%; }
+  .aurele-chronicle li p { font-family: var(--font-reading); color: #4b1827; }
+
+  .aurele-review__lead { width: min(80%, 42rem); margin: clamp(2rem, 5vw, 4.5rem) auto clamp(1.5rem, 3vw, 2.5rem); text-align: center; }
+  .aurele-review__lead > span { color: #4b1827; font-size: clamp(.42rem, .75vw, .66rem); letter-spacing: .14em; text-transform: uppercase; }
+  .aurele-review__lead h3 { margin: 1rem 0; font-family: var(--font-display); font-size: clamp(1.8rem, 4.6vw, 4.15rem); font-weight: 300; line-height: .95; }
+  .aurele-review__lead p { font-family: var(--font-reading); color: #4b1827; font-size: clamp(.55rem, 1vw, .9rem); }
+  .aurele-review__body { display: grid; grid-template-columns: 1fr 5rem auto; gap: 1rem; align-items: end; max-width: 34rem; margin-left: auto; padding-top: 1rem; border-top: 1px solid rgba(23, 19, 17, .22); font-size: clamp(.45rem, .78vw, .7rem); }
+  .aurele-review__body p { font-family: var(--font-reading); color: #4b1827; }
+  .aurele-review__body img { aspect-ratio: .75; }
+
+  .edition-preview--allure { min-height: clamp(23rem, 49vw, 36rem); border-color: rgba(255,255,255,.18); background: #242426; color: #111; }
+  .edition-preview--allure > div { min-height: inherit; }
+
+  .allure-retenue { padding: clamp(1rem, 3vw, 2.5rem); }
+  .allure-retenue__paper { display: grid; grid-template-rows: auto 1fr auto auto; min-height: calc(clamp(23rem, 49vw, 36rem) - clamp(2rem, 6vw, 5rem)); padding: clamp(1rem, 2.5vw, 2rem); background: #fafafa; }
+  .allure-retenue header,
+  .allure-retenue footer { display: flex; justify-content: space-between; padding-bottom: .75rem; border-bottom: 1px solid; font-size: clamp(.4rem, .72vw, .64rem); }
+  .allure-retenue > div > p { align-self: end; font-size: clamp(.43rem, .8vw, .72rem); letter-spacing: .08em; text-transform: uppercase; }
+  .allure-retenue h3 { font-family: Arial, Helvetica, sans-serif; font-size: clamp(3.7rem, 11vw, 10rem); font-weight: 500; letter-spacing: -.075em; line-height: .78; }
+  .allure-retenue dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding: 1rem 0; border-top: 1px solid; }
+  .allure-retenue dl div { display: flex; flex-direction: column; gap: .35rem; }
+  .allure-retenue dt { font-size: clamp(.38rem, .68vw, .6rem); letter-spacing: .1em; text-transform: uppercase; }
+  .allure-retenue dd { font-size: clamp(.42rem, .75vw, .68rem); }
+  .allure-retenue footer { padding: .7rem 0 0; border-top: 1px solid; border-bottom: 0; }
+
+  .allure-eclat { position: relative; overflow: hidden; padding: clamp(1rem, 2.5vw, 2rem); background: #7558e8; }
+  .allure-eclat header { position: relative; z-index: 2; display: flex; justify-content: space-between; font-size: clamp(.4rem, .75vw, .65rem); }
+  .allure-eclat > p { position: absolute; z-index: 2; left: 2rem; bottom: 24%; font-family: Arial, Helvetica, sans-serif; font-size: clamp(.55rem, 1.2vw, 1rem); font-weight: 700; }
+  .allure-eclat h3 { position: absolute; z-index: 2; left: 38%; bottom: 5%; font-family: Arial, Helvetica, sans-serif; font-size: clamp(4rem, 12vw, 11rem); font-weight: 500; letter-spacing: -.08em; line-height: .67; text-transform: uppercase; }
+  .allure-eclat__orb { position: absolute; display: block; border-radius: 50%; }
+  .allure-eclat__orb--one { width: 42%; aspect-ratio: 1; right: 4%; top: -8%; background: #ff693f; }
+  .allure-eclat__orb--two { width: 29%; aspect-ratio: 1; left: -7%; bottom: -8%; background: #d7ef62; }
+  .allure-eclat__cards { position: absolute; z-index: 3; right: 2%; bottom: 3%; display: grid; width: 45%; grid-template-columns: repeat(3, 1fr); transform: rotate(-1deg); }
+  .allure-eclat__cards span { min-height: 2.4rem; padding: .55rem; border: 1px solid #111; background: #ff693f; font-size: clamp(.35rem, .65vw, .58rem); font-weight: 700; text-transform: uppercase; }
+  .allure-eclat__cards span:nth-child(2) { background: #24202b; color: #fff; }
+  .allure-eclat__cards span:nth-child(3) { background: #d7ef62; }
+
+  .allure-poise { padding: clamp(1rem, 2.5vw, 2rem); background: #dde1de; color: #211b1c; }
+  .allure-poise header { display: flex; justify-content: space-between; padding-bottom: .8rem; border-bottom: 1px solid #a89a9d; font-size: clamp(.4rem, .72vw, .64rem); }
+  .allure-poise__intro { padding: clamp(1.5rem, 4vw, 3.5rem) 0 clamp(1.25rem, 3vw, 2.5rem); }
+  .allure-poise__intro p,
+  .allure-poise__intro > span { color: #624149; font-size: clamp(.42rem, .75vw, .66rem); letter-spacing: .1em; text-transform: uppercase; }
+  .allure-poise__intro h3 { font-family: Arial, Helvetica, sans-serif; font-size: clamp(3.6rem, 10.5vw, 9.5rem); font-weight: 500; letter-spacing: -.075em; line-height: .78; }
+  .allure-poise__intro h4 { margin: .75rem 0; font-family: Arial, Helvetica, sans-serif; font-size: clamp(.7rem, 1.65vw, 1.4rem); font-weight: 500; line-height: 1.05; }
+  .allure-poise nav { display: grid; grid-template-columns: repeat(4, 1fr); border-block: 1px solid #a89a9d; }
+  .allure-poise nav > span { display: grid; grid-template-columns: 1.2rem 1fr; gap: .25rem; min-width: 0; padding: .8rem .5rem; font-family: Arial, Helvetica, sans-serif; font-size: clamp(.46rem, .85vw, .76rem); }
+  .allure-poise nav > span + span { border-left: 1px solid #a89a9d; }
+  .allure-poise nav b { color: #624149; font-family: var(--font-ui); font-size: .52rem; }
+  .allure-poise nav small { grid-column: 2; color: #624149; font-size: clamp(.35rem, .65vw, .56rem); }
+
+  @media (max-width: 640px) {
+    .edition-preview { min-height: 20rem; }
+    .atlas-sequence__opening { width: 56%; }
+    .atlas-index nav { gap: .65rem; }
+    .aurele-dispatch__columns { grid-template-columns: .7fr 1.3fr; }
+    .aurele-dispatch__columns > aside:last-child { display: none; }
+    .aurele-chronicle li { grid-template-columns: 3rem .6rem 1.5rem 1fr; gap: .5rem; }
+    .allure-retenue h3 { font-size: 17vw; }
+    .allure-eclat h3 { font-size: 18vw; }
+    .allure-eclat__cards { width: 56%; }
+    .allure-poise__intro h3 { font-size: 16vw; }
+    .allure-poise nav { grid-template-columns: repeat(2, 1fr); }
+    .allure-poise nav > span:nth-child(3) { border-left: 0; border-top: 1px solid #a89a9d; }
+    .allure-poise nav > span:nth-child(4) { border-top: 1px solid #a89a9d; }
+  }
+</style>

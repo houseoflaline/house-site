@@ -1,0 +1,459 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WorkPreview from './WorkPreview.astro';
+import type { WorkIndexRecord } from '../content/work-indexes';
+
+interface Props {
+  record: WorkIndexRecord;
+}
+
+const { record } = Astro.props;
+const currentPath = `/works/${record.slug}`;
+---
+
+<BaseLayout
+  title={record.title}
+  currentPath={currentPath}
+  description={`${record.title} by House of Laline. ${record.premise}`}
+>
+  <article class={`work-index work-index--${record.slug}`} data-work-index>
+    <header class="work-index__header">
+      <span class="meta">III · Works / {record.number}</span>
+      <div class="work-index__heading">
+        <div>
+          <p class="work-index__status">{record.status}</p>
+          <h1 class="work-index__title">{record.title}</h1>
+        </div>
+        <p class="work-index__premise">{record.premise}</p>
+      </div>
+      <p class="work-index__description">{record.description}</p>
+    </header>
+
+    <section class="volume-index" aria-labelledby={`${record.slug}-volumes-title`}>
+      <div class="volume-index__intro">
+        <p id={`${record.slug}-volumes-title`}>Three resolved volumes</p>
+        <span>Select a structure</span>
+      </div>
+
+      <div class="volume-tabs" role="tablist" aria-label={`${record.title} volumes`}>
+        {record.volumes.map((volume, index) => (
+          <button
+            class:list={['volume-tab', { 'is-active': index === 0 }]}
+            type="button"
+            role="tab"
+            id={`${record.slug}-tab-${index}`}
+            aria-controls={`${record.slug}-panel-${index}`}
+            aria-selected={index === 0 ? 'true' : 'false'}
+            tabindex={index === 0 ? 0 : -1}
+            data-volume-tab={index}
+          >
+            <span>{volume.numeral}</span>
+            <strong>{volume.title}</strong>
+            <small>{volume.role}</small>
+          </button>
+        ))}
+      </div>
+
+      <div class="volume-panels">
+        {record.volumes.map((volume, index) => (
+          <section
+            class="volume-preview"
+            role="tabpanel"
+            id={`${record.slug}-panel-${index}`}
+            aria-labelledby={`${record.slug}-tab-${index}`}
+            hidden={index !== 0}
+            data-volume-panel={index}
+          >
+            <div class="volume-preview__folio">
+              <span>{record.number} · {volume.numeral}</span>
+              <span>{record.title} · {volume.role}</span>
+            </div>
+
+            <div class="volume-preview__body">
+              <div class="volume-preview__copy">
+                <p class="volume-preview__role">{volume.role}</p>
+                <h2 class="volume-preview__title">{volume.title}</h2>
+                <p class="volume-preview__statement">{volume.statement}</p>
+              </div>
+
+              <WorkPreview work={record.slug} volume={index} />
+
+              <div class="volume-preview__detail">
+                <p>{volume.description}</p>
+                <span>{volume.detail}</span>
+                <a href={volume.href}>Open {volume.title} <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </section>
+        ))}
+      </div>
+    </section>
+
+    <section class="work-note" aria-labelledby={`${record.slug}-note-title`}>
+      <p class="work-note__label">{record.note.label}</p>
+      <h2 id={`${record.slug}-note-title`} class="work-note__title">{record.note.title}</h2>
+      <div class="work-note__body">
+        <p>{record.note.excerpt}</p>
+        {record.note.href && <a href={record.note.href}>{record.note.linkLabel} <span aria-hidden="true">↗</span></a>}
+      </div>
+    </section>
+
+    <footer class="work-index__footer">
+      <a href="/works">Return to Works</a>
+      <a href={record.editionUrl}>Enter {record.title} <span aria-hidden="true">↗</span></a>
+    </footer>
+  </article>
+
+  <script>
+    for (const root of document.querySelectorAll<HTMLElement>('[data-work-index]')) {
+      const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-volume-tab]'));
+      const panels = Array.from(root.querySelectorAll<HTMLElement>('[data-volume-panel]'));
+
+      const selectTab = (selected: HTMLButtonElement, moveFocus = false) => {
+        const selectedIndex = selected.dataset.volumeTab;
+
+        for (const tab of tabs) {
+          const active = tab === selected;
+          tab.classList.toggle('is-active', active);
+          tab.setAttribute('aria-selected', String(active));
+          tab.tabIndex = active ? 0 : -1;
+        }
+
+        for (const panel of panels) {
+          panel.hidden = panel.dataset.volumePanel !== selectedIndex;
+        }
+
+        if (moveFocus) selected.focus();
+      };
+
+      for (const [index, tab] of tabs.entries()) {
+        tab.addEventListener('click', () => selectTab(tab));
+        tab.addEventListener('keydown', (event) => {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+          event.preventDefault();
+
+          let nextIndex = index;
+          if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+          if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+          if (event.key === 'Home') nextIndex = 0;
+          if (event.key === 'End') nextIndex = tabs.length - 1;
+          selectTab(tabs[nextIndex], true);
+        });
+      }
+    }
+  </script>
+</BaseLayout>
+
+<style>
+  .work-index {
+    --work-surface: var(--color-surface);
+    --work-preview-ink: var(--color-ink);
+    --work-rule: var(--color-border-strong);
+    width: min(100%, 1080px);
+  }
+
+  .work-index--atlas {
+    --work-surface: #e9e7e1;
+    --work-preview-ink: #1b1a17;
+  }
+
+  .work-index--aurele {
+    --work-surface: #eeeae3;
+    --work-preview-ink: var(--color-reading-ink);
+  }
+
+  .work-index--allure {
+    --work-surface: #1d1d1c;
+    --work-preview-ink: #f0eee8;
+    --work-rule: rgba(240, 238, 232, 0.24);
+  }
+
+  .work-index__header {
+    padding-bottom: clamp(3rem, 7vw, 6rem);
+  }
+
+  .work-index__heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, .9fr);
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: end;
+  }
+
+  .work-index__status,
+  .volume-index__intro,
+  .volume-preview__folio,
+  .volume-preview__role,
+  .volume-preview__detail > span,
+  .work-note__label,
+  .work-index__footer {
+    font-family: var(--font-ui);
+    font-size: var(--text-micro);
+    font-style: normal;
+    font-weight: var(--weight-regular);
+    letter-spacing: var(--tracking-widest);
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  :global(.main--content) .work-index__status {
+    margin: 0 0 1.25rem !important;
+    color: var(--color-muted) !important;
+  }
+
+  :global(.main--content) .work-index__title {
+    margin: 0 !important;
+    font-size: clamp(4.75rem, 10vw, 9rem) !important;
+    font-weight: var(--weight-light) !important;
+    letter-spacing: -0.055em !important;
+    line-height: 0.75 !important;
+  }
+
+  :global(.main--content) .work-index__premise {
+    margin: 0 !important;
+    max-width: 30rem;
+    font-family: var(--font-display) !important;
+    font-size: clamp(1.55rem, 2.7vw, 2.5rem) !important;
+    font-style: normal;
+    font-weight: var(--weight-regular);
+    line-height: 1.22 !important;
+    color: var(--color-reading-ink);
+  }
+
+  :global(.main--content) .work-index__description {
+    margin: clamp(3.5rem, 7vw, 6rem) 0 0 auto !important;
+    max-width: 42rem;
+    font-size: 1.05rem !important;
+    line-height: 1.8 !important;
+  }
+
+  .volume-index {
+    border-top: 1px solid var(--color-ink);
+  }
+
+  .volume-index__intro {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem 0 clamp(2.5rem, 5vw, 4.5rem);
+    color: var(--color-muted);
+  }
+
+  .volume-index__intro p { color: var(--color-ink); }
+
+  :global(.main--content) .volume-index__intro p,
+  :global(.main--content) .volume-index__intro span {
+    margin: 0 !important;
+    font: inherit !important;
+    letter-spacing: inherit !important;
+    line-height: inherit !important;
+    text-transform: inherit !important;
+  }
+
+  .volume-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid var(--color-ink);
+    border-bottom: 1px solid var(--color-ink);
+  }
+
+  .volume-tab {
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    grid-template-rows: 1fr auto;
+    min-height: 9.5rem;
+    padding: 1rem 1.25rem;
+    border: 0;
+    background: transparent;
+    color: var(--color-ink);
+    text-align: left;
+    cursor: pointer;
+    transition: color var(--primitive-motion-base), background var(--primitive-motion-base);
+  }
+
+  .volume-tab + .volume-tab { border-left: 1px solid var(--color-border-strong); }
+  .volume-tab:hover { opacity: 1; background: var(--color-surface); }
+  .volume-tab.is-active { background: var(--color-ink); color: var(--color-bg); }
+  .volume-tab:focus-visible { outline: 2px solid var(--color-identity-ink); outline-offset: -4px; }
+
+  .volume-tab span,
+  .volume-tab small {
+    font-family: var(--font-ui);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+  }
+
+  .volume-tab strong {
+    align-self: start;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.5vw, 2.35rem);
+    font-weight: var(--weight-regular);
+    line-height: 1;
+  }
+
+  .volume-tab small { grid-column: 2; opacity: .66; }
+
+  .volume-panels {
+    padding: clamp(1rem, 2vw, 1.5rem) 0;
+    background: #242423;
+  }
+
+  .volume-preview {
+    min-height: clamp(31rem, 62vw, 46rem);
+    margin: 0 clamp(1rem, 2vw, 1.5rem);
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    background: var(--work-surface);
+    color: var(--work-preview-ink);
+  }
+
+  .volume-preview__folio {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--work-rule);
+  }
+
+  .volume-preview__body {
+    display: grid;
+    gap: clamp(2rem, 5vw, 4rem);
+    min-height: clamp(25rem, 54vw, 38rem);
+    padding-top: clamp(3rem, 8vw, 7rem);
+  }
+
+  .volume-preview__copy { align-self: start; }
+
+  :global(.main--content) .volume-preview__role {
+    margin: 0 0 1rem !important;
+    color: inherit !important;
+    opacity: .65;
+  }
+
+  :global(.main--content) .volume-preview__title {
+    margin: 0 !important;
+    font-family: var(--font-display) !important;
+    font-size: clamp(4.25rem, 9vw, 8.5rem) !important;
+    font-weight: var(--weight-light) !important;
+    letter-spacing: -0.06em !important;
+    line-height: .78 !important;
+    text-transform: none !important;
+    color: inherit !important;
+  }
+
+  :global(.main--content) .volume-preview__statement {
+    margin: clamp(2rem, 5vw, 4rem) 0 0 !important;
+    max-width: 19ch;
+    font-family: var(--font-display) !important;
+    font-size: clamp(1.5rem, 3vw, 2.75rem) !important;
+    font-weight: var(--weight-regular);
+    line-height: 1.08 !important;
+    color: inherit !important;
+  }
+
+  .volume-preview__detail {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(12rem, .8fr) auto;
+    gap: 2rem;
+    align-items: end;
+    padding-top: 1rem;
+    border-top: 1px solid var(--work-rule);
+  }
+
+  :global(.main--content) .volume-preview__detail p {
+    margin: 0 !important;
+    max-width: 34rem;
+    font-size: .92rem !important;
+    line-height: 1.6 !important;
+    color: inherit !important;
+  }
+
+  .volume-preview__detail > span { opacity: .62; }
+  .volume-preview__detail a {
+    padding-bottom: .2rem;
+    border-bottom: 1px solid currentColor;
+    font-family: var(--font-ui);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+  }
+
+  .work-note {
+    display: grid;
+    grid-template-columns: minmax(10rem, .6fr) minmax(0, 1.4fr);
+    gap: 1rem clamp(3rem, 8vw, 8rem);
+    padding: clamp(5rem, 10vw, 9rem) 0;
+    border-bottom: 1px solid var(--color-border-strong);
+  }
+
+  :global(.main--content) .work-note__label {
+    margin: .5rem 0 0 !important;
+    color: var(--color-muted) !important;
+  }
+
+  :global(.main--content) .work-note__title {
+    grid-column: 2;
+    margin: 0 !important;
+    max-width: 12ch;
+    font-family: var(--font-display) !important;
+    font-size: clamp(2.75rem, 5vw, 5.5rem) !important;
+    font-weight: var(--weight-light) !important;
+    letter-spacing: -0.045em !important;
+    line-height: .95 !important;
+    text-transform: none !important;
+    color: var(--color-ink) !important;
+  }
+
+  .work-note__body { grid-column: 2; max-width: 38rem; }
+
+  :global(.main--content) .work-note__body p {
+    margin: 1.5rem 0 2rem !important;
+    font-size: 1.05rem !important;
+    line-height: 1.8 !important;
+  }
+
+  .work-note__body a,
+  .work-index__footer a {
+    display: inline-block;
+    padding-bottom: .25rem;
+    border-bottom: 1px solid currentColor;
+    font-family: var(--font-ui);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+  }
+
+  .work-index__footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem 0 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .work-index__heading { grid-template-columns: 1fr; gap: 3rem; }
+    .work-index__premise { margin-left: auto !important; }
+    .volume-preview__body { grid-template-columns: 1fr; }
+    .volume-preview__detail { grid-template-columns: 1fr 1fr; }
+    .volume-preview__detail p { grid-column: 1 / -1; }
+    .volume-preview__detail a { justify-self: end; }
+  }
+
+  @media (max-width: 640px) {
+    .work-index__header { padding-top: .5rem; }
+    :global(.main--content) .work-index__title { font-size: clamp(4rem, 23vw, 6.5rem) !important; }
+    .volume-index__intro { align-items: flex-start; }
+    .volume-tabs { grid-template-columns: 1fr; }
+    .volume-tab { min-height: 6.5rem; }
+    .volume-tab + .volume-tab { border-top: 1px solid var(--color-border-strong); border-left: 0; }
+    .volume-preview { min-height: 39rem; padding: 1.25rem; }
+    .volume-preview__folio { flex-direction: column; gap: .25rem; }
+    .volume-preview__body { min-height: 34rem; padding-top: 3rem; }
+    .volume-preview__detail { grid-template-columns: 1fr; }
+    .volume-preview__detail p { grid-column: 1; }
+    .volume-preview__detail a { justify-self: start; }
+    .work-note { grid-template-columns: 1fr; gap: 1.5rem; }
+    :global(.main--content) .work-note__title,
+    .work-note__body { grid-column: 1; }
+    .work-index__footer { flex-direction: column; align-items: flex-start; }
+  }
+</style>

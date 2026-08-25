@@ -1,15 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const atlasUrl = import.meta.env.PUBLIC_ATLAS_URL ?? 'https://atlas.laline.house';
-const aureleUrl = import.meta.env.PUBLIC_AURELE_URL ?? 'https://aurele.laline.house';
-const allureUrl = import.meta.env.PUBLIC_ALLURE_URL ?? 'https://allure.laline.house';
-const atlasReadingUrl = `${atlasUrl.replace(/\/$/, '')}/#reading`;
-const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
 ---
 
 <BaseLayout title="Works" currentPath="/works">
-  <span class="meta">I · Works</span>
+  <span class="meta">III · Works</span>
   <h1>Resolved structures</h1>
 
   <div class="page-content">
@@ -32,10 +26,9 @@ const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
         <li><span>III</span><strong>Index</strong><p>Range and relevance made legible for professional evaluation.</p></li>
       </ol>
 
-      <div class="work-actions">
-        <a class="enter-work" href={atlasUrl}>Enter Atlas <span aria-hidden="true">↗</span></a>
-        <a class="enter-work enter-work--secondary" href={atlasReadingUrl}>Read within Atlas <span aria-hidden="true">↗</span></a>
+      <div class="work-entry">
         <p class="availability">Works 01 · Live demonstration</p>
+        <a class="work-entry__link" href="/works/atlas/" style="text-decoration: none;">Enter <span aria-hidden="true" style="font-size: .55em; line-height: 1;">→</span></a>
       </div>
     </article>
 
@@ -53,10 +46,9 @@ const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
         <li><span>III</span><strong>Review</strong><p>What the completed record has come to mean.</p></li>
       </ol>
 
-      <div class="work-actions">
-        <a class="enter-work" href={aureleUrl}>Enter Aurèle <span aria-hidden="true">↗</span></a>
-        <a class="enter-work enter-work--secondary" href={aureleReadingUrl}>Read within Aurèle <span aria-hidden="true">↗</span></a>
+      <div class="work-entry">
         <p class="availability">Works 02 · Complete demonstration</p>
+        <a class="work-entry__link" href="/works/aurele/" style="text-decoration: none;">Enter <span aria-hidden="true" style="font-size: .55em; line-height: 1;">→</span></a>
       </div>
     </article>
 
@@ -74,9 +66,9 @@ const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
         <li><span>III</span><strong>Poise</strong><p>Work organised by time and consequence.</p></li>
       </ol>
 
-      <div class="work-actions">
-        <a class="enter-work" href={allureUrl}>Enter Allure <span aria-hidden="true">↗</span></a>
+      <div class="work-entry">
         <p class="availability">Works 03 · Working demonstration</p>
+        <a class="work-entry__link" href="/works/allure/" style="text-decoration: none;">Enter <span aria-hidden="true" style="font-size: .55em; line-height: 1;">→</span></a>
       </div>
     </article>
   </div>
@@ -96,10 +88,10 @@ const aureleReadingUrl = `${aureleUrl.replace(/\/$/, '')}/#reading`;
   .volume-list strong { font-family: var(--font-display); font-size: 1.3rem; font-weight: var(--weight-regular); }
   .volume-list p { margin: 0; color: var(--color-secondary); }
   :global(.main--content) .availability { font-family: var(--font-ui) !important; font-size: var(--text-micro) !important; font-style: normal !important; letter-spacing: var(--tracking-wide) !important; line-height: 1.5 !important; text-transform: uppercase !important; color: var(--color-secondary) !important; }
-  .work-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
-  .enter-work { display: inline-flex; align-items: center; gap: .75rem; padding-bottom: .35rem; border-bottom: 1px solid var(--color-ink); font-family: var(--font-ui); font-size: var(--text-micro); font-weight: var(--weight-medium); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--color-ink); }
-  .enter-work--secondary { color: var(--color-secondary); border-color: var(--color-secondary); }
-  .enter-work:hover { color: var(--color-accent); border-color: var(--color-accent); }
-  .work-actions .availability { margin: 0; }
+  .work-entry { display: grid; justify-items: start; gap: .75rem; }
+  .work-entry__link { display: inline-flex; align-items: center; gap: .55rem; padding: 0; border: 0; font-family: var(--font-ui); font-size: var(--text-micro); font-weight: var(--weight-medium); letter-spacing: var(--tracking-widest); text-decoration: none !important; text-transform: uppercase; color: var(--color-ink); }
+  .work-entry__link span { font-size: .55em; line-height: 1; }
+  .work-entry__link:hover { color: var(--color-accent); }
+  .work-entry .availability { margin: 0; }
   @media (max-width: 600px) { .volume-list li { grid-template-columns: 28px 1fr; } .volume-list p { grid-column: 2; } }
 </style>

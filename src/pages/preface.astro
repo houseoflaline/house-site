@@ -4,15 +4,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="Preface" currentPath="/preface">
 
-  <span class="meta">II · Preface</span>
-  <h1>Why this exists</h1>
+  <span class="meta">I · Preface</span>
+  <h1 class="preface-section-title">Why this exists</h1>
 
   <div class="page-content">
 
     <section>
       <p class="lead">There is a gap between the tools designers use and the thinking designers need. Software offers infinite options. Yet this abundance paralyzes rather than liberates. The blank canvas creates decision fatigue, not creativity.</p>
 
-      <p>The best work never came from exploring every option. It came from establishing constraints early — a modular scale for type, a grid for layout, a systematic palette for colour. These frameworks did not limit creativity. They channelled it. They transformed "what should I do?" into "which systematic choice serves this content best?"</p>
+      <p>The best work never came from exploring every option. It came from establishing constraints early: a modular scale for type, a grid for layout, a systematic palette for colour. These frameworks did not limit creativity. They channelled it. They transformed 'what should I do?' into 'which systematic choice serves this content best?'</p>
 
       <p>House of Laline emerged from this realization. If constraint enables rather than restricts, if systems accelerate rather than slow, then the generous act is to share those systems. Not as rules to follow blindly, but as structures to understand, adapt, and make your own.</p>
     </section>
@@ -20,24 +20,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <hr />
 
     <section>
-      <h2>What we believe</h2>
+      <h2 class="preface-section-title">What Laline means</h2>
 
-      <h3>Design is decision-making</h3>
-      <p>Every placement, every colour choice, every spacing value is a decision. Without frameworks, each decision starts from zero. Systems don't eliminate decisions — they elevate them. The decision remains, but now it is grounded in structure rather than floating in arbitrary space.</p>
-
-      <h3>Mathematics serves aesthetics</h3>
-      <p>The Perfect Fourth ratio is not beautiful because it is mathematical. It is mathematical because humans perceive those proportional relationships as harmonious. The math doesn't create beauty. It describes patterns in what we already find beautiful. Understanding these patterns allows us to reproduce beauty systematically.</p>
-
-      <h3>Constraints enable creativity</h3>
-      <p>A poet working in haiku doesn't complain about the constraint of seventeen syllables. The constraint <em>is</em> the form. It focuses creativity, provides structure against which to push, makes excellence measurable. Design systems work the same way. The constraints don't limit expression — they make expression legible.</p>
-    </section>
-
-    <hr />
-
-    <section>
-      <h2>What Laline means</h2>
-
-      <p>The name carries no secret meaning, encodes no hidden message. It simply sounds right — soft yet clear, memorable yet understated. Like good design, it doesn't demand attention. It earns it through consistency and quality.</p>
+      <p>The name carries no secret meaning, encodes no hidden message. It simply sounds right: soft yet clear, memorable yet understated. Like good design, it doesn't demand attention. It earns it through consistency and quality.</p>
 
       <p>House of Laline exists as an entity, not an individual. The voice you read is cultivated, not personal. The perspective comes from practice and observation, not biography. This separation is intentional. Ideas should stand independent of their origin. Systems should work regardless of who implements them.</p>
 
@@ -47,7 +32,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <hr />
 
     <section>
-      <h2>An invitation</h2>
+      <h2 class="preface-section-title">What we believe</h2>
+
+      <h3>Design is decision-making</h3>
+      <p>Every placement, every colour choice, every spacing value is a decision. Without frameworks, each decision starts from zero. Systems don't eliminate decisions; they elevate them. The decision remains, but now it is grounded in structure rather than floating in arbitrary space.</p>
+
+      <h3>Mathematics serves aesthetics</h3>
+      <p>The Perfect Fourth ratio is not beautiful because it is mathematical. It is mathematical because humans perceive those proportional relationships as harmonious. The math doesn't create beauty. It describes patterns in what we already find beautiful. Understanding these patterns allows us to reproduce beauty systematically.</p>
+
+      <h3>Constraints enable creativity</h3>
+      <p>A poet working in haiku doesn't complain about the constraint of seventeen syllables. The constraint <em>is</em> the form. It focuses creativity, provides structure against which to push, makes excellence measurable. Design systems work the same way. The constraints don't limit expression; they make expression legible.</p>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2 class="preface-section-title">An invitation</h2>
 
       <p>These resources represent current understanding, not final truth. Systems evolve. Best practices shift. New tools enable new approaches. We share what we know now, knowing it will require updating as we learn more.</p>
 
@@ -57,8 +57,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <footer class="page-signature">
-      — House of Laline<br>
-      Publishers of Measured Design · V1.0
+      - House of Laline
     </footer>
 
   </div>
@@ -68,6 +67,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <style>
   h1 {
     margin-bottom: var(--space-lg);
+    font-weight: var(--weight-medium) !important;
   }
 
   .page-content {
@@ -78,28 +78,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-bottom: var(--space-lg);
   }
 
-  /* Lead — larger opening paragraph */
+  /* Opening paragraph */
   .lead {
-    font-size: 1.1rem;
-    line-height: 1.85;
-    font-style: italic;
-    margin-bottom: var(--space-md);
+    font-size: var(--text-body) !important;
+    line-height: var(--leading-body) !important;
+    font-style: normal !important;
+    opacity: 1 !important;
   }
 
-  h2 {
-    margin-top: 0;
+  .preface-section-title {
+    margin: 0 0 1.5rem !important;
+    font-family: var(--font-display) !important;
+    font-size: clamp(1.6rem, 2.4vw, 1.9rem) !important;
+    font-weight: var(--weight-medium) !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
   }
 
   h3 {
-    font-family: var(--font-body);
-    font-size: var(--text-body);
-    font-weight: var(--weight-light);
-    font-style: italic;
-    letter-spacing: 0;
-    text-transform: none;
-    color: var(--color-ink);
-    margin-top: var(--space-md);
-    margin-bottom: var(--space-xs);
+    margin: 2.25rem 0 0.75rem !important;
+    font-family: var(--font-display) !important;
+    font-size: 1.2rem !important;
+    font-style: normal !important;
+    font-weight: var(--weight-medium) !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    color: var(--color-identity-ink) !important;
   }
 
   /* Pullquote */
@@ -117,15 +123,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--color-ink);
   }
 
-  .page-signature {
+  :global(.main--content) .page-signature {
     margin-top: var(--space-xl);
     padding-top: var(--space-md);
     border-top: 1px solid var(--color-border);
-    font-family: var(--font-ui);
-    font-size: var(--text-micro);
-    letter-spacing: var(--tracking-wider);
-    text-transform: uppercase;
-    color: var(--color-secondary);
-    line-height: 1.8;
+    font-family: var(--font-display) !important;
+    font-size: 1rem !important;
+    font-style: italic !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    color: var(--color-identity-ink) !important;
+    line-height: var(--leading-body) !important;
+    transform: translateY(1.25rem);
   }
 </style>

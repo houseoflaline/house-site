@@ -17,10 +17,10 @@ const isWorksActive = isParentActive(['/works']);
       <div class="nav-group">
         <div class="nav-row">
           <span class="nav-num">I.</span>
-          <a href="/" class={`nav-title ${isHouseActive ? 'active' : ''}`}>House</a>
+          <a href="/#house" class={`nav-title ${isHouseActive ? 'active' : ''}`}>House</a>
         </div>
         <ul class="nav-sub">
-          <li class={isActive('/preface') ? 'dot-active' : ''}><a href="/preface">Preface</a></li>
+          <li class={isActive('/preface') ? 'sub-active' : ''}><a href="/preface">Preface</a></li>
         </ul>
       </div>
 
@@ -30,7 +30,7 @@ const isWorksActive = isParentActive(['/works']);
           <a href="/doctrine" class={`nav-title ${isDoctrineActive ? 'active' : ''}`}>Doctrine</a>
         </div>
         <ul class="nav-sub">
-          <li class={isParentActive(['/manifesto']) ? 'dot-active' : ''}><a href="/manifesto">Manifesto</a></li>
+          <li class={isParentActive(['/manifesto']) ? 'sub-active' : ''}><a href="/manifesto">Manifesto</a></li>
         </ul>
       </div>
 
@@ -40,9 +40,9 @@ const isWorksActive = isParentActive(['/works']);
           <a href="/works" class={`nav-title ${isWorksActive ? 'active' : ''}`}>Works</a>
         </div>
         <ul class="nav-sub">
-          <li><a href="/works#atlas">Atlas</a></li>
-          <li><a href="/works#aurele">Aurèle</a></li>
-          <li><a href="/works#allure">Allure</a></li>
+          <li class={isActive('/works/atlas') ? 'sub-active' : ''}><a href="/works/atlas">Atlas</a></li>
+          <li class={isActive('/works/aurele') ? 'sub-active' : ''}><a href="/works/aurele">Aurèle</a></li>
+          <li class={isActive('/works/allure') ? 'sub-active' : ''}><a href="/works/allure">Allure</a></li>
         </ul>
       </div>
 
@@ -59,7 +59,7 @@ const isWorksActive = isParentActive(['/works']);
           <a href="/plates" class={`nav-title ${isParentActive(['/plates']) ? 'active' : ''}`}>Plates</a>
         </div>
         <ul class="nav-sub">
-          <li class={isParentActive(['/plates']) ? 'dot-active' : ''}><a href="/plates#notice">P01 · Notice</a></li>
+          <li class={isParentActive(['/plates']) ? 'sub-active' : ''}><a href="/plates#notice">P01 Notice</a></li>
         </ul>
       </div>
 
@@ -156,33 +156,29 @@ const isWorksActive = isParentActive(['/works']);
   }
 
   .nav-sub li {
-    display: grid;
-    grid-template-columns: 0.5rem 1fr;
-    align-items: center;
-    line-height: 1.7;
+    display: block;
+    font-size: var(--text-nav);
+    line-height: 1.55;
   }
-
-  .nav-sub li::before {
-    content: '';
-    width: 3px; height: 3px;
-    border-radius: 50%;
-    background: var(--color-identity-ink);
-    opacity: 0;
-    justify-self: end;
-    margin-right: 0.25rem;
-  }
-
-  .nav-sub li.dot-active::before { opacity: 1; }
 
   .nav-sub a {
+    display: inline-block;
+    margin-left: 0.75rem;
     font-family: var(--font-ui);
     font-size: var(--text-nav);
     font-weight: var(--weight-regular);
+    line-height: 1.35;
     color: var(--color-identity-ink);
-    opacity: 0.82;
+    opacity: 0.45;
     text-decoration: none;
+    border-bottom: 1px solid transparent;
   }
   .nav-sub a:hover { opacity: 1; }
+  .nav-sub li.sub-active a {
+    color: var(--color-identity-ink);
+    opacity: 1;
+    border-bottom-color: color-mix(in srgb, var(--color-identity-ink) 35%, transparent);
+  }
 
   /* ── Footer ── */
   .nav-footer {
